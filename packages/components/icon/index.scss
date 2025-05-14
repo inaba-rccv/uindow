@@ -1,0 +1,55 @@
+.uindow-icon {
+  font-size: inherit;
+  color: inherit;
+  fill: currentColor;
+  background-color: var(--ui-color-dark);
+  border-radius: 10%;
+  transition: all 0.1s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uindow-icon.clickable {
+  cursor: pointer;
+}
+.uindow-icon.clickable:hover {
+  background-color: var(--ui-color-dark-hover);
+}
+.uindow-icon.clickable:active {
+  background-color: var(--ui-color-dark-active);
+}
+
+.uindow-icon-default {
+  height: 3em;
+  width: 3em;
+  svg {
+    width: 2em;
+    height: 2em;
+  }
+}
+
+.uindow-icon-small {
+  height: 2.4em;
+  width: 2.4em;
+  svg {
+    width: 1.6em;
+    height: 1.6em;
+  }
+}
+
+.uindow-icon-large {
+  height: 4.2em;
+  width: 4.2em;
+  svg {
+    width: 2.8em;
+    height: 2.8em;
+  }
+}
+
+.uindow-icon-auto {
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}

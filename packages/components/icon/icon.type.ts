@@ -1,0 +1,1 @@
+export type IconSize = 'auto' | 'small' | 'large' | 'default'

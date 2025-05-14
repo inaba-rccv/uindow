@@ -1,0 +1,32 @@
+.ui-fdwindow {
+  min-width: 100px;
+  border-radius: 4px;
+  overflow: hidden;
+  .ui-fdwindow--header {
+    position: relative;
+    height: var(--ui-window-height-mini);
+    background-color: var(--ui-color-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    .ui-fdwindow--title {
+      font-size: 14px;
+    }
+    .ui-fdwindow--action {
+      position: absolute;
+      display: flex;
+      right: 0;
+      height: var(--ui-window-height-mini);
+      box-sizing: border;
+    }
+  }
+  .ui-fdwindow--body {
+    transition: height .3s;
+    overflow: hidden;
+  }
+  .ui-fdwindow--footer {
+    background-color: var(--ui-color-dark);
+    height: var(--ui-window-height-mini);
+  }
+}

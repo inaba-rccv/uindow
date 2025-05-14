@@ -1,0 +1,46 @@
+.ui-input {
+  display: flex;
+  box-sizing: border-box;
+  border-radius: 0.2rem;
+  background-color: var(--ui-text-color);
+  padding: 1px;
+  line-height: 24px;
+  &--wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+    margin-left: 6px;
+    margin-right: 6px;;
+    input {
+      font-size: var(--ui-font-size-base);
+      outline: none;
+      padding: 0;
+      background: none;
+      font-weight: bold;
+      color: var(--ui-color-primary);
+      caret-color: transparent;
+      border: none;
+      font-family: inherit;
+      line-height: inherit;
+      width: 100%;
+      &[type="password"] {
+        // font-family: '';
+      }
+    }
+    input:focus-visible {
+      outline: none;
+    }
+  }
+}
+
+// .custom-cursor {
+//   position: absolute;
+//   top: 50%;
+//   left: 0;
+//   transform: translateY(-50%);
+//   width: 1px;
+//   height: 1.2em;
+//   background-color: red; /* 光标颜色 */
+// }

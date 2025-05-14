@@ -1,0 +1,13 @@
+$ui-window-height: 36px;
+$ui-mini-window-height: 22px;
+$ui-inline-height: 26px;
+$ui-font-size-base: 14px;
+$ui-font-weight: 400;
+
+:root {
+  --ui-window-height: #{$ui-window-height};
+  --ui-window-height-mini: #{$ui-mini-window-height};
+  --ui-inline-height: #{$ui-inline-height};
+  --ui-font-size-base: #{$ui-font-size-base};
+  --ui-font-weight: #{$ui-font-weight};
+}

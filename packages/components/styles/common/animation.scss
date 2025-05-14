@@ -1,0 +1,96 @@
+:root {
+  --animation-duration: 0.4s;
+}
+
+// 向右展开
+.rightOpen-enter-active {
+  animation: rightopen 1.8s ease;
+  overflow: hidden;
+}
+
+// 从下方进入
+.fadeInUp-enter-active {
+  animation: fadeInUp 1s;
+}
+
+// 弹跳进入
+.bounce-enter-active {
+  animation: bounce 1s;
+}
+
+// 模糊进入
+.blur-enter-active {
+  will-change: transform;
+  backface-visibility: hidden;
+  animation: blurIn 1.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.blur-leave-active {
+  will-change: transform;
+  backface-visibility: hidden;
+  animation: blurOut 0.8s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translate3d(0, 700px, 0);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+@keyframes rightopen {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -50%, 0)
+  }
+  23%, 57%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateZ(0)
+  }
+  40% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -36%, 0) scaleY(1.1)
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -24%, 0) scaleY(1.05)
+  }
+  83% {
+    transform: translateZ(0) scaleY(0.95);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
+  }
+  92% {
+    transform: translate3d(0, -7.5%, 0) scaleY(1.02)
+  }
+}
+
+@keyframes blurIn {
+  from {
+    filter: blur(10px);
+    transform: scale3d(1.5, 1, 1);
+  }
+  to {
+    filter: blur(0);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes blurOut {
+  from {
+    filter: blur(0);
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    filter: blur(10px);
+    transform: scale3d(0.5, 0.5, 1);
+  }
+}

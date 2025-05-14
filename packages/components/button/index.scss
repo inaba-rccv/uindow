@@ -1,0 +1,65 @@
+.ui-button {
+  display: inline-flex;
+  color: var(--ui-text-color);
+  font-size: var(--ui-font-size-base);
+  fill: currentColor;
+  border-radius: 8px;
+  padding: 0 16px;
+  transition: .1s;
+  height: var(--ui-inline-height);
+  min-width: 96px;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  border: unset;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  outline: none;
+  font-weight: var(--ui-font-weight);
+  appearance: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  &+& {
+    margin-left: 12px;
+  }
+  &:hover {
+    border: unset
+  }
+  &:focus {
+    outline: unset;
+  }
+
+  @each $type in (primary, success, warning, danger, info) {
+    &--#{$type} {
+      background-color: var(--ui-color-#{$type});
+      &.plain {
+        color: var(--ui-color-#{$type});
+        background-color: var(--ui-text-color);
+      }
+      &:hover {
+        color: var(--ui-text-color);
+        background-color: var(--ui-color-#{$type}-light);
+      }
+      &:active {
+        color: var(--ui-text-color);
+        background-color: var(--ui-color-#{$type}-dark);
+      }
+    }
+  }
+
+  &.circle {
+    width: 26px;
+    border-radius: 50%;
+    padding: 0;
+    min-width: unset;
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}

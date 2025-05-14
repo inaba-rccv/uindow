@@ -1,0 +1,25 @@
+{
+  "name": "@uindow/monorepo",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -C packages/client dev"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Inaba"
+  },
+  "license": "ISC",
+  "packageManager": "pnpm@10.9.0",
+  "devDependencies": {
+    "@uindow/components": "workspace:*",
+    "esbuild": "^0.25.4",
+    "minimist": "^1.2.8",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@vueuse/core": "^13.1.0"
+  }
+}

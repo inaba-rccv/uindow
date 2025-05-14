@@ -1,0 +1,38 @@
+@use "sass:color";
+
+$ui-primary: #ff7c88;
+$ui-success: #718ee6;
+$ui-warning: #ffd789;
+$ui-danger: #ffac7c;
+$ui-info: #aaa39c;
+
+$ui-tooltip: #7eb9a8;
+$ui-white: #ffefea;
+$ui-black: #181818;
+$ui-shadow: #9c969080;
+
+$ui-colors: (
+  'primary': $ui-primary,
+  'success': $ui-success,
+  'warning': $ui-warning,
+  'danger': $ui-danger,
+  'info': $ui-info,
+  'tooltip': $ui-tooltip,
+) !default;
+
+:root {
+  @each $name, $color in $ui-colors {
+    --ui-color-#{$name}: #{$color};
+    --ui-color-#{$name}-light: #{color.scale($color, $lightness: 10%)};
+    --ui-color-#{$name}-dark: #{color.scale($color, $lightness: -5%)};
+  }
+  --ui-text-color: #{$ui-black};
+  --ui-bg-color: #{$ui-white};
+  --ui-color-shadow: #{$ui-shadow};
+}
+
+.dark {
+  --ui-text-color: #{$ui-white};
+  --ui-bg-color: #{$ui-black};
+}
+

@@ -1,0 +1,11 @@
+.dashboard {
+  width: 90%;
+  margin: 0 5%;
+  // font-size: 28px;
+  .dashboard-info {
+    min-height: 24px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    width: 100%;
+  }
+}

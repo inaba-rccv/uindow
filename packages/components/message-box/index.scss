@@ -1,0 +1,113 @@
+.ui-message-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  z-index: 2000;
+  &--wrapper {
+    background-color: var(--ui-text-color);
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 20rem;
+    box-shadow: 5px 5px 0px 0px var(--ui-color-shadow);
+    .ui-message-box--header {
+      height: var(--ui-window-height);
+      display: flex;
+      justify-items: center;
+      -webkit-user-select: none;
+      user-select: none;
+      .ui-message-box--action {
+        padding: 0 12px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: inherit;
+        color: inherit;
+        &Btn {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          outline: none;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          background-color: transparent;
+          color: currentColor;
+          fill: currentColor;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .ui-message-box--title {
+        width: calc(100% - 84px * 2);
+        text-align: center;
+        line-height: var(--ui-window-height);
+        cursor: default;
+      }
+    }
+    .ui-message-box--body {
+      min-height: 3rem;
+      padding: 0.5rem;
+      .ui-message-box--container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .ui-message-box--typeicon {
+          width: 3.6rem;
+          height: 3.6rem;
+          fill: currentColor;
+          margin-right: 0.5rem;
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .ui-message-box--message {
+          font-weight: bold;
+          white-space: pre-line;
+          color: var(--ui-color-info);
+        }
+      }
+      .ui-uindom-confirmBtn {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.ui-message-box-fade-in {
+  animation: message-box-fade-in var(--animation-duration) ease-in;
+  animation-duration: 0.4s;
+}
+.ui-message-box-fade-out {
+  animation: message-box-fade-out var(--animation-duration);
+}
+
+@keyframes message-box-fade-in {
+  0% {
+    transform: scale(0, 0.4);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(0.65, 0.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes message-box-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

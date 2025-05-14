@@ -1,0 +1,25 @@
+.ui-text {
+  position: relative;
+  // display: flex;
+  .ui-text--eraser {
+    position: absolute;
+    inset: 0;
+    .ui-text--eraser-content {
+      --p: 0%;
+      background-image: linear-gradient(to right, transparent var(--p), var(--ui-bg-color) var(--p));
+      color: transparent;
+      animation-name: eraser;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+    }
+  }
+  p {
+    margin: 0;
+  }
+}
+
+@keyframes eraser {
+  to {
+    --p: 100%
+  }
+}
