@@ -1,13 +1,14 @@
 .ui-radio--group {
   font-size: 14px;
+  background-color: var(--ui-text-color);
   .ui-radio--option {
-    color: var(--ui-color-dark);
+    color: var(--ui-color-info);
     font-weight: bold;
     cursor: pointer;
     padding: 0 4px;
   }
   .ui-radio--option__selected {
-    color: var(--ui-color-light);
+    color: var(--ui-text-color);
     background-color: var(--ui-color-info);
   }
 }

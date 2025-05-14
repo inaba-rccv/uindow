@@ -6,7 +6,7 @@ import { addPx } from '@uindow/utils'
 
 const props = withDefaults(defineProps<{
   title?: string
-  width?: number | string
+  width?: number | string,
 }>(), {
   title: 'Scenes',
   width: '200px'
@@ -24,6 +24,7 @@ const foldingWindowWidth = computed(() => {
   return typeof props.width === 'number' ?  + addPx(props.width) : props.width
 })
 const windowBodyHeight = ref<string>('70px')
+
 </script>
 
 <template>
@@ -34,7 +35,7 @@ const windowBodyHeight = ref<string>('70px')
         <ui-icon clickable @click="fold" size="auto"><IFold /></ui-icon>
       </div>
     </div>
-    <div class="ui-fdwindow--body" :style="{ height: windowBodyHeight }">
+    <div class="ui-fdwindow--body hidden-scrollbar" :style="{ height: windowBodyHeight }">
       <slot></slot>
     </div>
     <div class="ui-fdwindow--footer">
