@@ -2,10 +2,10 @@
   min-width: 100px;
   border-radius: 4px;
   overflow: hidden;
-  .ui-fdwindow--header {
+  &--header {
     position: relative;
     height: var(--ui-window-height-mini);
-    background-color: var(--ui-color-dark);
+    // background-color: var(--ui-color-info-dark);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,10 +23,10 @@
   }
   .ui-fdwindow--body {
     transition: height .3s;
-    overflow: hidden;
+    overflow-y: scroll;
   }
   .ui-fdwindow--footer {
-    background-color: var(--ui-color-dark);
+    // background-color: var(--ui-color-info-dark);
     height: var(--ui-window-height-mini);
   }
 }
