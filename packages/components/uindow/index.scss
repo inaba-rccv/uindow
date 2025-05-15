@@ -22,12 +22,13 @@
         font-size: inherit;
         color: inherit;
         &Btn {
-          width: 30px;
-          height: 30px;
+          width: 26px;
+          height: 26px;
           border-radius: 50%;
           outline: none;
           border: none;
           padding: 0;
+          margin-left: 2px;
           cursor: pointer;
           background-color: transparent;
           color: currentColor;
@@ -42,9 +43,7 @@
         }
       }
       .ui-uindow--title {
-        width: calc(100% - 14rem);
-        // text-align: center;
-        // line-height: 2.6rem;
+        width: calc(100% - 216px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -52,10 +51,7 @@
         cursor: default;
       }
     }
-    .ui-uindow--menu {
-    }
     .ui-uindow--body {
-      // padding: 0.5rem;
       background-color: var(--ui-text-color);
       min-height: 6rem;
     }
