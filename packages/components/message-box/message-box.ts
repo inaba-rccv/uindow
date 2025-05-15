@@ -19,7 +19,27 @@ class MessageBox {
       }
     >,
   ) {
+    // TODO 这里的index需要和其他弹窗组件的index一起维护
     this.zIndex = 2000
+  }
+
+  public confirm(options: {
+    title?: string
+    message?: string
+    type?: MessageBoxType
+    showConfirmButton?: boolean
+  }) {
+    const messageBoxOptions = { ...options }
+    return this.create(messageBoxOptions)
+  }
+
+  public currentIndex(): number {
+    return this.zIndex
+  }
+
+  public nextIndex(): number {
+    this.zIndex++
+    return this.zIndex
   }
 
   private initInstance(
@@ -51,24 +71,7 @@ class MessageBox {
     }>
     this.messageBoxList.set(vm, { options: options, callback: () => {} })
   }
-
-  public confirm(options: {
-    title?: string
-    message?: string
-    type?: MessageBoxType
-  }) {
-    const messageBoxOptions = { ...options }
-    return this.create(messageBoxOptions)
-  }
-
-  public currentIndex(): number {
-    return this.zIndex
-  }
-
-  public nextIndex(): number {
-    this.zIndex++
-    return this.zIndex
-  }
+  
 }
 
 const messageBox = new MessageBox(new Map())
