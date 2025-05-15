@@ -7,14 +7,16 @@ import { addPx } from '@uindow/utils'
 const props = withDefaults(defineProps<{
   title?: string
   width?: number | string,
+  bodyHeight?: string
 }>(), {
   title: 'Scenes',
-  width: '200px'
+  width: '200px',
+  bodyHeight: '70px'
 })
 
 const fold = () => {
   if (windowBodyHeight.value === '0px') {
-    windowBodyHeight.value = '70px'
+    windowBodyHeight.value = props.bodyHeight
   } else {
     windowBodyHeight.value = '0px'
   }
@@ -23,7 +25,7 @@ const fold = () => {
 const foldingWindowWidth = computed(() => {
   return typeof props.width === 'number' ?  + addPx(props.width) : props.width
 })
-const windowBodyHeight = ref<string>('70px')
+const windowBodyHeight = ref<string>(props.bodyHeight)
 
 </script>
 
