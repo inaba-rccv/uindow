@@ -1,11 +1,19 @@
 .dashboard {
   width: 90%;
   margin: 0 5%;
+  padding-top: 60px;
   // font-size: 28px;
   .dashboard-info {
     min-height: 24px;
     text-wrap: nowrap;
     overflow: hidden;
     width: 100%;
+  }
+  .screen {
+    width: 720px;
+    height: 480px;
+    margin: 0 auto;
+    // box-sizing: border-box;
+    // padding: 
   }
 }

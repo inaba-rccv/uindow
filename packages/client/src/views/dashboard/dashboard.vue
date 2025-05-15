@@ -6,9 +6,6 @@ import { nextTick } from "vue";
 import { onUnmounted } from "vue";
 import type { Interval } from "@uindow/types"; 
 
-const renderSystemInfo = ref<string[]>([])
-const renderMemeryInfo = ref<string[]>([])
-const renderFooterInfo = ref<string[]>([])
 const systemInfo = [
   '(C)Shigure Ui.inc.',
   'STREAM Date: 05/18/19 First Stream',
@@ -73,23 +70,25 @@ onUnmounted(() => {
 
 <template>
   <div class="dashboard">
-    <ui-text animate="eraser" duration="5">
-      <p>
-        <span v-html="renderTextArrayToHtml(systemInfo)"></span>
-      </p>
-    </ui-text>
+    <div class="screen">
+      <ui-text animate="eraser" duration="5">
+        <p>
+          <span v-html="renderTextArrayToHtml(systemInfo)"></span>
+        </p>
+      </ui-text>
 
-    <ui-text animate="eraser" delay="5" duration="2" style="margin-left: calc(50% - 7rem)">
-      <p>
-        <span v-html="renderTextArrayToHtml(memeryInfo)"></span>
-      </p>
-    </ui-text>
+      <ui-text animate="eraser" delay="5" duration="2" style="margin-left: calc(50% - 7rem)">
+        <p>
+          <span v-html="renderTextArrayToHtml(memeryInfo)"></span>
+        </p>
+      </ui-text>
 
-    <ui-text animate="eraser" delay="7" duration="2">
-      <p>
-        <span v-html="renderTextArrayToHtml(footerInfo)"></span>
-      </p>
-    </ui-text>
+      <ui-text animate="eraser" delay="7" duration="2">
+        <p>
+          <span v-html="renderTextArrayToHtml(footerInfo)"></span>
+        </p>
+      </ui-text>
+    </div>
   </div>
 
 </template>

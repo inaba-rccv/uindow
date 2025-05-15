@@ -1,36 +1,33 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '..//views/home/home.vue'
-import Dashboard from '../views/dashboard/dashboard.vue'
+// import HomeView from '../views/home/home.vue'
+// import Dashboard from '../views/dashboard/dashboard.vue'
+import Layout from '../layout/index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'dashboard',
-      component: Dashboard,
+      component: Layout,
+      redirect: '/dashboard',
+      children: [
+        {
+          path: '/dashboard',
+          name: 'dashboard',
+          component: () => import('../views/dashboard/dashboard.vue'),
+        }
+      ]
     },
-    {
-      path: '/home',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/uindow',
-      name: 'uindow',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/uindow/uindow.vue'),
-    },
-    {
-      path: '/dialog',
-      name: 'dialog',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/dialog/dialog.vue'),
-    },
+    // {
+    //   path: '/uindow',
+    //   name: 'uindow',
+    //   component: () => import('../views/uindow/uindow.vue'),
+    // },
+    // {
+    //   path: '/dialog',
+    //   name: 'dialog',
+    //   component: () => import('../views/dialog/dialog.vue'),
+    // },
   ],
 })
 
