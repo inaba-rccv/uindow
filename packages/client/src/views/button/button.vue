@@ -8,7 +8,7 @@ import IRight from '@uindow/components/svg/IRight.vue'
       <div style="display: flex; justify-content: center; flex-wrap: wrap">
       </div>
 
-      <div style="margin-bottom: 20px">
+      <div class="mb-20">
         <ui-button circle plain>
           <IRight></IRight>
         </ui-button>
@@ -17,21 +17,21 @@ import IRight from '@uindow/components/svg/IRight.vue'
         </ui-button>
       </div>
         
-      <div style="margin-bottom: 20px">
+      <div class="mb-20">
         <ui-button>Primary</ui-button>
         <ui-button type="warning">Warning</ui-button>
         <ui-button type="danger">Danger</ui-button>
         <ui-button type="success">Success</ui-button>
         <ui-button type="info">Info</ui-button>
       </div>
-      <div style="margin-bottom: 20px">
+      <div class="mb-20">
         <ui-button plain>Primary</ui-button>
         <ui-button plain type="warning">Warning</ui-button>
         <ui-button plain type="danger">Danger</ui-button>
         <ui-button plain type="success">Success</ui-button>
         <ui-button plain type="info">Info</ui-button>
       </div>
-      <div style="margin-bottom: 20px">
+      <div class="mb-20">
         <ui-button disabled>Primary</ui-button>
         <ui-button disabled type="warning">Warning</ui-button>
         <ui-button disabled type="danger">Danger</ui-button>

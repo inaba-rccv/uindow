@@ -29,6 +29,18 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/input',
+    component: Layout,
+    meta: { title: 'Input' },
+    children: [
+      {
+        path: '',
+        name: 'input',
+        component: () => import('@/views/input/input.vue'),
+      }
+    ]
+  },
+  {
     path: '/slider',
     component: Layout,
     meta: { title: 'Slider' },
