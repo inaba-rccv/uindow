@@ -3,7 +3,7 @@ import { ref, watch, computed } from 'vue'
 import { useTimeoutFn } from '@vueuse/core'
 import { useGlobalConfig } from '@uindow/utils'
 import { useDrag } from '@uindow/hooks/use-drag'
-import { type UindowType } from './uindow.type'
+import type { UindowColorType } from '@uindow/types'
 import './index.scss'
 import IClose from '@uindow/components/svg/IClose.vue'
 import IEnlarge from '@uindow/components/svg/IEnlarge.vue'
@@ -11,7 +11,7 @@ import INarrow from '@uindow/components/svg/INarrow.vue'
 
 const props = withDefaults(
   defineProps<{
-    type: UindowType
+    type: UindowColorType
     modelValue: boolean
     draggable?: boolean
     overflow?: boolean
