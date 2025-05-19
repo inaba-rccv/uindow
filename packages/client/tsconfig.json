@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".", // 相对于当前 tsconfig.json 的位置
+    "paths": {
+      "@/*": ["src/*"],
+      "@uindow/types": ["../types/src/index.ts"],
+    }
+  }
+}
