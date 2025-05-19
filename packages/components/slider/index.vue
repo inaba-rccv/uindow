@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, toRefs, watch, watchEffect } from 'vue'
 import { useSlider } from './use-slider'
 import './index.scss'
 import type { SliderType } from './slider.type'
@@ -8,7 +8,7 @@ const props = withDefaults(
   defineProps<{
     modelValue?: number
     // min?: number
-    type: SliderType
+    type?: SliderType
     max?: number
     disabled?: boolean
     vertical?: boolean
@@ -30,8 +30,9 @@ const trackRef = ref<HTMLElement>()
 const dragRef = ref<HTMLElement>()
 const traceRef = ref<HTMLElement>()
 // TODO 跟着value走的话有step的问题
+const { modelValue } = toRefs(props)
 
-useSlider(trackRef, dragRef, traceRef, props.modelValue, props.max, emit)
+useSlider(trackRef, dragRef, traceRef, modelValue, props.max, emit)
 </script>
 <template>
   <div class="ui-slider">
@@ -45,4 +46,4 @@ useSlider(trackRef, dragRef, traceRef, props.modelValue, props.max, emit)
       <div class="ui-slider--button-default"></div>
     </div>
   </div>
-</template>@/packages/components/slider./use-slider
+</template>

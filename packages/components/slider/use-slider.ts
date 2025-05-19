@@ -12,14 +12,14 @@ export const useSlider = (
   containerRef: Ref<HTMLElement | undefined>,
   dragRef: Ref<HTMLElement | undefined>,
   traceRef: Ref<HTMLElement | undefined>,
-  initialValue: number,
+  modelValue: Ref<number>,
   max: number,
   emit: (event: SliderEmit, arg: number) => void,
 ) => {
   let maxWidth: number
   let offsetX: number
   let dragBtnRadius: number
-  let currentValue = initialValue
+  let currentValue: number
 
   const containerMousedownEvent = (e: MouseEvent) => {
     offsetX = Math.min(Math.max(e.offsetX - dragBtnRadius, 0), maxWidth)
@@ -58,8 +58,13 @@ export const useSlider = (
       maxWidth =
         containerRef.value.getBoundingClientRect().width - dragRefRect.width
       dragBtnRadius = dragRefRect.width / 2
-      offsetX = Math.min(Math.max((initialValue / max) * maxWidth, 0), maxWidth)
-      r()
+      watchEffect(() => {
+        if (modelValue.value !== currentValue) {
+          currentValue = modelValue.value
+          offsetX = Math.min(Math.max((currentValue / max) * maxWidth, 0), maxWidth)
+          r()
+        }
+      })
       dragRef.value.addEventListener('mousedown', mousedownEvent)
       traceRef.value.addEventListener('mousedown', containerMousedownEvent)
       containerRef.value.addEventListener('mousedown', containerMousedownEvent)
