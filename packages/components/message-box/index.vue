@@ -62,6 +62,10 @@ export default defineComponent({
       type: Number || undefined,
       default: undefined,
     },
+    showConfirmButton: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ['vanish'],
   setup(props, { emit }) {
@@ -193,7 +197,7 @@ export default defineComponent({
           <div class="ui-message-box--message" v-text="message"></div>
         </div>
 
-        <div class="ui-uindom-confirmBtn">
+        <div class="ui-uindom-confirmBtn" v-if="showConfirmButton">
           <ui-button :type="type" @click="handleClose">OK</ui-button>
         </div>
       </div>
