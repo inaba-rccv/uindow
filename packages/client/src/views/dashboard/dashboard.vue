@@ -4,7 +4,7 @@ import "./index.scss"
 import { ref } from "vue";
 import { nextTick } from "vue";
 import { onUnmounted } from "vue";
-import type { Interval } from "@uindow/types"; 
+import type { Interval } from "@uindow/types";
 
 const systemInfo = [
   '(C)Shigure Ui.inc.',
@@ -47,29 +47,13 @@ const scrollToBottom = () => {
 }
 let interval: Interval
 onMounted(() => {
-  // interval = setInterval(() => {
-  //   if (renderSystemInfo.value.length < systemInfo.length) {
-  //     renderSystemInfo.value.push(systemInfo[renderSystemInfo.value.length])
-  //   } else if (renderMemeryInfo.value.length < memeryInfo.length) {
-  //     renderMemeryInfo.value.push(memeryInfo[renderMemeryInfo.value.length])
-  //   } else if (renderFooterInfo.value.length < footerInfo.length) {
-  //     renderFooterInfo.value.push(footerInfo[renderFooterInfo.value.length])
-  //   } else {
-  //     clearInterval(interval)
-  //     return
-  //   }
-  //   nextTick(() => {
-  //     scrollToBottom()
-  //   })
-  // }, 300)
 })
 onUnmounted(() => {
-  // clearInterval(interval)
 })
 </script>
 
 <template>
-  <div class="dashboard">
+  <div class="dashboard page-content">
     <div class="screen">
       <ui-text animate="eraser" duration="5">
         <p>
@@ -90,5 +74,4 @@ onUnmounted(() => {
       </ui-text>
     </div>
   </div>
-
 </template>

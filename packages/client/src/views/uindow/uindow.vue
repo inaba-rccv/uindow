@@ -16,15 +16,22 @@ const SceneradioOptions: Ref<radioOptions[]> = ref([
   { value: 'Game', label: 'Game' },
   { value: 'Collabe', label: 'Collabe' },
   { value: 'Paint', label: 'Paint' },
+  { value: 'Music', label: 'Music' },
+  { value: 'Movie', label: 'Movie' },
+  { value: 'News', label: 'News' },
+  { value: 'Sport', label: 'Sport' },
+  { value: 'Other', label: 'Other' },
 ])
+
+const SceneradioValue = ref<string>('Talk')
 
 
 </script>
 
 <template>
-  <div class="dialog-page">
-    <div style="width: 100%; text-align: center; margin-bottom: 20px;">
-      <ui-icon clickable @click="open" size="small">
+  <div class="page-content">
+    <div>
+      <ui-icon clickable @click="open">
         <IButton></IButton>
       </ui-icon>
     </div>
@@ -36,7 +43,7 @@ const SceneradioOptions: Ref<radioOptions[]> = ref([
       header-background-color="#827870"
     >
       <template #header>
-        <IClose style="width: 1.8rem; height: 1.8rem"></IClose>
+        <!-- <IClose style="width: 1.8rem; height: 1.8rem"></IClose> -->
         Stream Studio(64-bit, Uindow)
       </template>
       <template #menu>
@@ -80,20 +87,19 @@ const SceneradioOptions: Ref<radioOptions[]> = ref([
 
       <div style="width: 900px;">
         <div style="height: 400px; padding: 20px 60px;">
-          <div class="screen-body"></div>
+          <div class="screen-body">
+            <div class="screen-body-text">Just a <br/> moment<br/>please!</div>
+          </div>
         </div>
-        <div style="display: flex; padding: 20px;background-color: var(--ui-color-info);">
-          <ui-folding-window>
-            <div style="height: 100px; background-color: var(--ui-color-light)">
-              <ui-radio-group>
-                <ui-radio label="talk">Talk</ui-radio>
-                <ui-radio label="game">Game</ui-radio>
-                <ui-radio label="collabe">Collabe</ui-radio>
-                <ui-radio label="paint">Paint</ui-radio>
-              </ui-radio-group>
-            </div>
+        <div style="display: flex; padding: 20px; background-color: #a39e96">
+          <ui-folding-window style="background-color: #837971;">
+            <ui-radio-group v-model="SceneradioValue">
+              <ui-radio v-for="item in SceneradioOptions" :key="item.label" :label="item.label">
+                {{ item.label }}
+              </ui-radio>
+            </ui-radio-group>
             <template #footer>
-              <div style="display: flex;height: 100%; padding: 2px 4px;">
+              <div style="display: flex;height: 100%; padding: 2px 4px;box-sizing: border-box;">
                 <ui-icon clickable size="auto"><IAdd /></ui-icon>
                 <ui-icon clickable size="auto"><IReduce /></ui-icon>
               </div>
@@ -107,18 +113,19 @@ const SceneradioOptions: Ref<radioOptions[]> = ref([
 </template>
 
 <style lang="scss" scoped>
-.dialog-page {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 .screen-body {
   width: 100%;
   height: 100%;
   background-color: var(--ui-color-primary);
   border-radius: 12px;
+  display: flex;
+  box-sizing: border-box;
+  padding:10px;
+  &-text {
+    margin: auto;
+    text-align: left;
+    font-size: 84px;
+  }
 }
+
 </style>

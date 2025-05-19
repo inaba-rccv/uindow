@@ -4,23 +4,24 @@ import IButton from '@uindow/components/svg/IButton.vue'
 import messageBox from '@uindow/components/message-box/message-box'
 function open() {
   messageBox.confirm({
-      type: 'warning',
-      message: "Warning!\nSYSTEM ERROR#490UIA:A"
+    type: 'warning',
+    message: "Warning!\nSYSTEM ERROR#490UIA:A"
   })
   messageBox.confirm({
-      type: 'danger',
-      message: "Error!\nSYSTEM ERROR#490UIA:A"
+    type: 'danger',
+    message: "Error!\nSYSTEM ERROR#490UIA:A"
   })
   messageBox.confirm({
-      type: 'success',
-      message: "Error!\nSYSTEM ERROR#490UIA:A"
+    type: 'success',
+    message: "Error!\nSYSTEM ERROR#490UIA:A"
   })
   messageBox.confirm({
-      type: 'primary',
-      title: "haha",
-      message: "HelloWorld"
+    type: 'primary',
+    title: "Hashtag",
+    message: "#うい校内放送",
+    showConfirmButton: false,
   })
-  warningAnimation(5)
+  // warningAnimation(5)
 }
 
 function warningAnimation(count: number, start = 0) {
@@ -37,7 +38,7 @@ function warningAnimation(count: number, start = 0) {
 </script>
 
 <template>
-  <div class="dialog-page">
+  <div class="page-content">
     <ui-icon clickable @click="open">
       <IButton></IButton>
     </ui-icon>

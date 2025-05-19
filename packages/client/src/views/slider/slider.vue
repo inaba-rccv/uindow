@@ -1,0 +1,14 @@
+<script lang="ts" setup>
+import { ref, watchEffect } from 'vue'
+const sliderValue = ref<number>(50)
+
+</script>
+
+<template>
+  <div class="page-content">
+    <ui-slider v-model="sliderValue" :max="100"></ui-slider>
+    <ui-slider v-model="sliderValue" :max="100" type="warning"></ui-slider>
+    <ui-slider v-model="sliderValue" :max="100" type="danger"></ui-slider>
+    <ui-slider v-model="sliderValue" :max="100" type="info"></ui-slider>
+  </div>
+</template>
