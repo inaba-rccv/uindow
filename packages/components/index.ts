@@ -1,5 +1,5 @@
 import type { App } from "vue"
-// import { type InstallOptions, getSystemOptions } from "./utils"
+import { getSystemOptions } from "@uindow/utils"
 import './styles/index.scss'
 import UiIcon from "./icon/index.vue"
 import UiUindow from "./uindow/index.vue"
@@ -16,11 +16,11 @@ import UiFoldingWindow from "./folding-window/index.vue"
 import UiRadioGroup from "./radio/radio-group.vue"
 import UiRadio from "./radio/radio.vue"
 
-// const defaultInstallOpt = getSystemOptions()
+const defaultInstallOpt = getSystemOptions()
 
 export default {
   install(app: App): void {
-    // app.config.globalProperties.$UINDOW = defaultInstallOpt
+    app.config.globalProperties.$UINDOW = defaultInstallOpt
     app.config.globalProperties.$MessageBox = UiMessageBox
 
     app.component('UiIcon', UiIcon)
