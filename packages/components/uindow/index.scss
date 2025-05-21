@@ -66,10 +66,10 @@
 }
 
 .ui-uindow-fade-in {
-  animation: uindow-fade-in var(--translate-duration) ease-in;
+  animation: uindow-fade-in var(--animation-duration) ease-in;
 }
 .ui-uindow-fade-out {
-  animation: uindow-fade-out var(--translate-duration);
+  animation: uindow-fade-out var(--animation-duration);
 }
 
 @keyframes uindow-fade-in {

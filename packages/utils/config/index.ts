@@ -9,7 +9,7 @@ export type UindowOptions = InstallOptions
 /** 初始化全局配置 */
 export function getSystemOptions(): InstallOptions {
     const root = getComputedStyle(document.documentElement)
-    const fadeAnimationDuration = parseFloat(root.getPropertyValue('--translate-duration')) * 1000
+    const fadeAnimationDuration = parseFloat(root.getPropertyValue('--animation-duration')) * 1000
     return {
         fadeAnimationDuration
     }

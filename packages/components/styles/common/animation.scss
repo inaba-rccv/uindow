@@ -1,7 +1,8 @@
 :root {
   --animation-duration: 0.4s;
   --timing-function-ease-out: cubic-bezier(0.075, 0.82, 0.165, 1);
-  --timing-function-ease-in: cubic-bezier(0.77, 0, 1, 1)
+  --timing-function-ease-in: cubic-bezier(0.77, 0, 1, 1);
+  --timing-function-out-back: cubic-bezier(0, 1.04, 0.57, 1.02)
 }
 
 // 向右展开
