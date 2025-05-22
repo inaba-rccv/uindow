@@ -85,8 +85,8 @@ const SceneradioValue = ref<string>('Talk')
         </ui-menu>
       </template>
 
-      <div style="width: 900px;">
-        <div style="height: 400px; padding: 20px 60px;">
+      <div style="width: 800px;">
+        <div style="height: 300px; padding: 20px 60px;">
           <div class="screen-body">
             <div class="screen-body-text">Just a <br/> moment<br/>please!</div>
           </div>
@@ -124,7 +124,7 @@ const SceneradioValue = ref<string>('Talk')
   &-text {
     margin: auto;
     text-align: left;
-    font-size: 84px;
+    font-size: 64px;
   }
 }
 

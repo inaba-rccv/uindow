@@ -88,6 +88,18 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/layout',
+    component: Layout,
+    meta: { title: 'Layout' },
+    children: [
+      {
+        path: '',
+        name: 'layout',
+        component: () => import('@/views/layout/layout.vue'),
+      }
+    ]
+  },
 ]
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

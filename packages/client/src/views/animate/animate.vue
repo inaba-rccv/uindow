@@ -2,7 +2,7 @@
 import { ref } from "vue"
 import "./index.scss"
 
-const boxShow = ref(true)
+const boxShow = ref(false)
 </script>
 
 <template>
