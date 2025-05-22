@@ -36,7 +36,7 @@ const visible = ref<boolean>(false)
 const uindowAnimationFadeIn = ref<boolean>(false)
 const uindowAnimationFadeOut = ref<boolean>(false)
 let clearUindowAnimationFadeInTimer: (() => void) | undefined = undefined
-useDrag(uindowRef, headerRef, draggable, overflow, undefined)
+useDrag(uindowRef, headerRef, draggable, overflow, null)
 
 watch(
   () => props.modelValue,
