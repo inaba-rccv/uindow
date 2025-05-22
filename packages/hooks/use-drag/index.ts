@@ -5,7 +5,6 @@ import {
   type Ref,
   type ComputedRef,
 } from 'vue'
-// import messageBox from '@uindow/components/message-box/message-box'
 import { zIndex } from '@uindow/utils'
 import { addPx } from "@uindow/utils"
 import type { IPosition } from '@uindow/types'
@@ -16,11 +15,11 @@ export const useDrag = (
   headerRef: Ref<HTMLElement | undefined>,
   draggable: ComputedRef<boolean>,
   overflow: ComputedRef<boolean>,
-  initialPosition: IPosition | undefined,
+  initialPosition: IPosition | null,
 ): void => {
   let transform: IPosition
   // TODO 有没有更好的写法？
-  if (initialPosition !== undefined) {
+  if (initialPosition !== null) {
     transform = { ...initialPosition }
   } else {
     transform = uindowPosition.getNextUindowPosition()
