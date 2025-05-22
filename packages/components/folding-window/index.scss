@@ -5,13 +5,12 @@
   &--header {
     position: relative;
     height: var(--ui-window-height-mini);
-    // background-color: var(--ui-color-info-dark);
     display: flex;
     justify-content: center;
     align-items: center;
     user-select: none;
     .ui-fdwindow--title {
-      font-size: 14px;
+      font-size: var(--ui-font-size-base);
     }
     .ui-fdwindow--action {
       position: absolute;
@@ -23,10 +22,10 @@
   }
   .ui-fdwindow--body {
     transition: height .3s;
+    font-size: var(--ui-font-size-mini);
     overflow-y: scroll;
   }
   .ui-fdwindow--footer {
-    // background-color: var(--ui-color-info-dark);
     height: var(--ui-window-height-mini);
   }
 }

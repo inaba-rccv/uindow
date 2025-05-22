@@ -1,7 +1,8 @@
 .ui-radio--group {
-  font-size: 14px;
+  font-size: inherit;
   background-color: var(--ui-text-color);
   .ui-radio--option {
+    line-height: var(--ui-line-height-base);
     color: var(--ui-color-info);
     font-weight: bold;
     cursor: pointer;

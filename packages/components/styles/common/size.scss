@@ -2,12 +2,18 @@ $ui-window-height: 36px;
 $ui-mini-window-height: 22px;
 $ui-inline-height: 26px;
 $ui-font-size-base: 14px;
+$ui-font-size-mini: 12px;
 $ui-font-weight: 400;
+$ui-line-height-base: 1.5;
+$ui-line-height-mini: 1.3;
 
 :root {
-  --ui-window-height: #{$ui-window-height};
+  --ui-window-height-base: #{$ui-window-height};
   --ui-window-height-mini: #{$ui-mini-window-height};
   --ui-inline-height: #{$ui-inline-height};
   --ui-font-size-base: #{$ui-font-size-base};
+  --ui-font-size-mini: #{$ui-font-size-mini};
   --ui-font-weight: #{$ui-font-weight};
+  --ui-line-height-base: #{$ui-line-height-base};
+  --ui-line-height-mini: #{$ui-line-height-mini};
 }

@@ -4,12 +4,14 @@
   user-select: none;
   background-color: var(--ui-color-info);
   width: 100%;
+  font-size: var(--ui-font-size-mini);
   &-sub-menu {
     position: relative;
+    line-height: var(--ui-line-height-base);
     .ui-menu-menu-item {
       width: 100%;
-      padding: 0 0.8rem;
-      border-radius: 0.2rem;
+      padding: 0 10px;
+      border-radius: 3px;
       transition: all .1s;
       background-color: var(--ui-color-info);
       &:hover {
@@ -25,15 +27,16 @@
     .ui-menu-menu-container {
       position: absolute;
       background-color: var(--ui-color-info-light);
-      padding: 0.2rem;
-      border-radius: 0.2rem;
+      // padding: 0.2rem;
+      border-radius: 3px;
+      overflow: hidden;
       .ui-menu-sub-menu-item {
         display: inline;
         width: 100%;
         text-align: left;
         white-space: nowrap;
-        padding: 0.1rem 1rem;
-        border-radius: 0.2rem;
+        padding: 2px 16px;
+        // border-radius: 0.2rem;
         transition: all .1s;
         &:hover {
           background-color: var(--ui-color-info-dark);

@@ -10,11 +10,11 @@
     min-width: 20rem;
     box-shadow: 5px 5px 0px 0px var(--ui-color-shadow);
     .ui-uindow--header {
-      height: var(--ui-window-height);
+      height: var(--ui-window-height-base);
       background-color: var(--ui-color-primary);
       display: flex;
       justify-items: center;
-      font-size: 16px;
+      font-size: var(--ui-font-size-base);
       .ui-uindow--action {
         padding: 0 12px;
         display: flex;
@@ -22,8 +22,8 @@
         font-size: inherit;
         color: inherit;
         &Btn {
-          width: 26px;
-          height: 26px;
+          width: 20px;
+          height: 20px;
           border-radius: 50%;
           outline: none;
           border: none;
@@ -43,7 +43,7 @@
         }
       }
       .ui-uindow--title {
-        width: calc(100% - 216px);
+        width: calc(100% - 180px);
         display: flex;
         align-items: center;
         justify-content: center;

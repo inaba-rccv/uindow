@@ -11,7 +11,7 @@
     min-width: 320px;
     box-shadow: 5px 5px 0px 0px var(--ui-color-shadow);
     .ui-message-box--header {
-      height: var(--ui-window-height);
+      height: var(--ui-window-height-base);
       display: flex;
       justify-items: center;
       -webkit-user-select: none;
@@ -46,7 +46,7 @@
       .ui-message-box--title {
         width: calc(100% - 84px * 2);
         text-align: center;
-        line-height: var(--ui-window-height);
+        line-height: var(--ui-window-height-base);
         cursor: default;
       }
     }
