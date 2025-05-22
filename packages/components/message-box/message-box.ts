@@ -8,8 +8,6 @@ import MessageBoxConstructor from './index.vue'
 import type { MessageBoxOptions, MessageBoxType } from './message-box.type'
 
 class MessageBox {
-  private zIndex: number
-
   constructor(
     private messageBoxList: Map<
       ComponentPublicInstance<any>,
@@ -17,11 +15,8 @@ class MessageBox {
         options: MessageBoxOptions
         callback: () => void
       }
-    >,
-  ) {
-    // TODO 这里的index需要和其他弹窗组件的index一起维护
-    this.zIndex = 2000
-  }
+    >
+  ) {}
 
   public confirm(options: {
     title?: string
@@ -31,15 +26,6 @@ class MessageBox {
   }) {
     const messageBoxOptions = { ...options }
     return this.create(messageBoxOptions)
-  }
-
-  public currentIndex(): number {
-    return this.zIndex
-  }
-
-  public nextIndex(): number {
-    this.zIndex++
-    return this.zIndex
   }
 
   private initInstance(

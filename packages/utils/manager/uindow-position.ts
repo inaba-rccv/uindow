@@ -1,6 +1,6 @@
 import type { IPosition } from '@uindow/types'
 
-class UindowManager {
+class UindowPosition {
   private nextUindowPosition: IPosition = {
     offsetX: 0,
     offsetY: 0,
@@ -33,5 +33,5 @@ class UindowManager {
   }
 }
 
-const uindowManager = new UindowManager()
-export default uindowManager
+const uindowPosition = new UindowPosition()
+export default uindowPosition

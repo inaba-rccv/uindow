@@ -5,10 +5,11 @@ import {
   type Ref,
   type ComputedRef,
 } from 'vue'
-import messageBox from '@uindow/components/message-box/message-box'
+// import messageBox from '@uindow/components/message-box/message-box'
+import { zIndex } from '@uindow/utils'
 import { addPx } from "@uindow/utils"
 import type { IPosition } from '@uindow/types'
-import { uindowManager } from '@uindow/utils'
+import { uindowPosition } from '@uindow/utils'
 
 export const useDrag = (
   containerRef: Ref<HTMLElement | undefined>,
@@ -22,15 +23,15 @@ export const useDrag = (
   if (initialPosition !== undefined) {
     transform = { ...initialPosition }
   } else {
-    transform = uindowManager.getNextUindowPosition()
+    transform = uindowPosition.getNextUindowPosition()
   }
 
-  let zIndex = messageBox.nextIndex()
+  let currentIndex = zIndex.getNextIndex()
 
   const containerMousedownEvent = function (e: MouseEvent) {
-    if (zIndex !== messageBox.currentIndex()) {
-      zIndex = messageBox.nextIndex()
-      containerRef.value!.style.zIndex = String(zIndex)
+    if (currentIndex !== zIndex.getCurrentIndex()) {
+      currentIndex = zIndex.getNextIndex()
+      containerRef.value!.style.zIndex = String(currentIndex)
     }
   }
 
@@ -80,7 +81,7 @@ export const useDrag = (
 
   const onDraggable = () => {
     if (containerRef.value && headerRef.value) {
-      containerRef.value.style.zIndex = String(zIndex)
+      containerRef.value.style.zIndex = String(currentIndex)
       containerRef.value.style.transform = `translate(${addPx(transform.offsetX)}, ${addPx(transform.offsetY)})`
       headerRef.value.addEventListener('mousedown', mousedownEvent)
       containerRef.value.addEventListener('mousedown', containerMousedownEvent)
