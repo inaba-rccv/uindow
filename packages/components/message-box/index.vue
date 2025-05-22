@@ -108,7 +108,7 @@ export default defineComponent({
       () => defaultTitleMap[props.type as keyof typeof defaultTitleMap].icon,
     )
     let clearDialogAnimationFadeInTimer: (() => void) | undefined = undefined
-    let initialPosition: IPosition | undefined = undefined
+    let initialPosition: IPosition | null = null
     if (props.x !== undefined && props.y !== undefined) {
       initialPosition = {
         offsetX: props.x,
