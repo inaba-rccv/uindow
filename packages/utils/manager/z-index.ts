@@ -7,7 +7,6 @@ class ZIndex {
 
   constructor() {
     this.zIndex = 2000
-    console.log("init zIndex", this.zIndex)
   }
 
   public getCurrentIndex(): number {
@@ -15,7 +14,6 @@ class ZIndex {
   }
 
   public getNextIndex(): number {
-    console.log("getNextIndex", this.zIndex)
     this.zIndex++
     return this.zIndex
   }
