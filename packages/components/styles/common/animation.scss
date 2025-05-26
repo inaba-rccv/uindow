@@ -5,24 +5,11 @@
   --timing-function-out-back: cubic-bezier(0, 1.04, 0.57, 1.02)
 }
 
-// 向右展开
-.rightOpen-enter-active {
-  animation: rightopen 1.8s ease;
-  overflow: hidden;
-}
-@keyframes rightopen {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
 // 从下方进入
 .fadeInUp-enter-active {
   animation: fadeInUp 1s;
 }
+
 @keyframes fadeInUp {
   0% {
     transform: translate3d(0, 700px, 0);
@@ -36,6 +23,7 @@
 .bounce-enter-active {
   animation: bounce 1s;
 }
+
 @keyframes bounce {
   0% {
     animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
@@ -68,11 +56,13 @@
   backface-visibility: hidden;
   animation: blurIn 1.6s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .blur-leave-active {
   will-change: transform;
   backface-visibility: hidden;
   animation: blurOut 0.8s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
+
 @keyframes blurIn {
   from {
     filter: blur(10px);
@@ -83,6 +73,7 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
 @keyframes blurOut {
   from {
     filter: blur(0);
@@ -99,23 +90,28 @@
   transition: all 1s;
   transition-timing-function: var(--timing-function-ease-in);
 }
+
 .scale-slide-leave-active {
   transition: all 1s;
   transition-timing-function: var(--timing-function-ease-in);
   transform-origin: bottom right;
 }
+
 .scale-slide-enter-from {
   scale: 0.5;
   transform: rotateY(112deg);
 }
+
 .scale-slide-enter-to {
   scale: 1;
   transform: rotateY(0deg);
 }
+
 .scale-slide-leave-from {
   scale: 1;
   opacity: 1;
 }
+
 .scale-slide-leave-to {
   scale: 0;
   opacity: 0;
