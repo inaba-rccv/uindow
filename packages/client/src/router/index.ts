@@ -89,6 +89,18 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/text',
+    component: Layout,
+    meta: { title: 'Text' },
+    children: [
+      {
+        path: '',
+        name: 'text',
+        component: () => import('@/views/text/text.vue'),
+      }
+    ]
+  },
+  {
     path: '/layout',
     component: Layout,
     meta: { title: 'Layout' },

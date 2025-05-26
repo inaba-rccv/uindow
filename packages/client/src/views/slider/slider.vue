@@ -9,6 +9,6 @@ const sliderValue = ref<number>(50)
     <ui-slider v-model="sliderValue" :max="100"></ui-slider>
     <ui-slider v-model="sliderValue" :max="100" type="warning"></ui-slider>
     <ui-slider v-model="sliderValue" :max="100" type="danger"></ui-slider>
-    <ui-slider v-model="sliderValue" :max="100" type="info"></ui-slider>
+    <ui-slider v-model="sliderValue" :max="100" type="info" track-color="var(--ui-color-tooltip)"></ui-slider>
   </div>
 </template>

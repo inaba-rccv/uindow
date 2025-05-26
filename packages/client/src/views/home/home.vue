@@ -129,11 +129,6 @@ const interval = setInterval(() => {
         <ui-text typewriter animate="blurIn">Uindow</ui-text>
       </div>
 
-      
-      <!-- <Transition name="rightOpen">
-        <div v-show="textShow" style="font-size: 4rem; font-weight: bold;">Uindow</div>
-      </Transition> -->
-
       <!-- <Transition name="bounce">
         <div v-show="textShow" style="font-size: 4rem; font-weight: bold;">Uindow</div>
       </Transition> -->
