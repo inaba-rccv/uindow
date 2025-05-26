@@ -13,6 +13,7 @@ const props = withDefaults(
     disabled?: boolean
     vertical?: boolean
     height?: string
+    trackColor?: string
   }>(),
   {
     modelValue: 0,
@@ -22,6 +23,7 @@ const props = withDefaults(
     disabled: false,
     vertical: false,
     height: '10px',
+    trackColor: 'var(--ui-color-info)',
   },
 )
 
@@ -36,7 +38,7 @@ useSlider(trackRef, dragRef, traceRef, modelValue, props.max, emit)
 </script>
 <template>
   <div class="ui-slider">
-    <div ref="trackRef" class="ui-slider--track"></div>
+    <div ref="trackRef" class="ui-slider--track" :style="{ backgroundColor: trackColor }"></div>
     <div
       ref="traceRef"
       class="ui-slider--trace"
