@@ -4,3 +4,9 @@ export type UindowColorType =
   | 'warning'
   | 'danger'
   | 'info'
+
+
+export type UindowSizeType =
+  | 'small'
+  | 'large'
+  | 'default'
