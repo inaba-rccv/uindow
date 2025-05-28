@@ -3,19 +3,21 @@
   --timing-function-ease-out: cubic-bezier(0.075, 0.82, 0.165, 1);
   --timing-function-ease-in: cubic-bezier(0.77, 0, 1, 1);
   --timing-function-out-back: cubic-bezier(0, 1.04, 0.57, 1.02)
+  --timing-function-ease-in-out: ease-in-out;
 }
 
 // 从下方进入
 .fadeInUp-enter-active {
   animation: fadeInUp 1s;
+  animation-timing-function: var(--timing-function-ease-out);
 }
 
 @keyframes fadeInUp {
   0% {
-    transform: translate3d(0, 700px, 0);
+    transform: translateY(700px);
   }
   100% {
-    transform: translateZ(0);
+    transform: translateY(0);
   }
 }
 
@@ -50,7 +52,7 @@
   }
 }
 
-// 模糊进入
+// 模糊进出
 .blur-enter-active {
   will-change: transform;
   backface-visibility: hidden;
@@ -85,35 +87,70 @@
   }
 }
 
-// 翻转进入 + 左下淡出
-.scale-slide-enter-active {
-  transition: all 1s;
-  transition-timing-function: var(--timing-function-ease-in);
+// 旋转进出
+.rotate-enter-active {
+  animation: rotateIn .4s;
+  animation-timing-function: var(--timing-function-ease-out);
+  animation-fill-mode: forwards;
+}
+.rotate-leave-active {
+  animation: rotateOut .4s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotateIn {
+  0% {
+    transform: rotate3d(0, 0, 1, 15deg);
+    opacity: 0;
+    scale: 1.3;
+  }
+  30% {
+    transform: rotate3d(0, 0, 1, 15deg);
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes rotateOut {
+  from {
+    transform: rotate3d(0, 0, 1, 0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate3d(0, 0, 1, -90deg);
+    opacity: 0;
+  }
 }
 
-.scale-slide-leave-active {
-  transition: all 1s;
-  transition-timing-function: var(--timing-function-ease-in);
-  transform-origin: bottom right;
+// 缩小进出
+.scale-enter-active {
+  animation: scaleIn .4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: var(--timing-function-ease-out);
 }
-
-.scale-slide-enter-from {
-  scale: 0.5;
-  transform: rotateY(112deg);
+.scale-leave-active {
+  animation: scaleOut .4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: var(--timing-function-ease-out);
 }
-
-.scale-slide-enter-to {
-  scale: 1;
-  transform: rotateY(0deg);
+@keyframes scaleIn {
+  0% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
-
-.scale-slide-leave-from {
-  scale: 1;
-  opacity: 1;
+@keyframes scaleOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
 }
-
-.scale-slide-leave-to {
-  scale: 0;
-  opacity: 0;
-}
-
