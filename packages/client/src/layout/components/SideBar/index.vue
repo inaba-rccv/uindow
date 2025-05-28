@@ -44,6 +44,7 @@ const router = useRouter()
         display: block;
         text-decoration: none;
         transition: all 0.1s;
+        user-select: none;
         &:visited, &:focus {
           color: var(--ui-color-text);
           text-decoration: none;

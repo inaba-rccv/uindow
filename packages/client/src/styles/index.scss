@@ -1,4 +1,10 @@
 @use "./layout.scss";
+@use "./animation.scss";
+
+
+:root {
+  --header-height: 52px; /* 顶部导航栏高度 */
+}
 
 body, html {
   height: 100%;

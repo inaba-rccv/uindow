@@ -29,8 +29,10 @@ const routeName = computed((): string => {
   width: 100%;
   background-color: var(--ui-bg-color);
   z-index: 1000;
+  height: var(--header-height);
   &-wrapper {
-    height: 50px;
+    box-sizing: border-box;
+    height: 100%;
     width: 1080px;
     display: flex;
     align-items: center;

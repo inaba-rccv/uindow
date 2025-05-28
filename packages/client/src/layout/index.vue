@@ -9,7 +9,7 @@ import SideBar from './components/SideBar/index.vue'
     <div class="nav">
       <SideBar />
     </div>
-    <div class="content">
+    <div class="content hidden-scrollbar">
       <router-view />
     </div>
   </div>
@@ -26,7 +26,9 @@ import SideBar from './components/SideBar/index.vue'
   }
   .content {
     width: 880px;
+    height: calc(100vh - var(--header-height));
     display: inline-block;
+    overflow-y: scroll;
   }
 }
 </style>
