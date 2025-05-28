@@ -1,1 +1,3 @@
-export type IconSize = 'auto' | 'small' | 'large' | 'default'
+import { type UindowSizeType } from '@uindow/types'
+
+export type IconSize = UindowSizeType | 'auto'
