@@ -2,54 +2,55 @@
   font-size: inherit;
   color: inherit;
   fill: currentColor;
-  background-color: var(--ui-color-dark);
+  background-color: var(--ui-color-info);
   border-radius: 10%;
-  transition: all 0.1s;
+  transition: .1s;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-}
-
-.uindow-icon.clickable {
-  cursor: pointer;
-}
-.uindow-icon.clickable:hover {
-  background-color: var(--ui-color-dark-hover);
-}
-.uindow-icon.clickable:active {
-  background-color: var(--ui-color-dark-active);
+  aspect-ratio: 1 / 1;
+  &.clickable {
+    cursor: pointer;
+  }
+  &.clickable:hover {
+    background-color: var(--ui-color-info-light);
+  }
+  &.clickable:active {
+    background-color: var(--ui-color-info-dark);
+  }
 }
 
 .uindow-icon-default {
-  height: 3em;
-  width: 3em;
+  height: 44px;
+  width: 44px;
   svg {
-    width: 2em;
-    height: 2em;
+    width: 60%;
+    height: 60%;
   }
 }
 
 .uindow-icon-small {
-  height: 2.4em;
-  width: 2.4em;
+  height: 36px;
+  width: 36px;
   svg {
-    width: 1.6em;
-    height: 1.6em;
+    width: 60%;
+    height: 60%;
   }
 }
 
 .uindow-icon-large {
-  height: 4.2em;
-  width: 4.2em;
+  height: 56px;
+  width: 56px;
   svg {
-    width: 2.8em;
-    height: 2.8em;
+    width: 60%;
+    height: 60%;
   }
 }
 
 .uindow-icon-auto {
+
   svg {
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 60%;
   }
 }
