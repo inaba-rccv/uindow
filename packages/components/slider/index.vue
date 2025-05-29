@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { computed, ref, toRefs, watch, watchEffect } from 'vue'
+import type { SliderType } from './slider.type'
+import { ref, toRefs } from 'vue'
 import { useSlider } from './use-slider'
 import './index.scss'
-import type { SliderType } from './slider.type'
 
 const props = withDefaults(
   defineProps<{
@@ -36,16 +36,17 @@ const { modelValue } = toRefs(props)
 
 useSlider(trackRef, dragRef, traceRef, modelValue, props.max, emit)
 </script>
+
 <template>
   <div class="ui-slider">
-    <div ref="trackRef" class="ui-slider--track" :style="{ backgroundColor: trackColor }"></div>
+    <div ref="trackRef" class="ui-slider--track" :style="{ backgroundColor: trackColor }" />
     <div
       ref="traceRef"
       class="ui-slider--trace"
       :style="{ backgroundColor: `var(--ui-color-${type})` }"
-    ></div>
+    />
     <div ref="dragRef" class="ui-slider--button-container">
-      <div class="ui-slider--button-default"></div>
+      <div class="ui-slider--button-default" />
     </div>
   </div>
 </template>

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
+import { provide, toRef } from 'vue'
+
+import { RadioKey, useRadio } from './radio'
 import './index.scss'
-import { provide } from 'vue';
-import { RadioKey, useRadio } from './radio';
-import { toRef } from 'vue';
 
 const props = withDefaults(defineProps<{
   modelValue?: string | number
@@ -12,7 +12,6 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits(['update:modelValue'])
 const RadioGroupInstance = useRadio(toRef(props, 'modelValue'), emit)
 provide(RadioKey, RadioGroupInstance)
-
 </script>
 
 <template>

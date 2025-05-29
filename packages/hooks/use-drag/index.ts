@@ -1,33 +1,28 @@
+import type { IPosition } from '@uindow/types'
+import type { ComputedRef, Ref } from 'vue'
+
+import { addPx, uindowPosition, zIndex } from '@uindow/utils'
 import {
+
   onBeforeUnmount,
   onMounted,
-  watchEffect,
-  type Ref,
-  type ComputedRef,
-} from 'vue'
-import { zIndex } from '@uindow/utils'
-import { addPx } from "@uindow/utils"
-import type { IPosition } from '@uindow/types'
-import { uindowPosition } from '@uindow/utils'
 
-export const useDrag = (
-  containerRef: Ref<HTMLElement | undefined>,
-  headerRef: Ref<HTMLElement | undefined>,
-  draggable: ComputedRef<boolean>,
-  overflow: ComputedRef<boolean>,
-  initialPosition: IPosition | null,
-): void => {
+  watchEffect,
+} from 'vue'
+
+export function useDrag(containerRef: Ref<HTMLElement | undefined>, headerRef: Ref<HTMLElement | undefined>, draggable: ComputedRef<boolean>, overflow: ComputedRef<boolean>, initialPosition: IPosition | null): void {
   let transform: IPosition
   // TODO 有没有更好的写法？
   if (initialPosition !== null) {
     transform = { ...initialPosition }
-  } else {
+  }
+  else {
     transform = uindowPosition.getNextUindowPosition()
   }
 
   let currentIndex = zIndex.getNextIndex()
 
-  const containerMousedownEvent = function (e: MouseEvent) {
+  const containerMousedownEvent = function (_: MouseEvent) {
     if (currentIndex !== zIndex.getCurrentIndex()) {
       currentIndex = zIndex.getNextIndex()
       containerRef.value!.style.zIndex = String(currentIndex)
@@ -101,7 +96,8 @@ export const useDrag = (
     watchEffect(() => {
       if (draggable.value) {
         onDraggable()
-      } else {
+      }
+      else {
         offDraggable()
       }
     })

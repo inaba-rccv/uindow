@@ -1,8 +1,11 @@
 <template>
-    <svg t="1729651503813" viewBox="0 0 1059 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="66431"
-        xmlns:xlink="http://www.w3.org/1999/xlink" width="206.8359375" height="200">
-        <path
-            d="M423.693 89.212H105.89C47.58 89.212 0 136.922 0 195.103v635.475c0 58.31 47.71 105.89 105.89 105.89h847.387c58.31 0 105.89-47.708 105.89-105.89V300.994c0-58.311-47.708-105.891-105.89-105.891H529.584L423.693 89.213z"
-            p-id="66432" data-spm-anchor-id="a313x.search_index.0.i9.20d13a81jw8vV8" class=""></path>
-    </svg>
+  <svg
+    t="1729651503813" viewBox="0 0 1059 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="66431"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="206.8359375" height="200"
+  >
+    <path
+      d="M423.693 89.212H105.89C47.58 89.212 0 136.922 0 195.103v635.475c0 58.31 47.71 105.89 105.89 105.89h847.387c58.31 0 105.89-47.708 105.89-105.89V300.994c0-58.311-47.708-105.891-105.89-105.891H529.584L423.693 89.213z"
+      p-id="66432" data-spm-anchor-id="a313x.search_index.0.i9.20d13a81jw8vV8" class=""
+    />
+  </svg>
 </template>

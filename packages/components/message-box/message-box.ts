@@ -1,11 +1,10 @@
+import type { AppContext, ComponentPublicInstance } from 'vue'
+import type { MessageBoxOptions, MessageBoxType } from './message-box.type'
 import {
   createVNode,
-  type AppContext,
   render,
-  type ComponentPublicInstance,
 } from 'vue'
 import MessageBoxConstructor from './index.vue'
-import type { MessageBoxOptions, MessageBoxType } from './message-box.type'
 
 class MessageBox {
   constructor(
@@ -15,7 +14,7 @@ class MessageBox {
         options: MessageBoxOptions
         callback: () => void
       }
-    >
+    >,
   ) {}
 
   public confirm(options: {
@@ -45,19 +44,18 @@ class MessageBox {
   }
 
   private create(options: MessageBoxOptions): void {
-    options.onVanish = () => {
-      render(null, container)
-      this.messageBoxList.delete(vm)
-    }
     const container = this.genContainer()
     const instance = this.initInstance(options, container)!
     const vm = instance.proxy as ComponentPublicInstance<{
       x: number
       y: number
     }>
-    this.messageBoxList.set(vm, { options: options, callback: () => {} })
+    options.onVanish = () => {
+      render(null, container)
+      this.messageBoxList.delete(vm)
+    }
+    this.messageBoxList.set(vm, { options, callback: () => {} })
   }
-  
 }
 
 const messageBox = new MessageBox(new Map())

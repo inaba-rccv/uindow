@@ -1,46 +1,46 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-import IButton from '@uindow/components/svg/IButton.vue'
 import messageBox from '@uindow/components/message-box/message-box'
+import IButton from '@uindow/components/svg/IButton.vue'
+
 function open() {
   messageBox.confirm({
     type: 'warning',
-    message: "Warning!\nSYSTEM ERROR#490UIA:A"
+    message: 'Warning!\nSYSTEM ERROR#490UIA:A',
   })
   messageBox.confirm({
     type: 'danger',
-    message: "Error!\nSYSTEM ERROR#490UIA:A"
+    message: 'Error!\nSYSTEM ERROR#490UIA:A',
   })
   messageBox.confirm({
     type: 'success',
-    message: "Error!\nSYSTEM ERROR#490UIA:A"
+    message: 'Error!\nSYSTEM ERROR#490UIA:A',
   })
   messageBox.confirm({
     type: 'primary',
-    title: "Hashtag",
-    message: "#うい校内放送",
+    title: 'Hashtag',
+    message: '#うい校内放送',
     showConfirmButton: false,
   })
   // warningAnimation(5)
 }
 
-function warningAnimation(count: number, start = 0) {
-  if (start < count) {
-    messageBox.confirm({
-      type: 'warning',
-      message: 'Warning!\nSYSTEM ERROR#490UIA:A',
-    })
-  }
-  setTimeout(() => {
-    warningAnimation(count, ++start)
-  }, 1500)
-}
+// function warningAnimation(count: number, start = 0) {
+//   if (start < count) {
+//     messageBox.confirm({
+//       type: 'warning',
+//       message: 'Warning!\nSYSTEM ERROR#490UIA:A',
+//     })
+//   }
+//   setTimeout(() => {
+//     warningAnimation(count, ++start)
+//   }, 1500)
+// }
 </script>
 
 <template>
   <div class="page-content">
     <ui-icon clickable @click="open">
-      <IButton></IButton>
+      <IButton />
     </ui-icon>
   </div>
 </template>

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { ref } from "vue"
-import "./index.scss"
+import { ref } from 'vue'
+import './index.scss'
+
 const menuShow = ref<boolean>(false)
 let startMouseDown = false
 
@@ -13,9 +14,9 @@ function handleFocusout() {
 function handleDown(e: MouseEvent) {
   if (menuShow.value) {
     startMouseDown = true
-  } else if (document.activeElement === e.target) {
+  }
+  else if (document.activeElement === e.target) {
     menuShow.value = true
-    return 
   }
 }
 function handleUp() {
@@ -23,7 +24,6 @@ function handleUp() {
     menuShow.value = false
     startMouseDown = false
   }
-  
 }
 function handleMenuDown(e: MouseEvent) {
   e.preventDefault()
@@ -31,7 +31,6 @@ function handleMenuDown(e: MouseEvent) {
 function handleClose() {
   menuShow.value = false
 }
-
 </script>
 
 <template>
@@ -39,7 +38,7 @@ function handleClose() {
     <button
       class="ui-menu-menu-item reset-button"
       :class="{
-        focus: menuShow
+        focus: menuShow,
       }"
       @focusin="handleFocusin"
       @focusout="handleFocusout"
@@ -48,7 +47,7 @@ function handleClose() {
     >
       <slot name="title" />
     </button>
-    <div class="ui-menu-menu-container" v-show="menuShow" @mousedown="handleMenuDown" @click="handleClose">
+    <div v-show="menuShow" class="ui-menu-menu-container" @mousedown="handleMenuDown" @click="handleClose">
       <slot />
     </div>
   </div>

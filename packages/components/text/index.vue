@@ -1,30 +1,31 @@
 <script lang="ts" setup>
-import "./index.scss"
-import { ref, watchEffect, onMounted, useSlots, h, Fragment, computed, onUnmounted } from "vue";
-import type { StyleValue, VNode, Ref } from "vue";
-import type { EnterAnimate } from "./text.type"
-import { getParentBackgroundColor } from "@uindow/utils";
-import { Interval } from "@uindow/types";
+import type { Ref, StyleValue, VNode } from 'vue'
+import type { EnterAnimate } from './text.type'
+import { getParentBackgroundColor } from '@uindow/utils'
+import { Fragment, h, onMounted, ref, useSlots, watchEffect } from 'vue'
+import './index.scss'
+
 const props = withDefaults(
   defineProps<{
-    animate: EnterAnimate
+    animate?: EnterAnimate
     style?: StyleValue
     typewriter?: boolean
     duration?: string | number
     delay?: string | number
-  }>(), {
+  }>(),
+  {
     animate: '',
     bounce: false,
     typewriter: false,
     duration: 1,
     delay: 0,
-  }
+  },
 )
 
 const slots = useSlots()
 const text = ref<HTMLElement | null>(null)
 const animatedSlots: Ref<VNode[]> = ref([])
-const processDefaultSlot = () => {
+function processDefaultSlot() {
   return slots.default!().map((vnode) => {
     let newVnode: VNode
 
@@ -36,7 +37,7 @@ const processDefaultSlot = () => {
       animationDelay: `${props.delay}s`,
     }
     newVnode = h('p', vnodeProps, vnode.children || undefined)
-    
+
     if (props.animate === 'eraser') {
       const eraserSpanVnode = h('span', { class: 'ui-text--eraser-content', style: {
         animationDuration: `${props.duration}s`,
@@ -46,15 +47,16 @@ const processDefaultSlot = () => {
 
       newVnode = h(Fragment, {}, [
         newVnode,
-        eraserPVNode
+        eraserPVNode,
       ])
     }
     return newVnode
   })
 }
-const processTypewriterSlot = () => {
+function processTypewriterSlot() {
   const text = slots.default!()[0].children
-  if (typeof text !== 'string') return []
+  if (typeof text !== 'string')
+    return []
   const charArray = text.split('')
   const charVnodes = charArray.map((char, index) => {
     return h('span', { class: 'ui-text--typewriter', style: {
@@ -64,12 +66,13 @@ const processTypewriterSlot = () => {
       display: props.animate === 'bounce' ? 'inline-block' : 'inline',
     } }, char)
   })
-  console.log('charVnodes', charVnodes)
+  // console.log('charVnodes', charVnodes)
   return charVnodes
 }
 
 watchEffect(() => {
-  if (!slots.default) return []
+  if (!slots.default)
+    return []
   if (slots.default && slots.default().length > 1) {
     console.warn('text 组件只支持单个子节点')
     return
@@ -84,7 +87,8 @@ watchEffect(() => {
       return
     }
     animatedSlots.value = processTypewriterSlot()
-  } else {
+  }
+  else {
     animatedSlots.value = processDefaultSlot()
   }
 })
@@ -100,11 +104,10 @@ onMounted(() => {
 
 <template>
   <div ref="text" class="ui-text" :style="style">
-    <component 
-      v-for="(vnode, index) in animatedSlots" 
-      :key="index"
+    <component
       :is="vnode"
+      v-for="(vnode, index) in animatedSlots"
+      :key="index"
     />
   </div>
 </template>
-

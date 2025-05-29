@@ -1,6 +1,6 @@
-import type { Ref } from "vue"
+import type { Ref } from 'vue'
 
-export type radioOptions = {
+export interface radioOptions {
   label: string
 }
 

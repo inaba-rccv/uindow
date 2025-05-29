@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue"
-const id = ref<string>(Math.random().toString(36).substring(2, 9))
 </script>
 
 <template>
   <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-    <path d="
+    <path
+      d="
         M50 10
         a40 40 0 0 1 0 80
         a40 40 0 0 1 0-80
@@ -23,6 +22,7 @@ const id = ref<string>(Math.random().toString(36).substring(2, 9))
         l14-14
         l-6-6
         l-14 14
-    "></path>
+    "
+    />
   </svg>
 </template>

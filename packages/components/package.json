@@ -1,10 +1,10 @@
 {
   "name": "@uindow/components",
   "version": "1.0.0",
-  "description": "",
   "private": true,
-  "main": "index.ts",
-  "keywords": [],
+  "description": "",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.ts"
 }

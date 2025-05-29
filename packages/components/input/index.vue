@@ -2,7 +2,7 @@
 import type { StyleValue } from 'vue'
 import './index.scss'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     modalValue?: string | number
     type?: string
@@ -30,7 +30,7 @@ const props = withDefaults(
         :maxlength="maxlength"
         :disabled="disabled"
         :value="modalValue"
-      />
+      >
       <!-- <span class="custom-cursor"></span> -->
     </div>
   </div>

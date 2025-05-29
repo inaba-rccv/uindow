@@ -1,3 +1,3 @@
-import { type UindowSizeType } from '@uindow/types'
+import type { UindowSizeType } from '@uindow/types'
 
 export type IconSize = UindowSizeType | 'auto'

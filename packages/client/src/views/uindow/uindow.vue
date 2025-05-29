@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { ref, type Ref } from 'vue'
-import IButton from '@uindow/components/svg/IButton.vue'
-import IAdd from '@uindow/components/svg/IAdd.vue'
-import IReduce from '@uindow/components/svg/IReduce.vue'
-import IClose from '@uindow/components/svg/IClose.vue'
 import type { radioOptions } from '@uindow/components/radio/radio.type'
+import type { Ref } from 'vue'
+import IAdd from '@uindow/components/svg/IAdd.vue'
+import IButton from '@uindow/components/svg/IButton.vue'
+import IReduce from '@uindow/components/svg/IReduce.vue'
+import { ref } from 'vue'
 
 const uindowShow = ref<boolean>(false)
 function open() {
@@ -24,21 +24,19 @@ const SceneradioOptions: Ref<radioOptions[]> = ref([
 ])
 
 const SceneradioValue = ref<string>('Talk')
-
-
 </script>
 
 <template>
   <div class="page-content">
     <div>
       <ui-icon clickable @click="open">
-        <IButton></IButton>
+        <IButton />
       </ui-icon>
     </div>
 
     <ui-uindow
-      draggable
       v-model="uindowShow"
+      draggable
       type="info"
       header-background-color="#827870"
     >
@@ -49,34 +47,48 @@ const SceneradioValue = ref<string>('Talk')
       <template #menu>
         <ui-menu>
           <ui-sub-menu>
-            <template #title>File</template>
+            <template #title>
+              File
+            </template>
             <ui-menu-item>New File</ui-menu-item>
           </ui-sub-menu>
           <ui-sub-menu>
-            <template #title>Edit</template>
+            <template #title>
+              Edit
+            </template>
             <ui-menu-item>Undo</ui-menu-item>
             <ui-menu-item>Redo</ui-menu-item>
           </ui-sub-menu>
           <ui-sub-menu>
-            <template #title>View</template>
+            <template #title>
+              View
+            </template>
             <ui-menu-item>Command Palette...</ui-menu-item>
             <ui-menu-item>Terminal</ui-menu-item>
             <ui-menu-item>Word Wrap</ui-menu-item>
           </ui-sub-menu>
           <ui-sub-menu>
-            <template #title>Profile</template>
+            <template #title>
+              Profile
+            </template>
             <ui-menu-item>Command Palette...</ui-menu-item>
           </ui-sub-menu>
           <ui-sub-menu>
-            <template #title>Scene Collection</template>
+            <template #title>
+              Scene Collection
+            </template>
             <ui-menu-item>Command Palette...</ui-menu-item>
           </ui-sub-menu>
           <ui-sub-menu>
-            <template #title>Tools</template>
+            <template #title>
+              Tools
+            </template>
             <ui-menu-item>View Lisence</ui-menu-item>
           </ui-sub-menu>
           <ui-sub-menu>
-            <template #title>Help</template>
+            <template #title>
+              Help
+            </template>
             <ui-menu-item>Welcome</ui-menu-item>
             <ui-menu-item>Show All Command</ui-menu-item>
             <ui-menu-item>Documention</ui-menu-item>
@@ -88,7 +100,9 @@ const SceneradioValue = ref<string>('Talk')
       <div style="width: 800px;">
         <div style="height: 300px; padding: 20px 60px;">
           <div class="screen-body">
-            <div class="screen-body-text">Just a <br/> moment<br/>please!</div>
+            <div class="screen-body-text">
+              Just a <br> moment<br>please!
+            </div>
           </div>
         </div>
         <div style="display: flex; padding: 20px; background-color: #a39e96">
@@ -100,15 +114,18 @@ const SceneradioValue = ref<string>('Talk')
             </ui-radio-group>
             <template #footer>
               <div style="display: flex;height: 100%; padding: 2px 4px;box-sizing: border-box;">
-                <ui-icon clickable size="auto"><IAdd /></ui-icon>
-                <ui-icon clickable size="auto"><IReduce /></ui-icon>
+                <ui-icon clickable size="auto">
+                  <IAdd />
+                </ui-icon>
+                <ui-icon clickable size="auto">
+                  <IReduce />
+                </ui-icon>
               </div>
             </template>
           </ui-folding-window>
         </div>
       </div>
     </ui-uindow>
-
   </div>
 </template>
 
@@ -127,5 +144,4 @@ const SceneradioValue = ref<string>('Talk')
     font-size: 64px;
   }
 }
-
 </style>

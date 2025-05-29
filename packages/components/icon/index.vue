@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-import "./index.scss"
-import { type IconSize } from "./icon.type"
+import type { IconSize } from './icon.type'
+import './index.scss'
 
-const props = withDefaults(defineProps<{
-    size?: IconSize
-    clickable?: boolean
+withDefaults(defineProps<{
+  size?: IconSize
+  clickable?: boolean
 }>(), {
-    size: 'default',
-    clickable: false,
+  size: 'default',
+  clickable: false,
 })
 </script>
 
 <template>
-    <div class="uindow-icon" :class="[{ 'clickable': clickable }, `uindow-icon-${size}`]">
-        <slot />
-    </div>
+  <div class="uindow-icon" :class="[{ clickable }, `uindow-icon-${size}`]">
+    <slot />
+  </div>
 </template>

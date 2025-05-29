@@ -1,38 +1,30 @@
+import type { Ref } from 'vue'
+import type { SliderEmit } from './slider.type'
 import {
   onBeforeUnmount,
   onMounted,
+
   watchEffect,
-  type Ref,
-  type ComputedRef,
 } from 'vue'
 import { addPx } from '../../utils/tools'
-import type { SliderEmit } from './slider.type'
 
-export const useSlider = (
-  containerRef: Ref<HTMLElement | undefined>,
-  dragRef: Ref<HTMLElement | undefined>,
-  traceRef: Ref<HTMLElement | undefined>,
-  modelValue: Ref<number>,
-  max: number,
-  emit: (event: SliderEmit, arg: number) => void,
-) => {
+export function useSlider(containerRef: Ref<HTMLElement | undefined>, dragRef: Ref<HTMLElement | undefined>, traceRef: Ref<HTMLElement | undefined>, modelValue: Ref<number>, max: number, emit: (event: SliderEmit, arg: number) => void) {
   let maxWidth: number
   let offsetX: number
   let dragBtnRadius: number
   let currentValue: number
 
-  const containerMousedownEvent = (e: MouseEvent) => {
-    offsetX = Math.min(Math.max(e.offsetX - dragBtnRadius, 0), maxWidth)
+  const r = () => {
     dragRef.value!.style.left = `${addPx(offsetX)}`
-    r()
-    callback()
-    mouseEvents(e.clientX, offsetX)
+    traceRef.value!.style.width = `${addPx(offsetX + dragBtnRadius)}`
   }
 
-  const mousedownEvent = (e: MouseEvent) => {
-    const donwX = e.clientX
-    const startX = offsetX
-    mouseEvents(donwX, startX)
+  const callback = () => {
+    const value = Math.round((offsetX / maxWidth) * max)
+    if (value !== currentValue) {
+      currentValue = value
+      emit('update:modelValue', currentValue)
+    }
   }
 
   const mouseEvents = (donwX: number, startX: number) => {
@@ -52,11 +44,25 @@ export const useSlider = (
     document.addEventListener('mouseup', mouseupEvent)
   }
 
+  const containerMousedownEvent = (e: MouseEvent) => {
+    offsetX = Math.min(Math.max(e.offsetX - dragBtnRadius, 0), maxWidth)
+    dragRef.value!.style.left = `${addPx(offsetX)}`
+    r()
+    callback()
+    mouseEvents(e.clientX, offsetX)
+  }
+
+  const mousedownEvent = (e: MouseEvent) => {
+    const donwX = e.clientX
+    const startX = offsetX
+    mouseEvents(donwX, startX)
+  }
+
   const onDraggable = () => {
     if (containerRef.value && dragRef.value && traceRef.value) {
       const dragRefRect = dragRef.value.getBoundingClientRect()
-      maxWidth =
-        containerRef.value.getBoundingClientRect().width - dragRefRect.width
+      maxWidth
+        = containerRef.value.getBoundingClientRect().width - dragRefRect.width
       dragBtnRadius = dragRefRect.width / 2
       watchEffect(() => {
         if (modelValue.value !== currentValue) {
@@ -68,19 +74,6 @@ export const useSlider = (
       dragRef.value.addEventListener('mousedown', mousedownEvent)
       traceRef.value.addEventListener('mousedown', containerMousedownEvent)
       containerRef.value.addEventListener('mousedown', containerMousedownEvent)
-    }
-  }
-
-  const r = () => {
-    dragRef.value!.style.left = `${addPx(offsetX)}`
-    traceRef.value!.style.width = `${addPx(offsetX + dragBtnRadius)}`
-  }
-
-  const callback = () => {
-    const value = Math.round((offsetX / maxWidth) * max)
-    if (value !== currentValue) {
-      currentValue = value
-      emit('update:modelValue', currentValue)
     }
   }
 

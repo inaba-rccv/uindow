@@ -1,10 +1,7 @@
 <script lang="ts" setup>
-import { onMounted } from "vue";
-import "./index.scss"
-import { ref } from "vue";
-import { nextTick } from "vue";
-import { onUnmounted } from "vue";
-import type { Interval } from "@uindow/types";
+import { onMounted, onUnmounted } from 'vue'
+
+import './index.scss'
 
 const systemInfo = [
   '(C)Shigure Ui.inc.',
@@ -18,7 +15,7 @@ const systemInfo = [
   'Press F8 for SU SET|UP(CTRL+P on Searial Console)',
   '',
   'Pen Controllers ..Done.',
-  'Check Date 530490MB OK'
+  'Check Date 530490MB OK',
 ]
 const memeryInfo = [
   'Check Date 0MB',
@@ -31,21 +28,20 @@ const footerInfo = [
   'https://www.youtube.com/channel/UCt30jJgChL8qeT9VPadidSw',
 ]
 
-const renderTextArrayToHtml = (textArray: string[]) => {
+function renderTextArrayToHtml(textArray: string[]) {
   return textArray.map((text) => {
     return `<span>${text}</span>`
   }).join('<br/>')
-  
 }
 
-const scrollToBottom = () => {
-  const app = document.getElementById('app')
-  window.scrollTo({
-    top: app?.scrollHeight,
-    behavior: 'smooth'
-  })
-}
-let interval: Interval
+// function scrollToBottom() {
+//   const app = document.getElementById('app')
+//   window.scrollTo({
+//     top: app?.scrollHeight,
+//     behavior: 'smooth',
+//   })
+// }
+// let interval: Interval
 onMounted(() => {
 })
 onUnmounted(() => {
@@ -57,19 +53,19 @@ onUnmounted(() => {
     <div class="screen">
       <ui-text animate="eraser" duration="5">
         <p>
-          <span v-html="renderTextArrayToHtml(systemInfo)"></span>
+          <span v-html="renderTextArrayToHtml(systemInfo)" />
         </p>
       </ui-text>
 
       <ui-text animate="eraser" delay="5" duration="2" style="margin-left: calc(50% - 7rem)">
         <p>
-          <span v-html="renderTextArrayToHtml(memeryInfo)"></span>
+          <span v-html="renderTextArrayToHtml(memeryInfo)" />
         </p>
       </ui-text>
 
       <ui-text animate="eraser" delay="7" duration="2">
         <p>
-          <span v-html="renderTextArrayToHtml(footerInfo)"></span>
+          <span v-html="renderTextArrayToHtml(footerInfo)" />
         </p>
       </ui-text>
     </div>

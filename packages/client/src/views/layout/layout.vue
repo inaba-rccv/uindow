@@ -1,16 +1,21 @@
 <template>
   <div class="page-content">
-
     <div class="border-box">
-
       <div class="flex-container">
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-        <div class="item">4</div>
+        <div class="item">
+          1
+        </div>
+        <div class="item">
+          2
+        </div>
+        <div class="item">
+          3
+        </div>
+        <div class="item">
+          4
+        </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -40,7 +45,7 @@
     width: 400px;
     height: 250px;
     flex-direction: column-reverse;
-    
+
     .item {
       width: 50px;
       height: 50px;
@@ -52,6 +57,4 @@
     }
   }
 }
-
 </style>
-

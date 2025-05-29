@@ -1,21 +1,21 @@
 <script lang="ts" setup>
-import { ref, watch, computed } from 'vue'
-import { useTimeoutFn } from '@vueuse/core'
-import { useGlobalConfig } from '@uindow/utils'
-import { useDrag } from '@uindow/hooks/use-drag'
 import type { UindowColorType } from '@uindow/types'
-import './index.scss'
 import IClose from '@uindow/components/svg/IClose.vue'
 import IEnlarge from '@uindow/components/svg/IEnlarge.vue'
 import INarrow from '@uindow/components/svg/INarrow.vue'
+import { useDrag } from '@uindow/hooks/use-drag'
+import { useGlobalConfig } from '@uindow/utils'
+import { useTimeoutFn } from '@vueuse/core'
+import { computed, ref, watch } from 'vue'
+import './index.scss'
 
 const props = withDefaults(
   defineProps<{
-    type: UindowColorType
-    modelValue: boolean
+    type?: UindowColorType
+    modelValue?: boolean
     draggable?: boolean
     overflow?: boolean
-    headerBackgroundColor: string
+    headerBackgroundColor?: string
   }>(),
   {
     type: 'primary',
@@ -29,19 +29,22 @@ const emit = defineEmits(['update:modelValue'])
 
 const uindowRef = ref<HTMLElement>()
 const headerRef = ref<HTMLElement>()
-
+const $UINDOW = useGlobalConfig()
+const animationDuration = ref<number>($UINDOW.fadeAnimationDuration)
 const draggable = computed(() => props.draggable)
 const overflow = computed(() => props.overflow)
 const visible = ref<boolean>(false)
 const uindowAnimationFadeIn = ref<boolean>(false)
 const uindowAnimationFadeOut = ref<boolean>(false)
-let clearUindowAnimationFadeInTimer: (() => void) | undefined = undefined
+
+let clearUindowAnimationFadeInTimer: (() => void) | undefined
 useDrag(uindowRef, headerRef, draggable, overflow, null)
 
 watch(
   () => props.modelValue,
-  val => {
-    if (val) open()
+  (val) => {
+    if (val)
+      open()
     else close()
   },
 )
@@ -81,19 +84,16 @@ const headerStyles = computed(() => {
       props.headerBackgroundColor ?? `var(--ui-color-${props.type})`,
   }
 })
-
-const $UINDOW = useGlobalConfig()
-const animationDuration = ref<number>($UINDOW.fadeAnimationDuration)
 </script>
 
 <template>
   <div
+    v-show="visible"
+    ref="uindowRef"
     class="ui-uindow"
     :class="{
-      draggable: draggable,
+      draggable,
     }"
-    ref="uindowRef"
-    v-show="visible"
   >
     <div
       class="ui-uindow--wrapper"
@@ -102,20 +102,22 @@ const animationDuration = ref<number>($UINDOW.fadeAnimationDuration)
         'ui-uindow-fade-out': uindowAnimationFadeOut,
       }"
     >
-      <div class="ui-uindow--header" :style="headerStyles" ref="headerRef">
+      <div ref="headerRef" class="ui-uindow--header" :style="headerStyles">
         <div class="ui-uindow--action">
           <button class="ui-uindow--actionBtn" @click="handleClose">
-            <IClose></IClose>
+            <IClose />
           </button>
           <button class="ui-uindow--actionBtn">
-            <IEnlarge></IEnlarge>
+            <IEnlarge />
           </button>
           <button class="ui-uindow--actionBtn">
-            <INarrow></INarrow>
+            <INarrow />
           </button>
         </div>
         <div class="ui-uindow--title">
-          <slot name="header">TITLE</slot>
+          <slot name="header">
+            TITLE
+          </slot>
         </div>
       </div>
       <div class="ui-uindow--menu">

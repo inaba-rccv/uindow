@@ -1,25 +1,26 @@
 <script lang="ts">
-import {
-  defineComponent,
-  ref,
-  onMounted,
-} from 'vue'
-import './index.scss'
-import { useTimeoutFn } from '@vueuse/core'
-import { useGlobalConfig } from '@uindow/utils/config/index'
-import { useDrag } from '@uindow/hooks/use-drag/index'
+import type { IPosition } from '@uindow/types'
+import type { PropType } from 'vue'
+import type { MessageBoxType } from './message-box.type'
 import UiButton from '@uindow/components/button/index.vue'
 import IClose from '@uindow/components/svg/IClose.vue'
 import IEnlarge from '@uindow/components/svg/IEnlarge.vue'
-import INarrow from '@uindow/components/svg/INarrow.vue'
-import IWarning from '@uindow/components/svg/IWarning.vue'
-import ISuccess from '@uindow/components/svg/ISuccess.vue'
 import IError from '@uindow/components/svg/IError.vue'
+import INarrow from '@uindow/components/svg/INarrow.vue'
+import ISuccess from '@uindow/components/svg/ISuccess.vue'
+import IWarning from '@uindow/components/svg/IWarning.vue'
+import { useDrag } from '@uindow/hooks/use-drag/index'
+import { useGlobalConfig } from '@uindow/utils/config/index'
 
-import { type MessageBoxType } from './message-box.type'
-import { computed } from 'vue'
-import type { PropType } from 'vue'
-import type { IPosition } from '@uindow/types'
+import { useTimeoutFn } from '@vueuse/core'
+
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  ref,
+} from 'vue'
+import './index.scss'
 
 export default defineComponent({
   name: 'UiMessageBox',
@@ -107,7 +108,7 @@ export default defineComponent({
     const icon = computed(
       () => defaultTitleMap[props.type as keyof typeof defaultTitleMap].icon,
     )
-    let clearDialogAnimationFadeInTimer: (() => void) | undefined = undefined
+    let clearDialogAnimationFadeInTimer: (() => void) | undefined
     let initialPosition: IPosition | null = null
     if (props.x !== undefined && props.y !== undefined) {
       initialPosition = {
@@ -157,48 +158,52 @@ export default defineComponent({
 
 <template>
   <div
+    v-show="visible"
+    ref="uindowRef"
     class="ui-message-box"
     :class="{
       draggable: uindowDraggable,
     }"
-    ref="uindowRef"
-    v-show="visible"
   >
     <div class="ui-message-box--wrapper ui-message-box-fade-in">
       <div
+        ref="headerRef"
         class="ui-message-box--header"
         :style="{
           backgroundColor: `var(--ui-color-${type})`,
         }"
-        ref="headerRef"
       >
         <div class="ui-message-box--action">
           <button class="ui-message-box--actionBtn" @click="handleClose">
-            <IClose></IClose>
+            <IClose />
           </button>
           <button class="ui-message-box--actionBtn">
-            <IEnlarge></IEnlarge>
+            <IEnlarge />
           </button>
           <button class="ui-message-box--actionBtn">
-            <INarrow></INarrow>
+            <INarrow />
           </button>
         </div>
-        <div class="ui-message-box--title">{{ messageBoxTitle }}</div>
+        <div class="ui-message-box--title">
+          {{ messageBoxTitle }}
+        </div>
       </div>
       <div class="ui-message-box--body">
         <div class="ui-message-box--container">
           <div
+            v-if="icon"
             class="ui-message-box--typeicon"
             :style="{ color: `var(--ui-color-${type})` }"
-            v-if="icon"
           >
             <component :is="icon" />
           </div>
-          <div class="ui-message-box--message" v-text="message"></div>
+          <div class="ui-message-box--message" v-text="message" />
         </div>
 
-        <div class="ui-uindom-confirmBtn" v-if="showConfirmButton">
-          <ui-button :type="type" @click="handleClose">OK</ui-button>
+        <div v-if="showConfirmButton" class="ui-uindom-confirmBtn">
+          <UiButton :type="type" @click="handleClose">
+            OK
+          </UiButton>
         </div>
       </div>
     </div>

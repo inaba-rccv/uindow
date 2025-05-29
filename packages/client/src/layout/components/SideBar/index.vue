@@ -1,13 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
 import { constantRoutes } from '@/router'
-
-const route = useRoute()
-const router = useRouter()
-// 获取所有一级路由
-// console.log('router', constantRoutes)
-// console.log('route', route)
 </script>
 
 <template>

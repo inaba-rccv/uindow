@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import "./index.scss"
+import './index.scss'
 </script>
 
-
-
 <template>
-  <button class="ui-menu-sub-menu-item reset-button"><slot /></button>
+  <button class="ui-menu-sub-menu-item reset-button">
+    <slot />
+  </button>
 </template>

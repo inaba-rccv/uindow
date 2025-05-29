@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '@/layout/index.vue'
 
-
 export const constantRoutes = [
   {
     path: '/',
@@ -13,8 +12,8 @@ export const constantRoutes = [
         path: '/dashboard',
         name: 'dashboard',
         component: () => import('@/views/dashboard/dashboard.vue'),
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/button',
@@ -25,8 +24,8 @@ export const constantRoutes = [
         path: '',
         name: 'button',
         component: () => import('@/views/button/button.vue'),
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/input',
@@ -37,8 +36,8 @@ export const constantRoutes = [
         path: '',
         name: 'input',
         component: () => import('@/views/input/input.vue'),
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/slider',
@@ -49,8 +48,8 @@ export const constantRoutes = [
         path: '',
         name: 'slider',
         component: () => import('@/views/slider/slider.vue'),
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/uindow',
@@ -61,8 +60,8 @@ export const constantRoutes = [
         path: '',
         name: 'uindow',
         component: () => import('@/views/uindow/uindow.vue'),
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/dialog',
@@ -73,8 +72,8 @@ export const constantRoutes = [
         path: '',
         name: 'dialog',
         component: () => import('@/views/dialog/dialog.vue'),
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/animate',
@@ -85,8 +84,8 @@ export const constantRoutes = [
         path: '',
         name: 'animate',
         component: () => import('@/views/animate/animate.vue'),
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/text',
@@ -97,8 +96,8 @@ export const constantRoutes = [
         path: '',
         name: 'text',
         component: () => import('@/views/text/text.vue'),
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/layout',
@@ -109,13 +108,13 @@ export const constantRoutes = [
         path: '',
         name: 'layout',
         component: () => import('@/views/layout/layout.vue'),
-      }
-    ]
+      },
+    ],
   },
 ]
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: constantRoutes
+  routes: constantRoutes,
 })
 
 export default router

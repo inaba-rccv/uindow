@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const router = useRouter()
 const routeName = computed((): string => {
-  if (typeof route.name !== "string") {
+  if (typeof route.name !== 'string') {
     return '--'
-  } else {
+  }
+  else {
     return route.name.toLocaleUpperCase()
   }
 })
@@ -16,7 +16,9 @@ const routeName = computed((): string => {
 <template>
   <header class="navbar">
     <div class="navbar-wrapper">
-      <div class="header-container">{{ routeName }}</div>
+      <div class="header-container">
+        {{ routeName }}
+      </div>
     </div>
   </header>
 </template>
