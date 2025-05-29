@@ -1,7 +1,8 @@
 <script lang="ts" setup>
+import type { UindowColorType } from '@uindow/types'
 import { computed } from 'vue'
 import './index.scss'
-import { UindowColorType } from '@uindow/types';
+
 const props = withDefaults(
   defineProps<{
     type?: UindowColorType
@@ -17,7 +18,7 @@ const props = withDefaults(
     circle: false,
     square: false,
     plain: false,
-    activeShrink: false
+    activeShrink: false,
   },
 )
 const classes = computed(() => [

@@ -5,10 +5,12 @@ class UindowPosition {
     offsetX: 0,
     offsetY: 0,
   }
+
   private initialPositionRate = {
     x: 0.6,
     y: 0.4,
   }
+
   private rootFontSizeNumber: number = 0
 
   constructor() {
