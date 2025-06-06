@@ -1,6 +1,8 @@
 <script lang="ts" setup>
+import IFold from '@uindow/components/svg/IFold.vue'
 import IMusic from '@uindow/components/svg/IMusic.vue'
 import { ref } from 'vue'
+import StrokeAnimate from '@/components/StrokeAnimate.vue'
 import './index.scss'
 
 const animationBtn1 = ref(false)
@@ -93,6 +95,14 @@ const animationBtn3 = ref(false)
           </li>
         </ul>
       </div>
+    </div>
+
+    <div class="mb-20">
+      <StrokeAnimate>
+        <svg height="100" width="100">
+          <circle cx="50" cy="50" r="40" stroke="#ffffff" stroke-width="4" fill="none" />
+        </svg>
+      </StrokeAnimate>
     </div>
   </div>
 </template>

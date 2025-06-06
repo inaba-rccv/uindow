@@ -52,6 +52,18 @@ export const constantRoutes = [
     ],
   },
   {
+    path: '/progress',
+    component: Layout,
+    meta: { title: 'Progress' },
+    children: [
+      {
+        path: '',
+        name: 'progress',
+        component: () => import('@/views/progress/progress.vue'),
+      },
+    ],
+  },
+  {
     path: '/uindow',
     component: Layout,
     meta: { title: 'Uindow' },

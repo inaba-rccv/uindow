@@ -113,7 +113,7 @@ const SceneradioValue = ref<string>('Talk')
               </ui-radio>
             </ui-radio-group>
             <template #footer>
-              <div style="display: flex;height: 100%; padding: 2px 4px;box-sizing: border-box;">
+              <div style="display: flex;height: 100%; box-sizing: border-box;">
                 <ui-icon clickable size="auto">
                   <IAdd />
                 </ui-icon>

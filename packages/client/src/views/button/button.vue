@@ -11,7 +11,19 @@ import IRight from '@uindow/components/svg/IRight.vue'
         <ui-button circle plain>
           <IRight />
         </ui-button>
-        <ui-button circle plain>
+        <ui-button circle plain type="warning">
+          <IRight />
+        </ui-button>
+      </div>
+
+      <div class="mb-20">
+        <ui-button square>
+          <IRight />
+        </ui-button>
+        <ui-button square type="warning">
+          <IRight />
+        </ui-button>
+        <ui-button square type="danger">
           <IRight />
         </ui-button>
       </div>
