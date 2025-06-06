@@ -1,3 +1,4 @@
+// 公用样式变量
 $ui-window-height: 36px;
 $ui-mini-window-height: 22px;
 $ui-inline-height: 26px;
@@ -6,6 +7,10 @@ $ui-font-size-mini: 12px;
 $ui-font-weight: 400;
 $ui-line-height-base: 1.5;
 $ui-line-height-mini: 1.3;
+
+// 组件样式变量
+$ui-slider-height: 4px;
+$ui-slider-button-height: 8px;
 
 :root {
   --ui-window-height-base: #{$ui-window-height};
@@ -16,4 +21,6 @@ $ui-line-height-mini: 1.3;
   --ui-font-weight: #{$ui-font-weight};
   --ui-line-height-base: #{$ui-line-height-base};
   --ui-line-height-mini: #{$ui-line-height-mini};
+  --ui-slider-height: #{$ui-slider-height};
+  --ui-slider-button-height: #{$ui-slider-button-height};
 }
