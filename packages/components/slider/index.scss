@@ -1,13 +1,13 @@
 .ui-slider {
   width: 100%;
-  height: 1.6rem;
+  height: var(--ui-inline-height);
   display: flex;
   align-items: center;
   position: relative;
   user-select: none;
   .ui-slider--track {
     flex: 1;
-    height: 4px;
+    height: var(--ui-slider-height);
     border-radius: 2px;
     cursor: pointer;
   }
@@ -29,4 +29,30 @@
     // background-color: var(--ui-color-primary);
     cursor: pointer;
   }
+
+  &.vertical {
+    display: inline-flex;
+    width: var(--ui-inline-height);
+    height: 100%;
+    .ui-slider--track {
+      width: var(--ui-slider-height);
+      margin: 0 calc((var(--ui-inline-height) - var(--ui-slider-height)) / 2);
+      height: 100%;
+    }
+    .ui-slider--button-container {
+      left: calc((var(--ui-inline-height) - var(--ui-slider-button-height)) / 2);
+      top: 0;
+      .ui-slider--button-default {
+        width: var(--ui-slider-button-height);
+        height: 24px;
+        border-radius: 4px;
+      }
+    }
+    .ui-slider--trace {
+      width: 4px;
+      top: 0;
+      left: calc((var(--ui-inline-height) - var(--ui-slider-height)) / 2);
+    }
+  }
 }
+

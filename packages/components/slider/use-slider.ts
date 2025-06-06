@@ -1,26 +1,44 @@
-import type { Ref } from 'vue'
+import type {
+  Reactive,
+} from 'vue'
 import type { SliderEmit } from './slider.type'
 import {
   onBeforeUnmount,
-  onMounted,
-
+  ref,
+  toRefs,
   watchEffect,
 } from 'vue'
 import { addPx } from '../../utils/tools'
 
-export function useSlider(containerRef: Ref<HTMLElement | undefined>, dragRef: Ref<HTMLElement | undefined>, traceRef: Ref<HTMLElement | undefined>, modelValue: Ref<number>, max: number, emit: (event: SliderEmit, arg: number) => void) {
-  let maxWidth: number
-  let offsetX: number
+export function useSlider(
+  props: Reactive<{
+    modelValue: number
+    max: number
+    vertical: boolean
+    disabled: boolean
+  }>,
+  emit: (event: SliderEmit, arg: number) => void,
+) {
+  let maxLength: number
+  let offset: number
   let dragBtnRadius: number
   let currentValue: number
+  const { modelValue, max, vertical, disabled } = toRefs(props)
+  const trackRef = ref<HTMLElement>()
+  const traceRef = ref<HTMLElement>()
+  const buttonRef = ref<HTMLElement>()
+  const offsetStyle = vertical.value ? 'top' : 'left'
+  const lengthStyle = vertical.value ? 'height' : 'width'
+  const clientType = vertical.value ? 'clientY' : 'clientX'
+  const clientOffsetType = vertical.value ? 'offsetY' : 'offsetX'
 
   const r = () => {
-    dragRef.value!.style.left = `${addPx(offsetX)}`
-    traceRef.value!.style.width = `${addPx(offsetX + dragBtnRadius)}`
+    buttonRef.value!.style[offsetStyle] = `${addPx(offset)}`
+    traceRef.value!.style[lengthStyle] = `${addPx(offset + dragBtnRadius)}`
   }
 
   const callback = () => {
-    const value = Math.round((offsetX / maxWidth) * max)
+    const value = Math.round((offset / maxLength) * max.value)
     if (value !== currentValue) {
       currentValue = value
       emit('update:modelValue', currentValue)
@@ -29,8 +47,8 @@ export function useSlider(containerRef: Ref<HTMLElement | undefined>, dragRef: R
 
   const mouseEvents = (donwX: number, startX: number) => {
     const mousemoveEvent = function (e: MouseEvent) {
-      offsetX = Math.min(Math.max(e.clientX - donwX + startX, 0), maxWidth)
-      dragRef.value!.style.left = `${addPx(offsetX)}`
+      offset = Math.min(Math.max(e[clientType] - donwX + startX, 0), maxLength)
+      buttonRef.value!.style[offsetStyle] = `${addPx(offset)}`
       r()
       callback()
     }
@@ -45,53 +63,63 @@ export function useSlider(containerRef: Ref<HTMLElement | undefined>, dragRef: R
   }
 
   const containerMousedownEvent = (e: MouseEvent) => {
-    offsetX = Math.min(Math.max(e.offsetX - dragBtnRadius, 0), maxWidth)
-    dragRef.value!.style.left = `${addPx(offsetX)}`
+    offset = Math.min(Math.max(e[clientOffsetType] - dragBtnRadius, 0), maxLength)
+    buttonRef.value!.style[offsetStyle] = `${addPx(offset)}`
     r()
     callback()
-    mouseEvents(e.clientX, offsetX)
+    mouseEvents(e[clientType], offset)
   }
 
   const mousedownEvent = (e: MouseEvent) => {
-    const donwX = e.clientX
-    const startX = offsetX
+    const donwX = e[clientType]
+    const startX = offset
     mouseEvents(donwX, startX)
   }
 
   const onDraggable = () => {
-    if (containerRef.value && dragRef.value && traceRef.value) {
-      const dragRefRect = dragRef.value.getBoundingClientRect()
-      maxWidth
-        = containerRef.value.getBoundingClientRect().width - dragRefRect.width
-      dragBtnRadius = dragRefRect.width / 2
+    if (trackRef.value && buttonRef.value && traceRef.value) {
+      const buttonRefRect = buttonRef.value.getBoundingClientRect()
+      maxLength
+        = trackRef.value.getBoundingClientRect()[lengthStyle] - buttonRefRect[lengthStyle]
+      dragBtnRadius = buttonRefRect[lengthStyle] / 2
       watchEffect(() => {
         if (modelValue.value !== currentValue) {
           currentValue = modelValue.value
-          offsetX = Math.min(Math.max((currentValue / max) * maxWidth, 0), maxWidth)
+          offset = Math.min(Math.max((currentValue / max.value) * maxLength, 0), maxLength)
           r()
         }
       })
-      dragRef.value.addEventListener('mousedown', mousedownEvent)
+      buttonRef.value.addEventListener('mousedown', mousedownEvent)
       traceRef.value.addEventListener('mousedown', containerMousedownEvent)
-      containerRef.value.addEventListener('mousedown', containerMousedownEvent)
+      trackRef.value.addEventListener('mousedown', containerMousedownEvent)
     }
   }
 
   const offDraggable = () => {
-    if (containerRef.value && dragRef.value) {
-      dragRef.value.removeEventListener('mousedown', mousedownEvent)
-      containerRef.value.removeEventListener(
+    if (trackRef.value && buttonRef.value) {
+      buttonRef.value.removeEventListener('mousedown', mousedownEvent)
+      trackRef.value.removeEventListener(
         'mousedown',
         containerMousedownEvent,
       )
     }
   }
 
-  onMounted(() => {
-    onDraggable()
+  watchEffect(() => {
+    if (disabled.value) {
+      offDraggable()
+    } else {
+      onDraggable()
+    }
   })
 
   onBeforeUnmount(() => {
     offDraggable()
   })
+
+  return {
+    trackRef,
+    buttonRef,
+    traceRef,
+  }
 }
