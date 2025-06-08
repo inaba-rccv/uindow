@@ -29,7 +29,7 @@ const routeName = computed((): string => {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--ui-bg-color);
+  // background-color: #242424;
   z-index: 1000;
   height: var(--header-height);
   &-wrapper {
