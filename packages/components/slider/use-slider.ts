@@ -108,7 +108,8 @@ export function useSlider(
   watchEffect(() => {
     if (disabled.value) {
       offDraggable()
-    } else {
+    }
+    else {
       onDraggable()
     }
   })

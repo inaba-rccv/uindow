@@ -1,10 +1,8 @@
 <script lang="ts" setup>
 import type { SliderType } from './slider.type'
-import { computed, toRefs } from 'vue'
+import { computed } from 'vue'
 import { useSlider } from './use-slider'
 import './index.scss'
-
-// type SliderType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
 
 const props = withDefaults(
   defineProps<{
