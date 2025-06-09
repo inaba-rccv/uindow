@@ -40,14 +40,14 @@ const { trackRef, buttonRef, traceRef } = useSlider(props, emit)
       height: vertical ? height : 'auto',
     }"
   >
-    <div ref="trackRef" class="ui-slider--track" :style="{ backgroundColor: trackColor }" />
+    <div ref="trackRef" class="ui-slider__track" :style="{ backgroundColor: trackColor }" />
     <div
       ref="traceRef"
-      class="ui-slider--trace"
+      class="ui-slider__trace"
       :style="{ backgroundColor: `var(--ui-color-${type})` }"
     />
-    <div ref="buttonRef" class="ui-slider--button-container">
-      <div class="ui-slider--button-default" />
+    <div ref="buttonRef" class="ui-slider__button-wrapper">
+      <div class="ui-slider__button-inner" />
     </div>
   </div>
 </template>

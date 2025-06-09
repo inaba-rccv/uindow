@@ -1,14 +1,14 @@
-.ui-radio--group {
+.ui-radio-group {
   font-size: inherit;
   background-color: var(--ui-text-color);
-  .ui-radio--option {
+  .ui-radio-option {
     line-height: var(--ui-line-height-base);
     color: var(--ui-color-info);
     font-weight: bold;
     cursor: pointer;
     padding: 0 4px;
   }
-  .ui-radio--option__selected {
+  .ui-radio--option--selected {
     color: var(--ui-text-color);
     background-color: var(--ui-color-info);
   }

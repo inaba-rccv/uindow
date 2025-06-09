@@ -31,20 +31,20 @@ function fold() {
 
 <template>
   <div class="ui-fdwindow" :style="{ width: foldingWindowWidth }">
-    <div class="ui-fdwindow--header">
-      <div class="ui-fdwindow--title">
+    <div class="ui-fdwindow__header">
+      <div class="ui-fdwindow__title">
         {{ title }}
       </div>
-      <div class="ui-fdwindow--action">
+      <div class="ui-fdwindow__action">
         <ui-icon clickable size="auto" @click="fold">
           <IFold />
         </ui-icon>
       </div>
     </div>
-    <div class="ui-fdwindow--body hidden-scrollbar" :style="{ height: windowBodyHeight }">
+    <div class="ui-fdwindow__body hidden-scrollbar" :style="{ height: windowBodyHeight }">
       <slot />
     </div>
-    <div class="ui-fdwindow--footer">
+    <div class="ui-fdwindow__footer">
       <slot name="footer" />
     </div>
   </div>

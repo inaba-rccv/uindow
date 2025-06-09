@@ -3,7 +3,7 @@ import './index.scss'
 </script>
 
 <template>
-  <button class="ui-menu-sub-menu-item reset-button">
+  <button class="ui-menu__subItem reset-button">
     <slot />
   </button>
 </template>

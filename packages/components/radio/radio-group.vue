@@ -15,7 +15,7 @@ provide(RadioKey, RadioGroupInstance)
 </script>
 
 <template>
-  <div class="ui-radio--group">
+  <div class="ui-radio-group">
     <slot />
   </div>
 </template>

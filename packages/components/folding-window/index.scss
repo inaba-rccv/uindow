@@ -2,17 +2,17 @@
   min-width: 100px;
   border-radius: 4px;
   overflow: hidden;
-  &--header {
+  &__header {
     position: relative;
     height: var(--ui-window-height-mini);
     display: flex;
     justify-content: center;
     align-items: center;
     user-select: none;
-    .ui-fdwindow--title {
+    .ui-fdwindow__title {
       font-size: var(--ui-font-size-base);
     }
-    .ui-fdwindow--action {
+    .ui-fdwindow__action {
       position: absolute;
       display: flex;
       right: 0;
@@ -20,12 +20,12 @@
       box-sizing: border;
     }
   }
-  .ui-fdwindow--body {
+  .ui-fdwindow__body {
     transition: height .3s;
     font-size: var(--ui-font-size-mini);
     overflow-y: scroll;
   }
-  .ui-fdwindow--footer {
+  .ui-fdwindow__footer {
     height: var(--ui-window-height-mini);
   }
 }

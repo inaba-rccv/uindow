@@ -5,23 +5,23 @@
   align-items: center;
   position: relative;
   user-select: none;
-  .ui-slider--track {
+  .ui-slider__track {
     flex: 1;
     height: var(--ui-slider-height);
     border-radius: 2px;
     cursor: pointer;
   }
-  .ui-slider--button-container {
+  .ui-slider__button-wrapper {
     position: absolute;
     cursor: pointer;
-    .ui-slider--button-default {
+    .ui-slider__button-inner {
       height: 8px;
       width: 24px;
       border-radius: 4px;
       background-color: #80736e;
     }
   }
-  .ui-slider--trace {
+  .ui-slider__trace {
     position: absolute;
     height: 4px;
     left: 0;
@@ -34,21 +34,21 @@
     display: inline-flex;
     width: var(--ui-inline-height);
     height: 100%;
-    .ui-slider--track {
+    .ui-slider__track {
       width: var(--ui-slider-height);
       margin: 0 calc((var(--ui-inline-height) - var(--ui-slider-height)) / 2);
       height: 100%;
     }
-    .ui-slider--button-container {
+    .ui-slider__button-wrapper {
       left: calc((var(--ui-inline-height) - var(--ui-slider-button-height)) / 2);
       top: 0;
-      .ui-slider--button-default {
+      .ui-slider__button-inner {
         width: var(--ui-slider-button-height);
         height: 24px;
         border-radius: 4px;
       }
     }
-    .ui-slider--trace {
+    .ui-slider__trace {
       width: 4px;
       top: 0;
       left: calc((var(--ui-inline-height) - var(--ui-slider-height)) / 2);

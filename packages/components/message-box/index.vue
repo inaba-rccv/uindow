@@ -165,42 +165,42 @@ export default defineComponent({
       draggable: uindowDraggable,
     }"
   >
-    <div class="ui-message-box--wrapper ui-message-box-fade-in">
+    <div class="ui-message-box__wrapper ui-message-box-fade-in">
       <div
         ref="headerRef"
-        class="ui-message-box--header"
+        class="ui-message-box__header"
         :style="{
           backgroundColor: `var(--ui-color-${type})`,
         }"
       >
-        <div class="ui-message-box--action">
-          <button class="ui-message-box--actionBtn" @click="handleClose">
+        <div class="ui-message-box__action-wrapper">
+          <button class="ui-message-box__actionBtn" @click="handleClose">
             <IClose />
           </button>
-          <button class="ui-message-box--actionBtn">
+          <button class="ui-message-box__actionBtn">
             <IEnlarge />
           </button>
-          <button class="ui-message-box--actionBtn">
+          <button class="ui-message-box__actionBtn">
             <INarrow />
           </button>
         </div>
-        <div class="ui-message-box--title">
+        <div class="ui-message-box__title">
           {{ messageBoxTitle }}
         </div>
       </div>
-      <div class="ui-message-box--body">
-        <div class="ui-message-box--container">
+      <div class="ui-message-box__body">
+        <div class="ui-message-box__container">
           <div
             v-if="icon"
-            class="ui-message-box--typeicon"
+            class="ui-message-box__typeIcon"
             :style="{ color: `var(--ui-color-${type})` }"
           >
             <component :is="icon" />
           </div>
-          <div class="ui-message-box--message" v-text="message" />
+          <div class="ui-message-box__message" v-text="message" />
         </div>
 
-        <div v-if="showConfirmButton" class="ui-uindom-confirmBtn">
+        <div v-if="showConfirmButton" class="ui-message-box__confirmBtn">
           <UiButton :type="type" @click="handleClose">
             OK
           </UiButton>

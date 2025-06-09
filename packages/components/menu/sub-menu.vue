@@ -34,9 +34,9 @@ function handleClose() {
 </script>
 
 <template>
-  <div class="ui-menu-sub-menu">
+  <div class="ui-menu__subMenu">
     <button
-      class="ui-menu-menu-item reset-button"
+      class="ui-menu__item reset-button"
       :class="{
         focus: menuShow,
       }"
@@ -47,7 +47,7 @@ function handleClose() {
     >
       <slot name="title" />
     </button>
-    <div v-show="menuShow" class="ui-menu-menu-container" @mousedown="handleMenuDown" @click="handleClose">
+    <div v-show="menuShow" class="ui-menu__dropdownMenu" @mousedown="handleMenuDown" @click="handleClose">
       <slot />
     </div>
   </div>

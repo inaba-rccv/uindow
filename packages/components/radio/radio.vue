@@ -22,8 +22,8 @@ function handleRadioSelect() {
 
 <template>
   <div
-    class="ui-radio--option"
-    :class="{ 'ui-radio--option__selected': currentValue === props.label }"
+    class="ui-radio-option"
+    :class="{ 'ui-radio-option--selected': currentValue === props.label }"
     @click="handleRadioSelect"
   >
     <slot />

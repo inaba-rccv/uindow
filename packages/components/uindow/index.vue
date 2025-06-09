@@ -96,34 +96,34 @@ const headerStyles = computed(() => {
     }"
   >
     <div
-      class="ui-uindow--wrapper"
+      class="ui-uindow__wrapper"
       :class="{
         'ui-uindow-fade-in': uindowAnimationFadeIn,
         'ui-uindow-fade-out': uindowAnimationFadeOut,
       }"
     >
-      <div ref="headerRef" class="ui-uindow--header" :style="headerStyles">
-        <div class="ui-uindow--action">
-          <button class="ui-uindow--actionBtn" @click="handleClose">
+      <div ref="headerRef" class="ui-uindow__header" :style="headerStyles">
+        <div class="ui-uindow__action-wrapper">
+          <button class="ui-uindow__actionBtn" @click="handleClose">
             <IClose />
           </button>
-          <button class="ui-uindow--actionBtn">
+          <button class="ui-uindow__actionBtn">
             <IEnlarge />
           </button>
-          <button class="ui-uindow--actionBtn">
+          <button class="ui-uindow__actionBtn">
             <INarrow />
           </button>
         </div>
-        <div class="ui-uindow--title">
+        <div class="ui-uindow__title">
           <slot name="header">
             TITLE
           </slot>
         </div>
       </div>
-      <div class="ui-uindow--menu">
+      <div class="ui-uindow__menu">
         <slot name="menu" />
       </div>
-      <div class="ui-uindow--body">
+      <div class="ui-uindow__body">
         <slot />
       </div>
     </div>

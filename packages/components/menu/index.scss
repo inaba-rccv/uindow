@@ -5,10 +5,10 @@
   background-color: var(--ui-color-info);
   width: 100%;
   font-size: var(--ui-font-size-mini);
-  &-sub-menu {
+  &__subMenu {
     position: relative;
     line-height: var(--ui-line-height-base);
-    .ui-menu-menu-item {
+    .ui-menu__item {
       width: 100%;
       padding: 0 10px;
       border-radius: 3px;
@@ -24,13 +24,13 @@
         background-color: var(--ui-color-info-dark);
       }
     }
-    .ui-menu-menu-container {
+    .ui-menu__dropdownMenu {
       position: absolute;
       background-color: var(--ui-color-info-light);
       // padding: 0.2rem;
       border-radius: 3px;
       overflow: hidden;
-      .ui-menu-sub-menu-item {
+      .ui-menu__subItem {
         display: inline;
         width: 100%;
         text-align: left;
@@ -49,6 +49,4 @@
       display: block;
     }
   }
-
-  
 }
