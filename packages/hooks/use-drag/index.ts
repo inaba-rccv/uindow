@@ -10,7 +10,13 @@ import {
   watchEffect,
 } from 'vue'
 
-export function useDrag(containerRef: Ref<HTMLElement | undefined>, headerRef: Ref<HTMLElement | undefined>, draggable: ComputedRef<boolean>, overflow: ComputedRef<boolean>, initialPosition: IPosition | null): void {
+export function useDrag(
+  containerRef: Ref<HTMLElement | undefined>,
+  headerRef: Ref<HTMLElement | undefined>,
+  draggable: ComputedRef<boolean>,
+  overflow: ComputedRef<boolean>,
+  initialPosition: IPosition | null,
+): void {
   let transform: IPosition
   // TODO 有没有更好的写法？
   if (initialPosition !== null) {
@@ -31,7 +37,7 @@ export function useDrag(containerRef: Ref<HTMLElement | undefined>, headerRef: R
 
   const mousedownEvent = function (e: MouseEvent) {
     // document.body.classList.add('no-select')
-    const donwX = e.clientX
+    const downX = e.clientX
     const downY = e.clientY
 
     const boxRect = containerRef.value!.getBoundingClientRect()
@@ -49,7 +55,7 @@ export function useDrag(containerRef: Ref<HTMLElement | undefined>, headerRef: R
     const maxTop = maxHeight - boxTop - boxHeight + offsetY
 
     const mousemoveEvent = function (e: MouseEvent) {
-      let distanceX = e.clientX - donwX + offsetX
+      let distanceX = e.clientX - downX + offsetX
       let distanceY = e.clientY - downY + offsetY
 
       if (!overflow.value) {
