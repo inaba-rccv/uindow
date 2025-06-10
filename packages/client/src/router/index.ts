@@ -112,6 +112,18 @@ export const constantRoutes = [
     ],
   },
   {
+    path: '/scrollbar',
+    component: Layout,
+    meta: { title: 'Scrollbar' },
+    children: [
+      {
+        path: '',
+        name: 'scrollbar',
+        component: () => import('@/views/scrollbar/scrollbar.vue'),
+      },
+    ],
+  },
+  {
     path: '/layout',
     component: Layout,
     meta: { title: 'Layout' },

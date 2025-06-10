@@ -1,18 +1,13 @@
+<script lang="ts" setup>
+import { ref } from 'vue'
+</script>
+
 <template>
   <div class="page-content">
     <div class="border-box">
       <div class="flex-container">
-        <div class="item">
-          1
-        </div>
-        <div class="item">
-          2
-        </div>
-        <div class="item">
-          3
-        </div>
-        <div class="item">
-          4
+        <div v-for="i in 20" :key="i" class="item">
+          {{ i }}
         </div>
       </div>
     </div>
@@ -35,16 +30,18 @@
   padding: 5px;
   display: inline-block;
   transition: .5s;
-  // clip-path: path('M0,0 h400 v250 h-400 v-250ZM5,5 v240 h390 v-240 Z');
   &:hover {
     background-position: 0px -20px;
   }
   .flex-container {
     display: flex;
+    flex-wrap: wrap;
     background-color: var(--ui-color-info);
     width: 400px;
     height: 250px;
-    flex-direction: column-reverse;
+    flex-direction: row;
+    align-content: baseline;
+    align-items: center;
 
     .item {
       width: 50px;
