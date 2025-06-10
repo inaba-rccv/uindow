@@ -11,6 +11,7 @@ import UiMessageBox from './message-box/message-box'
 import UiProgress from './progress/index.vue'
 import UiRadioGroup from './radio/radio-group.vue'
 import UiRadio from './radio/radio.vue'
+import UiScrollbar from './scrollbar/index.vue'
 import UiSlider from './slider/index.vue'
 import UiText from './text/index.vue'
 import UiUindow from './uindow/index.vue'
@@ -36,5 +37,6 @@ export default {
     app.component('UiFoldingWindow', UiFoldingWindow)
     app.component('UiRadioGroup', UiRadioGroup)
     app.component('UiRadio', UiRadio)
+    app.component('UiScrollbar', UiScrollbar)
   },
 }
