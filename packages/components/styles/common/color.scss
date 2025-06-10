@@ -1,11 +1,15 @@
 @use "sass:color";
 
+/* * UI Color Variables
+ * This file defines the color variables used throughout the UI components.
+ * It includes primary, success, warning, danger, info, tooltip, white, black, and shadow colors.
+ * Each color is defined with a light and dark variant for better theming support.
+ */
 $ui-primary: #ff7c88;
 $ui-success: #718ee6;
 $ui-warning: #ffd789;
 $ui-danger: #ffac7c;
 $ui-info: #aaa39c;
-
 $ui-tooltip: #7eb9a8;
 $ui-white: #ffefea;
 $ui-black: #181818;
