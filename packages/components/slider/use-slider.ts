@@ -45,9 +45,9 @@ export function useSlider(
     }
   }
 
-  const mouseEvents = (donwX: number, startX: number) => {
+  const mouseEvents = (downX: number, startX: number) => {
     const mousemoveEvent = function (e: MouseEvent) {
-      offset = Math.min(Math.max(e[clientType] - donwX + startX, 0), maxLength)
+      offset = Math.min(Math.max(e[clientType] - downX + startX, 0), maxLength)
       buttonRef.value!.style[offsetStyle] = `${addPx(offset)}`
       r()
       callback()
@@ -71,9 +71,9 @@ export function useSlider(
   }
 
   const mousedownEvent = (e: MouseEvent) => {
-    const donwX = e[clientType]
+    const downX = e[clientType]
     const startX = offset
-    mouseEvents(donwX, startX)
+    mouseEvents(downX, startX)
   }
 
   const onDraggable = () => {
