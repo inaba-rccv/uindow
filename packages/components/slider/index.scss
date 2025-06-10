@@ -1,4 +1,9 @@
 .ui-slider {
+  --ui-slider-height: 4px;
+  --ui-slider-button-height: 8px;
+}
+
+.ui-slider {
   width: 100%;
   height: var(--ui-inline-height);
   display: flex;
