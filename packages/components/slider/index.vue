@@ -37,7 +37,7 @@ const { trackRef, buttonRef, traceRef } = useSlider(props, emit)
 <template>
   <div
     class="ui-slider" :class="classes" :style="{
-      height: vertical ? height : 'auto',
+      height: vertical ? height : 'var(--ui-inline-height)',
     }"
   >
     <div ref="trackRef" class="ui-slider__track" :style="{ backgroundColor: trackColor }" />
@@ -46,7 +46,7 @@ const { trackRef, buttonRef, traceRef } = useSlider(props, emit)
       class="ui-slider__trace"
       :style="{ backgroundColor: `var(--ui-color-${type})` }"
     />
-    <div ref="buttonRef" class="ui-slider__button-wrapper">
+    <div ref="buttonRef" class="ui-slider__button-wrapper" :title="modelValue.toString()">
       <div class="ui-slider__button-inner" />
     </div>
   </div>
