@@ -53,8 +53,6 @@ export function useScrollbar(
     if (container.value) {
       scrollHeight.value = container.value.scrollHeight
       containerHeight.value = container.value.clientHeight
-      // TODO 触发了两次
-      // console.log('containerHeight change', container.value.clientHeight)
       if (containerHeight.value < scrollHeight.value) {
         bar.value!.style.display = 'block'
       }
@@ -85,6 +83,7 @@ export function useScrollbar(
     thumbTranslateY,
     container,
     bar,
+    updateContainerHeight,
     handleScroll,
   }
 }
