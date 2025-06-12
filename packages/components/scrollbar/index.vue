@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { inject, nextTick, ref, watch } from 'vue'
 import { useScrollbar } from './use-scrollbar'
 import { useThumb } from './use-thumb'
 import './index.scss'
@@ -20,9 +21,23 @@ const {
   thumbTranslateY,
   container,
   bar,
+  updateContainerHeight,
   handleScroll,
 } = useScrollbar(props, emit)
 const { thumb } = useThumb(thumbTranslateY)
+
+// 处理父组件显隐时 主动触发计算容器尺寸
+const parentShow = inject('parentShow', ref(false))
+watch(
+  parentShow,
+  (newVal) => {
+    if (newVal) {
+      nextTick(() => {
+        updateContainerHeight()
+      })
+    }
+  },
+)
 </script>
 
 <template>
