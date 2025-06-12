@@ -12,21 +12,51 @@ function decrement() {
 
 <template>
   <div class="page-content">
-    <div class="mb-20">
-      <ui-button @click="increment">
-        Increment Count
-      </ui-button>
-      <ui-button @click="decrement">
-        Decrement Count
-      </ui-button>
-    </div>
-    <ui-scrollbar height="400px">
-      <div class="filler-wrapper">
-        <div v-for="i in count" :key="i" class="filler">
-          {{ i }}
+    <h2>固定高度</h2>
+    <Exhibition>
+      <template #default>
+        <ui-scrollbar height="400px">
+          <div class="filler-wrapper">
+            <div v-for="i in count" :key="i" class="filler">
+              {{ i }}
+            </div>
+          </div>
+        </ui-scrollbar>
+      </template>
+      <template #footer>
+        <div>
+          <ui-button @click="increment">
+            Increment Count
+          </ui-button>
+          <ui-button @click="decrement">
+            Decrement Count
+          </ui-button>
         </div>
-      </div>
-    </ui-scrollbar>
+      </template>
+    </Exhibition>
+
+    <h2>最大高度</h2>
+    <Exhibition>
+      <template #default>
+        <ui-scrollbar max-height="400px">
+          <div class="filler-wrapper">
+            <div v-for="i in count" :key="i" class="filler">
+              {{ i }}
+            </div>
+          </div>
+        </ui-scrollbar>
+      </template>
+      <template #footer>
+        <div>
+          <ui-button @click="increment">
+            Increment Count
+          </ui-button>
+          <ui-button @click="decrement">
+            Decrement Count
+          </ui-button>
+        </div>
+      </template>
+    </Exhibition>
   </div>
 </template>
 

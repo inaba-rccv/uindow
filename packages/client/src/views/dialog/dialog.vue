@@ -1,47 +1,31 @@
 <script lang="ts" setup>
 import messageBox from '@uindow/components/message-box/message-box'
 import IButton from '@uindow/components/svg/IButton.vue'
+import { UindowColorType } from '@uindow/types'
 
+const colorType: UindowColorType[] = ['warning', 'danger', 'info', 'success']
+let currentTypeIndex = 0
 function open() {
   messageBox.confirm({
-    type: 'warning',
+    type: colorType[currentTypeIndex],
     message: 'Warning!\nSYSTEM ERROR#490UIA:A',
   })
-  messageBox.confirm({
-    type: 'danger',
-    message: 'Error!\nSYSTEM ERROR#490UIA:A',
-  })
-  messageBox.confirm({
-    type: 'success',
-    message: 'Error!\nSYSTEM ERROR#490UIA:A',
-  })
-  messageBox.confirm({
-    type: 'primary',
-    title: 'Hashtag',
-    message: '#うい校内放送',
-    showConfirmButton: false,
-  })
+  currentTypeIndex = currentTypeIndex < colorType.length - 1 ? currentTypeIndex + 1 : 0
+  // messageBox.confirm({
+  //   type: 'primary',
+  //   title: 'Hashtag',
+  //   message: '#うい校内放送',
+  //   showConfirmButton: false,
+  // })
   // warningAnimation(5)
 }
-
-// function warningAnimation(count: number, start = 0) {
-//   if (start < count) {
-//     messageBox.confirm({
-//       type: 'warning',
-//       message: 'Warning!\nSYSTEM ERROR#490UIA:A',
-//     })
-//   }
-//   setTimeout(() => {
-//     warningAnimation(count, ++start)
-//   }, 1500)
-// }
 </script>
 
 <template>
   <div class="page-content">
-    <ui-icon clickable @click="open">
-      <IButton />
-    </ui-icon>
+    <Exhibition>
+      <ui-button @click="open">Click to Open Dialog</ui-button>
+    </Exhibition>
   </div>
 </template>
 

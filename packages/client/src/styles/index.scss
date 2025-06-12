@@ -4,6 +4,8 @@
 
 :root {
   --header-height: 52px; /* 顶部导航栏高度 */
+
+  --border-color: rgba(255, 255, 255, 0.12); /* 边框颜色 */
 }
 
 body, html {
@@ -30,3 +32,9 @@ body, html {
 .page-content {
   padding: 40px;
 }
+
+
+
+// h1 {
+
+// }

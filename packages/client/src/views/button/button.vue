@@ -4,80 +4,126 @@ import IRight from '@uindow/components/svg/IRight.vue'
 
 <template>
   <div class="page-content">
-    <div style="width: 800px;">
-      <div style="display: flex; justify-content: center; flex-wrap: wrap" />
+    <h2>常规按钮</h2>
+    <Exhibition>
+      <template #default>
+        <div class="mb-20">
+          <ui-button>Primary</ui-button>
+          <ui-button type="warning">
+            Warning
+          </ui-button>
+          <ui-button type="danger">
+            Danger
+          </ui-button>
+          <ui-button type="success">
+            Success
+          </ui-button>
+          <ui-button type="info">
+            Info
+          </ui-button>
+        </div>
 
-      <div class="mb-20">
-        <ui-button circle plain>
-          <IRight />
-        </ui-button>
-        <ui-button circle plain type="warning">
-          <IRight />
-        </ui-button>
-      </div>
+        <div>
+          <ui-button plain>
+            Primary
+          </ui-button>
+          <ui-button plain type="warning">
+            Warning
+          </ui-button>
+          <ui-button plain type="danger">
+            Danger
+          </ui-button>
+          <ui-button plain type="success">
+            Success
+          </ui-button>
+          <ui-button plain type="info">
+            Info
+          </ui-button>
+        </div>
+      </template>
+    </Exhibition>
 
-      <div class="mb-20">
-        <ui-button square>
-          <IRight />
-        </ui-button>
-        <ui-button square type="warning">
-          <IRight />
-        </ui-button>
-        <ui-button square type="danger">
-          <IRight />
-        </ui-button>
-      </div>
+    <h2>禁用状态</h2>
+    <Exhibition>
+      <template #default>
+        <div class="mb-20">
+          <ui-button disabled>
+            Primary
+          </ui-button>
+          <ui-button disabled type="warning">
+            Warning
+          </ui-button>
+          <ui-button disabled type="danger">
+            Danger
+          </ui-button>
+          <ui-button disabled type="success">
+            Success
+          </ui-button>
+          <ui-button disabled type="info">
+            Info
+          </ui-button>
+        </div>
 
-      <div class="mb-20">
-        <ui-button>Primary</ui-button>
-        <ui-button type="warning">
-          Warning
-        </ui-button>
-        <ui-button type="danger">
-          Danger
-        </ui-button>
-        <ui-button type="success">
-          Success
-        </ui-button>
-        <ui-button type="info">
-          Info
-        </ui-button>
-      </div>
-      <div class="mb-20">
-        <ui-button plain>
-          Primary
-        </ui-button>
-        <ui-button plain type="warning">
-          Warning
-        </ui-button>
-        <ui-button plain type="danger">
-          Danger
-        </ui-button>
-        <ui-button plain type="success">
-          Success
-        </ui-button>
-        <ui-button plain type="info">
-          Info
-        </ui-button>
-      </div>
-      <div class="mb-20">
-        <ui-button disabled>
-          Primary
-        </ui-button>
-        <ui-button disabled type="warning">
-          Warning
-        </ui-button>
-        <ui-button disabled type="danger">
-          Danger
-        </ui-button>
-        <ui-button disabled type="success">
-          Success
-        </ui-button>
-        <ui-button disabled type="info">
-          Info
-        </ui-button>
-      </div>
-    </div>
+        <div>
+          <ui-button disabled plain>
+            Primary
+          </ui-button>
+          <ui-button disabled plain type="warning">
+            Warning
+          </ui-button>
+          <ui-button disabled plain type="danger">
+            Danger
+          </ui-button>
+          <ui-button disabled plain type="success">
+            Success
+          </ui-button>
+          <ui-button disabled plain type="info">
+            Info
+          </ui-button>
+        </div>
+      </template>
+    </Exhibition>
+
+    <h2>图标按钮</h2>
+    <Exhibition>
+      <template #default>
+        <div class="mb-20">
+          <ui-button circle plain>
+            <IRight />
+          </ui-button>
+          <ui-button circle plain type="warning">
+            <IRight />
+          </ui-button>
+          <ui-button circle plain type="danger">
+            <IRight />
+          </ui-button>
+          <ui-button circle plain type="success">
+            <IRight />
+          </ui-button>
+          <ui-button circle plain type="info">
+            <IRight />
+          </ui-button>
+        </div>
+
+        <div>
+          <ui-button square>
+            <IRight />
+          </ui-button>
+          <ui-button square type="warning">
+            <IRight />
+          </ui-button>
+          <ui-button square type="danger">
+            <IRight />
+          </ui-button>
+          <ui-button square type="success">
+            <IRight />
+          </ui-button>
+          <ui-button square type="info">
+            <IRight />
+          </ui-button>
+        </div>
+      </template>
+    </Exhibition>
   </div>
 </template>
 

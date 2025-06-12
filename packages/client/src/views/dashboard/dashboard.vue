@@ -51,19 +51,19 @@ onUnmounted(() => {
 <template>
   <div class="dashboard page-content">
     <div class="screen">
-      <ui-text animate="eraser" duration="5">
+      <ui-text animate="eraser" :duration="5">
         <p>
           <span v-html="renderTextArrayToHtml(systemInfo)" />
         </p>
       </ui-text>
 
-      <ui-text animate="eraser" delay="5" duration="2" style="margin-left: calc(50% - 7rem)">
+      <ui-text animate="eraser" :delay="5" :duration="2" style="margin-left: calc(50% - 7rem)">
         <p>
           <span v-html="renderTextArrayToHtml(memeryInfo)" />
         </p>
       </ui-text>
 
-      <ui-text animate="eraser" delay="7" duration="2">
+      <ui-text animate="eraser" :delay="7" :duration="2">
         <p>
           <span v-html="renderTextArrayToHtml(footerInfo)" />
         </p>

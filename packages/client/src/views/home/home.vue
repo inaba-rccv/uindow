@@ -151,7 +151,7 @@ const interval = setInterval(() => {
             <span>hh</span>
           </span>
         </ui-text>
-        <ui-text animate="bounce">
+        <ui-text animate="bounceIn">
           Uindow
         </ui-text>
         <ui-text typewriter animate="bounce">
@@ -172,7 +172,7 @@ const interval = setInterval(() => {
     </div>
 
     <!-- <div class="sidebar">
-      <div v-for="(item, key) in sidebarMenu" class="icon-btn" :style="[{animation: 'fadeInUp ' + (key* 0.2 + 1) + 's cubic-bezier(0.2, 0, 0, 1)'}]">
+      <div v-for="(item, key) in sidebarMenu" class="icon-btn" :style="[{animation: 'fadeUpIn ' + (key* 0.2 + 1) + 's cubic-bezier(0.2, 0, 0, 1)'}]">
         <ui-icon clickable>
           <component :is="item.component"></component>
         </ui-icon>

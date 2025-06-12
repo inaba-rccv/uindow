@@ -9,9 +9,9 @@ import SideBar from './components/SideBar/index.vue'
     <div class="nav">
       <SideBar />
     </div>
-    <div class="content hidden-scrollbar">
+    <ui-scrollbar class="content">
       <router-view />
-    </div>
+    </ui-scrollbar>
   </div>
 </template>
 

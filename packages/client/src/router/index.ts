@@ -40,6 +40,18 @@ export const constantRoutes = [
     ],
   },
   {
+    path: '/text',
+    component: Layout,
+    meta: { title: 'Text' },
+    children: [
+      {
+        path: '',
+        name: 'text',
+        component: () => import('@/views/text/text.vue'),
+      },
+    ],
+  },
+  {
     path: '/slider',
     component: Layout,
     meta: { title: 'Slider' },
@@ -96,18 +108,6 @@ export const constantRoutes = [
         path: '',
         name: 'animate',
         component: () => import('@/views/animate/animate.vue'),
-      },
-    ],
-  },
-  {
-    path: '/text',
-    component: Layout,
-    meta: { title: 'Text' },
-    children: [
-      {
-        path: '',
-        name: 'text',
-        component: () => import('@/views/text/text.vue'),
       },
     ],
   },

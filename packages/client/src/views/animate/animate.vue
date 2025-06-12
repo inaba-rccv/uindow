@@ -33,7 +33,7 @@ const animationBtn3 = ref(false)
       <div v-if="animationBtn2" class="menu-container">
         <div v-for="i in 12" :key="i" class="menu-item">
           <ui-button
-            type="info" square class="fadeInUp-enter-active" :style="{
+            type="info" square class="fadeUpIn-enter-active" :style="{
               animationDuration: `${i * 0.1 + 1}s`,
               height: '40px',
               width: '40px',
