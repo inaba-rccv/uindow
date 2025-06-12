@@ -1,23 +1,23 @@
 <script lang="ts" setup>
 import type { Ref, StyleValue, VNode } from 'vue'
-import type { EnterAnimate } from './text.type'
+import type { AnimateType } from './text.type'
 import { getParentBackgroundColor } from '@uindow/utils'
-import { Fragment, h, onMounted, ref, useSlots, watchEffect } from 'vue'
+import { computed, Fragment, h, onMounted, ref, useSlots, watchEffect } from 'vue'
+import { animateDefaultStyleMap, TYPEWRITER_ANIMATION_DELAY } from './text'
 import './index.scss'
 
 const props = withDefaults(
   defineProps<{
-    animate?: EnterAnimate
-    style?: StyleValue
+    animate?: AnimateType
     typewriter?: boolean
-    duration?: string | number
-    delay?: string | number
+    duration?: number
+    delay?: number
+    // charStyle?: StyleValue // TODO 暂时不支持 typewriter 字符样式
   }>(),
   {
     animate: '',
-    bounce: false,
     typewriter: false,
-    duration: 1,
+    duration: 0,
     delay: 0,
   },
 )
@@ -25,6 +25,28 @@ const props = withDefaults(
 const slots = useSlots()
 const text = ref<HTMLElement | null>(null)
 const animatedSlots: Ref<VNode[]> = ref([])
+const animateCustomStyle = computed(() => {
+  const style: StyleValue = {
+    animationName: props.animate,
+    animationFillMode: 'forwards',
+  }
+  if (props.duration !== 0) {
+    style.animationDuration = `${props.duration}s`
+  }
+  if (props.delay !== 0) {
+    style.animationDelay = `${props.delay}s`
+  }
+  return style
+})
+const animateDefaultStyle = computed(() => {
+  return animateDefaultStyleMap[props.animate] || {}
+})
+const animateStyle = computed(() => ({
+  opacity: 0,
+  ...animateDefaultStyle.value,
+  ...animateCustomStyle.value,
+}))
+
 function processDefaultSlot() {
   return slots.default!().map((vnode) => {
     let newVnode: VNode
@@ -32,17 +54,17 @@ function processDefaultSlot() {
     const vnodeProps = vnode.props || {}
     vnodeProps.style = {
       ...(vnodeProps.style || {}),
-      animationName: props.animate,
-      animationDuration: `${props.duration}s`,
-      animationDelay: `${props.delay}s`,
+      ...animateStyle.value,
+      // display: 'inline',
     }
+
     newVnode = h('p', vnodeProps, vnode.children || undefined)
 
     if (props.animate === 'eraser') {
-      const eraserSpanVnode = h('span', { class: 'ui-text--eraser-content', style: {
-        animationDuration: `${props.duration}s`,
-        animationDelay: `${props.delay}s`,
-      } }, vnode.children || undefined)
+      const eraserSpanVnode = h('span', {
+        class: 'ui-text--eraser-content',
+        style: animateStyle.value,
+      }, vnode.children || undefined)
       const eraserPVNode = h('p', { class: 'ui-text--eraser' }, eraserSpanVnode)
 
       newVnode = h(Fragment, {}, [
@@ -57,13 +79,13 @@ function processTypewriterSlot() {
   const text = slots.default!()[0].children
   if (typeof text !== 'string')
     return []
-  const charArray = text.split('')
+  const charArray = text.trim().split('')
   const charVnodes = charArray.map((char, index) => {
     return h('span', { class: 'ui-text--typewriter', style: {
-      animationName: props.animate,
-      animationDuration: `${props.duration}s`,
-      animationDelay: `${index * 30}ms`,
-      display: props.animate === 'bounce' ? 'inline-block' : 'inline',
+      ...animateStyle.value,
+      animationDelay: `${props.delay * 1000 + index * TYPEWRITER_ANIMATION_DELAY}ms`,
+      // opacity: 0,
+      display: 'inline-block',
     } }, char)
   })
   // console.log('charVnodes', charVnodes)
@@ -103,7 +125,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="text" class="ui-text" :style="style">
+  <div ref="text" class="ui-text">
     <component
       :is="vnode"
       v-for="(vnode, index) in animatedSlots"
