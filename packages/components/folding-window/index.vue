@@ -41,9 +41,17 @@ function fold() {
         </ui-icon>
       </div>
     </div>
-    <div class="ui-fdwindow__body hidden-scrollbar" :style="{ height: windowBodyHeight }">
+    <!-- <div class="ui-fdwindow__body hidden-scrollbar"> -->
+    <ui-scrollbar
+      :height="bodyHeight"
+      class="ui-fdwindow__body"
+      :style="{
+        height: windowBodyHeight,
+      }"
+    >
       <slot />
-    </div>
+    </ui-scrollbar>
+    <!-- </div> -->
     <div class="ui-fdwindow__footer">
       <slot name="footer" />
     </div>
