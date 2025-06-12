@@ -50,6 +50,16 @@
         color: var(--ui-text-color);
         background-color: var(--ui-color-#{$type}-dark);
       }
+      &.disabled {
+        color: var(--ui-text-color);
+        background-color: var(--ui-color-#{$type});
+        cursor: not-allowed;
+        opacity: .5;
+        &.plain {
+          color: var(--ui-color-#{$type});
+          background-color: var(--ui-text-color);
+        }
+      }
     }
   }
 

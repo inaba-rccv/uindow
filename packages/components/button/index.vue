@@ -27,13 +27,19 @@ const classes = computed(() => [
     'circle': props.circle,
     'square': props.square,
     'plain': props.plain,
+    'disabled': props.disabled,
     'active-shrink': props.activeShrink,
   },
 ])
 </script>
 
 <template>
-  <button class="ui-button" :class="classes" :disabled="disabled">
+  <button
+    :disabled="disabled"
+    :aria-disabled="disabled"
+    class="ui-button"
+    :class="classes"
+  >
     <slot />
   </button>
 </template>
