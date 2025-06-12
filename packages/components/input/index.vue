@@ -1,15 +1,14 @@
 <script lang="ts" setup>
-import type { StyleValue } from 'vue'
+import { computed } from 'vue'
 import './index.scss'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     modalValue?: string | number
     type?: string
     disabled?: boolean
     maxlength?: string | number
     minlength?: string | number
-    style?: StyleValue
     placeholder?: string
   }>(),
   {
@@ -18,10 +17,14 @@ withDefaults(
     disabled: false,
   },
 )
+
+const classes = computed(() => ({
+  disabled: props.disabled,
+}))
 </script>
 
 <template>
-  <div class="ui-input" :style="style">
+  <div class="ui-input" :class="classes">
     <div class="ui-input--wrapper">
       <input
         :type="type"
@@ -31,7 +34,6 @@ withDefaults(
         :disabled="disabled"
         :value="modalValue"
       >
-      <!-- <span class="custom-cursor"></span> -->
     </div>
   </div>
 </template>

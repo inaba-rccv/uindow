@@ -1,4 +1,8 @@
 .ui-input {
+  --bg-color-disabled: #ddd6d4
+}
+
+.ui-input {
   display: flex;
   box-sizing: border-box;
   border-radius: 0.2rem;
@@ -25,12 +29,19 @@
       font-family: inherit;
       line-height: inherit;
       width: 100%;
-      &[type="password"] {
-        // font-family: '';
+      &::placeholder {
+        opacity: .5;
       }
+      // &[type="password"] {}
     }
     input:focus-visible {
       outline: none;
+    }
+  }
+  &.disabled {
+    background-color: var(--bg-color-disabled);
+    .ui-input--wrapper input {
+      cursor: not-allowed;
     }
   }
 }
