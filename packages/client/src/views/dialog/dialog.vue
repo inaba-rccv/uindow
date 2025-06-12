@@ -1,7 +1,7 @@
 <script lang="ts" setup>
+import type { UindowColorType } from '@uindow/types'
 import messageBox from '@uindow/components/message-box/message-box'
 import IButton from '@uindow/components/svg/IButton.vue'
-import { UindowColorType } from '@uindow/types'
 
 const colorType: UindowColorType[] = ['warning', 'danger', 'info', 'success']
 let currentTypeIndex = 0
@@ -23,8 +23,11 @@ function open() {
 
 <template>
   <div class="page-content">
+    <h2>普通对话框</h2>
     <Exhibition>
-      <ui-button @click="open">Click to Open Dialog</ui-button>
+      <ui-button @click="open">
+        Click to Open Dialog
+      </ui-button>
     </Exhibition>
   </div>
 </template>

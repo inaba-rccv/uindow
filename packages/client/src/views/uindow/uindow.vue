@@ -28,11 +28,12 @@ const SceneradioValue = ref<string>('Talk')
 
 <template>
   <div class="page-content">
-    <div>
-      <ui-icon clickable @click="open">
-        <IButton />
-      </ui-icon>
-    </div>
+    <h2>打开窗口</h2>
+    <Exhibition>
+      <ui-button plain @click="open">
+        Click to Open Uindow
+      </ui-button>
+    </Exhibition>
 
     <ui-uindow
       v-model="uindowShow"
