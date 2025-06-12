@@ -6,7 +6,7 @@ import INarrow from '@uindow/components/svg/INarrow.vue'
 import { useDrag } from '@uindow/hooks/use-drag'
 import { useGlobalConfig } from '@uindow/utils'
 import { useTimeoutFn } from '@vueuse/core'
-import { computed, ref, watch } from 'vue'
+import { computed, provide, ref, watchEffect } from 'vue'
 import './index.scss'
 
 const props = withDefaults(
@@ -37,17 +37,19 @@ const visible = ref<boolean>(false)
 const uindowAnimationFadeIn = ref<boolean>(false)
 const uindowAnimationFadeOut = ref<boolean>(false)
 
+provide('parentShow', visible)
+
 let clearUindowAnimationFadeInTimer: (() => void) | undefined
 useDrag(uindowRef, headerRef, draggable, overflow, null)
 
-watch(
-  () => props.modelValue,
-  (val) => {
-    if (val)
-      open()
-    else close()
-  },
-)
+watchEffect(() => {
+  if (props.modelValue) {
+    open()
+  }
+  else {
+    close()
+  }
+})
 
 function open() {
   doOpen()
