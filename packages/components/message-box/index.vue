@@ -6,6 +6,7 @@ import UiButton from '@uindow/components/button/index.vue'
 import IClose from '@uindow/components/svg/IClose.vue'
 import IEnlarge from '@uindow/components/svg/IEnlarge.vue'
 import IError from '@uindow/components/svg/IError.vue'
+import IInfo from '@uindow/components/svg/IInfo.vue'
 import INarrow from '@uindow/components/svg/INarrow.vue'
 import ISuccess from '@uindow/components/svg/ISuccess.vue'
 import IWarning from '@uindow/components/svg/IWarning.vue'
@@ -32,6 +33,7 @@ export default defineComponent({
     IWarning,
     ISuccess,
     IError,
+    IInfo,
   },
   inheritAttrs: false,
   props: {
@@ -89,7 +91,7 @@ export default defineComponent({
       },
       info: {
         text: 'Tips',
-        icon: false,
+        icon: IInfo,
       },
       danger: {
         text: 'Error',
