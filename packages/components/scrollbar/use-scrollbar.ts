@@ -13,9 +13,11 @@ export function useScrollbar(
   const scrollHeight = ref(0)
   const containerHeight = ref(0)
   const container = ref<HTMLElement | null>(null)
+  const bar = ref<HTMLElement | null>(null)
   let observe: MutationObserver
 
   const thumbHeight = computed(() => {
+    // console.log('change', scrollHeight.value, containerHeight.value)
     if (scrollHeight.value === 0 || containerHeight.value === 0) {
       return 0
     }
@@ -51,6 +53,14 @@ export function useScrollbar(
     if (container.value) {
       scrollHeight.value = container.value.scrollHeight
       containerHeight.value = container.value.clientHeight
+      // TODO 触发了两次
+      // console.log('containerHeight change', container.value.clientHeight)
+      if (containerHeight.value < scrollHeight.value) {
+        bar.value!.style.display = 'block'
+      }
+      else {
+        bar.value!.style.display = 'none'
+      }
     }
   }
 
@@ -59,7 +69,7 @@ export function useScrollbar(
     observe.observe(container.value as HTMLElement, {
       childList: true,
       subtree: true,
-      attributes: true,
+      // attributes: true,
       characterData: true,
     })
     updateContainerHeight()
@@ -74,6 +84,7 @@ export function useScrollbar(
     thumbStyle,
     thumbTranslateY,
     container,
+    bar,
     handleScroll,
   }
 }

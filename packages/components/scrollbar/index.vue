@@ -18,8 +18,9 @@ const emit = defineEmits(['reachBottom'])
 const {
   thumbStyle,
   thumbTranslateY,
-  handleScroll,
   container,
+  bar,
+  handleScroll,
 } = useScrollbar(props, emit)
 const { thumb } = useThumb(thumbTranslateY)
 </script>
@@ -29,7 +30,7 @@ const { thumb } = useThumb(thumbTranslateY)
     <div ref="container" class="ui-scrollbar__container" :style="{ height, maxHeight }" @scroll="handleScroll">
       <slot />
     </div>
-    <div class="ui-scrollbar__bar">
+    <div ref="bar" class="ui-scrollbar__bar">
       <div ref="thumb" class="ui-scrollbar__thumb" :style="thumbStyle" />
     </div>
   </div>
