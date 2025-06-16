@@ -3,9 +3,9 @@ import { ref } from 'vue'
 
 const bounceSwitch = ref(true)
 const blurSwitch = ref(true)
-const eraserSwitch = ref(true)
-// const rotateSwitch = ref(true)
-const fadeUpSwitch = ref(true)
+const eraserSwitch = ref(false)
+const rotateSwitch = ref(true)
+const fadeUpSwitch = ref(false)
 </script>
 
 <template>
@@ -39,7 +39,7 @@ const fadeUpSwitch = ref(true)
             这是一段依次模糊进入的动画文字
           </ui-text>
           <ui-text v-show="blurSwitch" animate="blurIn" :delay="1">
-            这是一段依次模糊进入的动画文字
+            <span style="opacity: .2;">这是一段依次模糊进入的动画文字</span>
           </ui-text>
         </div>
       </template>
@@ -50,11 +50,11 @@ const fadeUpSwitch = ref(true)
       </template>
     </exhibition>
 
-    <!-- <h2>旋转进入</h2>
+    <h2>旋转进入</h2>
     <exhibition>
       <template #default>
         <div class="mh-5">
-          <ui-text v-show="rotateSwitch" animate="rotateIn">
+          <ui-text v-show="rotateSwitch" animate="rotateIn" style="display: inline-block;">
             这是一段旋转进入的动画文字
           </ui-text>
         </div>
@@ -64,7 +64,7 @@ const fadeUpSwitch = ref(true)
           切换动画
         </ui-button>
       </template>
-    </exhibition> -->
+    </exhibition>
 
     <h2>从下方进入</h2>
     <exhibition>

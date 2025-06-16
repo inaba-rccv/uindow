@@ -8,12 +8,12 @@ const inputValue = ref('hh')
   <div class="page-content">
     <h2>普通输入框</h2>
     <Exhibition>
-      <ui-input v-model="inputValue" style="width: 320px;" placeholder="Please input" />
+      <ui-input v-model="inputValue" hidden-caret style="width: 320px;" placeholder="Please input" />
     </Exhibition>
 
     <h2>密码输入框</h2>
     <Exhibition>
-      <ui-input style="width: 320px;" type="password" placeholder="Please input password" />
+      <ui-input style="width: 320px;" hidden-caret type="password" placeholder="Please input password" />
     </Exhibition>
 
     <h2>禁用状态</h2>
