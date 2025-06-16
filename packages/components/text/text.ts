@@ -20,6 +20,10 @@ export const animateDefaultStyleMap: AnimateDefaultStyleType = {
     animationDuration: '3s',
     opacity: 1,
   },
+  'rotateIn': {
+    animationTimingFunction: 'linear',
+    animationDuration: '1s',
+  },
   '': {
 
   },

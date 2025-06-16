@@ -22,6 +22,8 @@ const props = withDefaults(
   },
 )
 
+// TODO 使用requestAnimationFrame控制延时动画
+
 const slots = useSlots()
 const text = ref<HTMLElement | null>(null)
 const animatedSlots: Ref<VNode[]> = ref([])
@@ -43,6 +45,7 @@ const animateDefaultStyle = computed(() => {
 })
 const animateStyle = computed(() => ({
   opacity: 0,
+  animationDuration: '1s',
   ...animateDefaultStyle.value,
   ...animateCustomStyle.value,
 }))
