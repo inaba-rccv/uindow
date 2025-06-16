@@ -24,7 +24,6 @@
       background: none;
       font-weight: bold;
       color: var(--ui-color-primary);
-      caret-color: transparent;
       border: none;
       font-family: inherit;
       line-height: inherit;
@@ -33,6 +32,9 @@
         opacity: .5;
       }
       // &[type="password"] {}
+      &.hidden-caret {
+        caret-color: transparent;
+      }
     }
     input:focus-visible {
       outline: none;

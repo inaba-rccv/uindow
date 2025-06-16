@@ -4,17 +4,20 @@ import './index.scss'
 
 const props = withDefaults(
   defineProps<{
-    modalValue?: string | number
+    modelValue?: string | number
     type?: string
     disabled?: boolean
     maxlength?: string | number
     minlength?: string | number
     placeholder?: string
+    hiddenCaret?: boolean
   }>(),
   {
-    modalValue: '',
+    modelValue: '',
     type: 'text',
     disabled: false,
+    placeholder: '',
+    hiddenCaret: false,
   },
 )
 
@@ -32,7 +35,10 @@ const classes = computed(() => ({
         :minlength="minlength"
         :maxlength="maxlength"
         :disabled="disabled"
-        :value="modalValue"
+        :value="modelValue"
+        :class="{
+          'hidden-caret': hiddenCaret,
+        }"
       >
     </div>
   </div>
