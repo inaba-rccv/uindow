@@ -6,6 +6,7 @@ const blurSwitch = ref(true)
 const eraserSwitch = ref(false)
 const rotateSwitch = ref(true)
 const fadeUpSwitch = ref(false)
+const flipSwitch = ref(false)
 </script>
 
 <template>
@@ -31,6 +32,25 @@ const fadeUpSwitch = ref(false)
       </template>
     </exhibition>
 
+    <h2>翻转进入</h2>
+    <exhibition>
+      <template #default>
+        <div class="mh-5">
+          <ui-text v-show="flipSwitch" animate="flipIn" typewriter>
+            Just
+          </ui-text>
+          <!-- <ui-text v-show="flipSwitch" animate="flipIn" :delay="1">
+            Moment
+          </ui-text> -->
+        </div>
+      </template>
+      <template #footer>
+        <ui-button plain @click="flipSwitch = !flipSwitch">
+          切换动画
+        </ui-button>
+      </template>
+    </exhibition>
+
     <h2>模糊进入</h2>
     <exhibition>
       <template #default>
@@ -39,7 +59,7 @@ const fadeUpSwitch = ref(false)
             这是一段依次模糊进入的动画文字
           </ui-text>
           <ui-text v-show="blurSwitch" animate="blurIn" :delay="1">
-            <span style="opacity: .2;">这是一段依次模糊进入的动画文字</span>
+            <span>这是一段依次模糊进入的动画文字</span>
           </ui-text>
         </div>
       </template>
@@ -54,7 +74,10 @@ const fadeUpSwitch = ref(false)
     <exhibition>
       <template #default>
         <div class="mh-5">
-          <ui-text v-show="rotateSwitch" animate="rotateIn" style="display: inline-block;">
+          <ui-text v-show="rotateSwitch" animate="rotateIn" typewriter>
+            这是一段旋转进入的动画文字
+          </ui-text>
+          <ui-text v-show="rotateSwitch" animate="rotateIn" style="display: inline-block;" :delay="1">
             这是一段旋转进入的动画文字
           </ui-text>
         </div>

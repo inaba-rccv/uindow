@@ -16,6 +16,7 @@ const strokeAnimate: Ref<HTMLElement | null> = ref(null)
 onMounted(() => {
   // 获取strokeAnimate元素下的svg元素
   const animatableElements = Object.values(strokeAnimate.value?.children[0].children || {}).filter(element => animatableElementType.includes(element.nodeName)) as SVGPathElement[]
+  // TODO 如果不是svg元素 提示错误
 
   animatableElements.forEach((element) => {
     element.classList.add('line-animate')
