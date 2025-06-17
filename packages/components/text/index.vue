@@ -12,6 +12,7 @@ const props = withDefaults(
     typewriter?: boolean
     duration?: number
     delay?: number
+    isVisible?: boolean
     // charStyle?: StyleValue // TODO 暂时不支持 typewriter 字符样式
   }>(),
   {
@@ -19,6 +20,7 @@ const props = withDefaults(
     typewriter: false,
     duration: 0,
     delay: 0,
+    isVisible: true,
   },
 )
 
@@ -28,10 +30,7 @@ const slots = useSlots()
 const text = ref<HTMLElement | null>(null)
 const animatedSlots: Ref<VNode[]> = ref([])
 const animateCustomStyle = computed(() => {
-  const style: StyleValue = {
-    animationName: props.animate,
-    animationFillMode: 'forwards',
-  }
+  const style: StyleValue = {}
   if (props.duration !== 0) {
     style.animationDuration = `${props.duration}s`
   }
@@ -41,11 +40,13 @@ const animateCustomStyle = computed(() => {
   return style
 })
 const animateDefaultStyle = computed(() => {
-  return animateDefaultStyleMap[props.animate] || {}
+  return {
+    animationName: props.animate,
+    animationFillMode: 'both',
+    ...animateDefaultStyleMap[props.animate],
+  }
 })
 const animateStyle = computed(() => ({
-  opacity: 0,
-  animationDuration: '1s',
   ...animateDefaultStyle.value,
   ...animateCustomStyle.value,
 }))
@@ -58,7 +59,6 @@ function processDefaultSlot() {
     vnodeProps.style = {
       ...(vnodeProps.style || {}),
       ...animateStyle.value,
-      // display: 'inline',
     }
 
     newVnode = h('p', vnodeProps, vnode.children || undefined)
@@ -87,11 +87,9 @@ function processTypewriterSlot() {
     return h('span', { class: 'ui-text--typewriter', style: {
       ...animateStyle.value,
       animationDelay: `${props.delay * 1000 + index * TYPEWRITER_ANIMATION_DELAY}ms`,
-      // opacity: 0,
       display: 'inline-block',
     } }, char)
   })
-  // console.log('charVnodes', charVnodes)
   return charVnodes
 }
 
@@ -117,6 +115,11 @@ watchEffect(() => {
     animatedSlots.value = processDefaultSlot()
   }
 })
+
+// TODO 使用isVisible控制显隐
+// watchEffect(() => {
+//   console.log(props.isVisible)
+// })
 onMounted(() => {
   // TODO 优化性能
   if (props.animate === 'eraser') {
