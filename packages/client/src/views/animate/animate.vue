@@ -1,5 +1,10 @@
 <script lang="ts" setup>
+import IDiscord from '@uindow/components/svg/IDiscord.vue'
+import IGame from '@uindow/components/svg/IGame.vue'
 import IMusic from '@uindow/components/svg/IMusic.vue'
+import IStream from '@uindow/components/svg/IStream.vue'
+import IUine from '@uindow/components/svg/IUine.vue'
+import IYoutube from '@uindow/components/svg/IYoutube.vue'
 import { ref } from 'vue'
 import StrokeAnimate from '@/components/StrokeAnimate.vue'
 import TempView from '../text/temp.vue'
@@ -12,29 +17,30 @@ const animationBtn3 = ref(false)
 const menuList = [
   {
     src: '../../assets/ui.png',
+    icon: IDiscord,
     name: 'Uiscord',
   },
   {
     src: '../../assets/game.png',
+    icon: IGame,
     name: 'Game',
   },
   {
     src: '../../assets/stream.png',
+    icon: IStream,
     name: 'Studio',
   },
   {
     src: '../../assets/youtube.png',
+    icon: IYoutube,
     name: 'YT',
   },
   {
     src: '../../assets/uine.png',
+    icon: IUine,
     name: 'UINE',
   },
 ]
-
-function getImageUrl(src: string) {
-  return new URL(src, import.meta.url).href
-}
 </script>
 
 <template>
@@ -96,7 +102,7 @@ function getImageUrl(src: string) {
                     animationDelay: `${key * .2}s`,
                   }"
                 >
-                  <img :src="getImageUrl(item.src)" width="40px" alt="">
+                  <component :is="item.icon" width="40px" height="40px" style="fill: #8a7e74" />
                 </div>
                 <div
                   class="ui--animated scale-enter-active"

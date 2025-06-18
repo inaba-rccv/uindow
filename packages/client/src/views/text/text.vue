@@ -17,10 +17,10 @@ const flipSwitch = ref(false)
     <exhibition>
       <template #default>
         <div class="mh-5">
-          <ui-text v-show="bounceSwitch" animate="bounceIn" typewriter>
+          <ui-text :is-visible="bounceSwitch" animate="bounceIn" typewriter>
             这是一段依次弹跳进入的动画文字
           </ui-text>
-          <ui-text v-show="bounceSwitch" animate="bounceIn" :delay="1">
+          <ui-text :is-visible="bounceSwitch" animate="bounceIn" :delay="1">
             这是一段依次弹跳进入的动画文字
           </ui-text>
         </div>
@@ -36,10 +36,10 @@ const flipSwitch = ref(false)
     <exhibition>
       <template #default>
         <div class="mh-5">
-          <ui-text v-show="flipSwitch" animate="flipIn" typewriter>
+          <ui-text :is-visible="flipSwitch" animate="flipIn" typewriter>
             Just
           </ui-text>
-          <!-- <ui-text v-show="flipSwitch" animate="flipIn" :delay="1">
+          <!-- <ui-text :is-visible="flipSwitch" animate="flipIn" :delay="1">
             Moment
           </ui-text> -->
         </div>
@@ -55,10 +55,10 @@ const flipSwitch = ref(false)
     <exhibition>
       <template #default>
         <div class="mh-5">
-          <ui-text v-show="blurSwitch" animate="blurIn" typewriter>
+          <ui-text :is-visible="blurSwitch" animate="blurIn" typewriter>
             这是一段依次模糊进入的动画文字
           </ui-text>
-          <ui-text v-show="blurSwitch" animate="blurIn" :delay="1">
+          <ui-text :is-visible="blurSwitch" animate="blurIn" :delay="1">
             <span>这是一段依次模糊进入的动画文字</span>
           </ui-text>
         </div>
@@ -74,10 +74,10 @@ const flipSwitch = ref(false)
     <exhibition>
       <template #default>
         <div class="mh-5">
-          <ui-text v-show="rotateSwitch" animate="rotateIn" typewriter>
+          <ui-text :is-visible="rotateSwitch" animate="rotateIn" typewriter>
             这是一段旋转进入的动画文字
           </ui-text>
-          <ui-text v-show="rotateSwitch" animate="rotateIn" style="display: inline-block;" :delay="1">
+          <ui-text :is-visible="rotateSwitch" animate="rotateIn" style="display: inline-block;" :delay="1">
             这是一段旋转进入的动画文字
           </ui-text>
         </div>
@@ -93,10 +93,10 @@ const flipSwitch = ref(false)
     <exhibition>
       <template #default>
         <div class="mh-5">
-          <ui-text v-show="fadeUpSwitch" animate="fadeUpIn" typewriter :duration="2">
+          <ui-text :is-visible="fadeUpSwitch" animate="fadeUpIn" typewriter :duration="2">
             林深时见鹿
           </ui-text>
-          <ui-text v-show="fadeUpSwitch" animate="fadeUpIn" typewriter :delay="1">
+          <ui-text :is-visible="fadeUpSwitch" animate="fadeUpIn" typewriter :delay="1">
             海蓝时见鲸
           </ui-text>
         </div>
@@ -112,7 +112,7 @@ const flipSwitch = ref(false)
     <exhibition>
       <template #default>
         <div class="mh-5">
-          <ui-text v-show="eraserSwitch" animate="eraser" :duration="1">
+          <ui-text :is-visible="eraserSwitch" animate="eraser" :duration="1">
             <p>
               <span>这段文字将会按照打字机的方式依次显示</span>
               <br>

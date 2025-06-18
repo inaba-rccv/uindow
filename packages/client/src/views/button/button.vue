@@ -8,7 +8,9 @@ import IRight from '@uindow/components/svg/IRight.vue'
     <Exhibition>
       <template #default>
         <div class="mb-20">
-          <ui-button>Primary</ui-button>
+          <ui-button>
+            Primary
+          </ui-button>
           <ui-button type="warning">
             Warning
           </ui-button>
