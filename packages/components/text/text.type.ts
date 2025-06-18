@@ -1,5 +1,3 @@
-import type { StyleValue } from 'vue'
-
 export type AnimateType =
   'bounceIn' |
   'fadeUpIn' |
