@@ -2,7 +2,7 @@
 import type { Ref, StyleValue, VNode } from 'vue'
 import type { AnimateType } from './text.type'
 import { getParentBackgroundColor } from '@uindow/utils'
-import { computed, Fragment, h, onMounted, ref, useSlots, watchEffect } from 'vue'
+import { computed, Fragment, h, onMounted, ref, useSlots, watch, watchEffect } from 'vue'
 import { animateDefaultStyleMap, TYPEWRITER_ANIMATION_DELAY } from './text'
 import './index.scss'
 
@@ -117,9 +117,12 @@ watchEffect(() => {
 })
 
 // TODO 使用isVisible控制显隐
-// watchEffect(() => {
-//   console.log(props.isVisible)
-// })
+watch(
+  () => props.isVisible,
+  (newValue) => {
+    console.log(newValue)
+  },
+)
 onMounted(() => {
   // TODO 优化性能
   if (props.animate === 'eraser') {
@@ -131,7 +134,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="text" class="ui-text">
+  <div ref="text" class="ui-text" :style="{ display: isVisible ? 'block' : 'none' }">
     <component
       :is="vnode"
       v-for="(vnode, index) in animatedSlots"
