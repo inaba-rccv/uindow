@@ -1,19 +1,20 @@
 <script lang="ts" setup>
+import type { ProgressType } from './progress.type'
 import { computed } from 'vue'
 import './index.scss'
 
 const props = withDefaults(defineProps<{
   percentage?: number
-  status?: string
+  type?: ProgressType
 }>(), {
   percentage: 20,
-  status: 'normal',
+  type: 'primary',
 })
 
 const innerStyle = computed(() => {
   return {
     width: `${Math.min(props.percentage, 100)}%`,
-    backgroundColor: `var(--ui-color-${props.status})`,
+    backgroundColor: `var(--ui-color-${props.type})`,
   }
 })
 </script>
