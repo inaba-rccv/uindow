@@ -12,20 +12,34 @@
 }
 
 // 从下方进入
-.fadeUpIn-enter-active {
+.fadeUp-enter-active {
   animation-name: fadeUpIn;
   animation-duration: 1s;
   animation-timing-function: var(--timing-function-ease-out);
 }
-
+.fadeUp-leave-active {
+  animation-name: fadeUpOut;
+  animation-duration: .3s;
+  animation-timing-function: var(--timing-function-ease-out);
+}
 @keyframes fadeUpIn {
   0% {
     opacity: 0;
-    transform: translateY(700px);
+    transform: translateY(400%);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes fadeUpOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
   }
 }
 
@@ -34,7 +48,10 @@
   animation-name: bounceIn;
   animation-duration: 1s;
 }
-
+.bounce-leave-active {
+  animation-name: bounceOut;
+  animation-duration: 1s;
+}
 @keyframes bounceIn {
   0% {
     opacity: 0;
@@ -66,6 +83,21 @@
     transform: translate3d(0, -7.5%, 0) scaleY(1.02)
   }
 }
+@keyframes bounceOut {
+  20% {
+    transform: scale3d(.9, .9, .9)
+  }
+
+  50%, 55% {
+    opacity: 1;
+    transform: scale3d(1.1, 1.1, 1.1)
+  }
+
+  to {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3)
+  }
+}
 
 // 模糊进出
 .blur-enter-active {
@@ -77,7 +109,7 @@
 
 .blur-leave-active {
   animation-name: blurOut;
-  animation-duration: 0.8s;
+  animation-duration: 1.6s;
   animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.335);
   will-change: filter;
 }
@@ -97,10 +129,12 @@
 
 @keyframes blurOut {
   from {
+    opacity: 1;
     filter: blur(0);
     transform: scale3d(1, 1, 1);
   }
   to {
+    opacity: 0;
     filter: blur(10px);
     transform: scale3d(0.5, 0.5, 1);
   }
@@ -195,6 +229,6 @@
     transform: translateY(0) rotateY(0deg);
   }
   to {
-    transform: translateX(100px) rotateY(90deg);
+    transform: translateX(-100px) rotateY(90deg);
   }
 }

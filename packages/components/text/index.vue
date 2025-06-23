@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import type { Ref, StyleValue, VNode } from 'vue'
-import type { AnimateType } from './text.type'
+import type { AnimateStatus, AnimateType, ComponentDisplay } from './text.type'
 import { getParentBackgroundColor } from '@uindow/utils'
 import { computed, Fragment, h, onMounted, ref, useSlots, watch, watchEffect } from 'vue'
-import { animateDefaultStyleMap, TYPEWRITER_ANIMATION_DELAY } from './text'
+import { animationOptions, TYPEWRITER_ANIMATION_DELAY } from './text'
 import './index.scss'
 
 const props = withDefaults(
@@ -27,7 +27,10 @@ const props = withDefaults(
 // TODO 使用requestAnimationFrame控制延时动画
 
 const slots = useSlots()
+let initialized = false // 组件加载完成前设置组件隐藏不会触发隐藏动画
 const text = ref<HTMLElement | null>(null)
+const animateStatus: Ref<AnimateStatus> = ref('enter')
+const componentDisplay: Ref<ComponentDisplay> = ref('block') // 组件的显隐
 const animatedSlots: Ref<VNode[]> = ref([])
 const animateCustomStyle = computed(() => {
   const style: StyleValue = {}
@@ -41,9 +44,9 @@ const animateCustomStyle = computed(() => {
 })
 const animateDefaultStyle = computed(() => {
   return {
-    animationName: props.animate,
+    animationName: animationOptions[props.animate][animateStatus.value].animateName,
     animationFillMode: 'both',
-    ...animateDefaultStyleMap[props.animate],
+    ...animationOptions[props.animate][animateStatus.value].style,
   }
 })
 const animateStyle = computed(() => ({
@@ -56,18 +59,20 @@ function processDefaultSlot() {
     let newVnode: VNode
 
     const vnodeProps = vnode.props || {}
+    vnodeProps.onAnimationend = animationEnd
     vnodeProps.style = {
       ...(vnodeProps.style || {}),
       ...animateStyle.value,
     }
 
-    newVnode = h('p', vnodeProps, vnode.children || undefined)
+    newVnode = h('p', vnodeProps, vnode.children || void 0)
 
     if (props.animate === 'eraser') {
       const eraserSpanVnode = h('span', {
         class: 'ui-text--eraser-content',
         style: animateStyle.value,
-      }, vnode.children || undefined)
+        onAnimationend: animationEnd,
+      }, vnode.children || void 0)
       const eraserPVNode = h('p', { class: 'ui-text--eraser' }, eraserSpanVnode)
 
       newVnode = h(Fragment, {}, [
@@ -88,9 +93,15 @@ function processTypewriterSlot() {
       ...animateStyle.value,
       animationDelay: `${props.delay * 1000 + index * TYPEWRITER_ANIMATION_DELAY}ms`,
       display: 'inline-block',
-    } }, char)
+    }, onAnimationend: index === charArray.length - 1 ? animationEnd : void 0 }, char)
   })
   return charVnodes
+}
+
+function animationEnd(_e: AnimationEvent | undefined) {
+  if (animateStatus.value === 'leave') {
+    componentDisplay.value = 'none'
+  }
 }
 
 watchEffect(() => {
@@ -116,13 +127,20 @@ watchEffect(() => {
   }
 })
 
-// TODO 使用isVisible控制显隐
-watch(
-  () => props.isVisible,
-  (newValue) => {
-    console.log(newValue)
-  },
-)
+watchEffect(() => {
+  if (props.isVisible) {
+    animateStatus.value = 'enter'
+    componentDisplay.value = 'block'
+  }
+  else {
+    animateStatus.value = 'leave'
+    if (!initialized || !animationOptions[props.animate].leave.animateName) {
+      // 初始化为隐藏或者无隐藏动画
+      animationEnd(void 0)
+    }
+  }
+})
+
 onMounted(() => {
   // TODO 优化性能
   if (props.animate === 'eraser') {
@@ -130,11 +148,12 @@ onMounted(() => {
     const bgColor = getParentBackgroundColor(element!)
     element!.style.setProperty('--ui-bg-color', bgColor)
   }
+  initialized = true
 })
 </script>
 
 <template>
-  <div ref="text" class="ui-text" :style="{ display: isVisible ? 'block' : 'none' }">
+  <div ref="text" class="ui-text" :style="{ display: componentDisplay }">
     <component
       :is="vnode"
       v-for="(vnode, index) in animatedSlots"
