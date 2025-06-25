@@ -2,7 +2,7 @@
 import type { IPosition } from '@uindow/types'
 import type { PropType } from 'vue'
 import type { MessageBoxType } from './message-box.type'
-import UiButton from '@uindow/components/button/index.vue'
+import UiButton from '@uindow/components/button/src/index.vue'
 import IClose from '@uindow/components/svg/IClose.vue'
 import IEnlarge from '@uindow/components/svg/IEnlarge.vue'
 import IError from '@uindow/components/svg/IError.vue'

@@ -2,13 +2,13 @@ import type {
   Reactive,
 } from 'vue'
 import type { SliderEmit } from './slider.type'
+import { addPx } from '@uindow/utils/tools'
 import {
   onBeforeUnmount,
   ref,
   toRefs,
   watchEffect,
 } from 'vue'
-import { addPx } from '../../utils/tools'
 
 export function useSlider(
   props: Reactive<{
