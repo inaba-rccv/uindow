@@ -46,10 +46,10 @@ onMounted(() => {
       <exhibition>
         <template #default>
           <div class="mh-5">
-            <ui-text :is-visible="totalSwitch.bounceSwitch" animate="bounceIn" typewriter>
+            <ui-text :is-visible="totalSwitch.bounceSwitch" animate="bounce" typewriter>
               这是一段依次弹跳进入的动画文字
             </ui-text>
-            <ui-text :is-visible="totalSwitch.bounceSwitch" animate="bounceIn" :delay="1">
+            <ui-text :is-visible="totalSwitch.bounceSwitch" animate="bounce" :delay="1.6">
               这是一段依次弹跳进入的动画文字
             </ui-text>
           </div>
@@ -67,10 +67,10 @@ onMounted(() => {
       <exhibition>
         <template #default>
           <div class="mh-5">
-            <ui-text :is-visible="totalSwitch.flipSwitch" animate="flipIn" typewriter>
+            <ui-text :is-visible="totalSwitch.flipSwitch" animate="flip" typewriter>
               Just
             </ui-text>
-          <!-- <ui-text :is-visible="totalSwitch.flipSwitch" animate="flipIn" :delay="1">
+          <!-- <ui-text :is-visible="totalSwitch.flipSwitch" animate="flip" :delay="1">
             Moment
           </ui-text> -->
           </div>
@@ -88,10 +88,10 @@ onMounted(() => {
       <exhibition>
         <template #default>
           <div class="mh-5">
-            <ui-text :is-visible="totalSwitch.blurSwitch" animate="blurIn" typewriter>
+            <ui-text :is-visible="totalSwitch.blurSwitch" animate="blur" typewriter>
               这是一段依次模糊进入的动画文字
             </ui-text>
-            <ui-text :is-visible="totalSwitch.blurSwitch" animate="blurIn" :delay="1">
+            <ui-text :is-visible="totalSwitch.blurSwitch" animate="blur" :delay="1.6">
               <span>这是一段依次模糊进入的动画文字</span>
             </ui-text>
           </div>
@@ -109,10 +109,10 @@ onMounted(() => {
       <exhibition>
         <template #default>
           <div class="mh-5">
-            <ui-text :is-visible="totalSwitch.rotateSwitch" animate="rotateIn" typewriter>
+            <ui-text :is-visible="totalSwitch.rotateSwitch" animate="rotate" typewriter>
               这是一段旋转进入的动画文字
             </ui-text>
-            <ui-text :is-visible="totalSwitch.rotateSwitch" animate="rotateIn" style="display: inline-block;" :delay="1">
+            <ui-text :is-visible="totalSwitch.rotateSwitch" animate="rotate" :delay="1.6">
               这是一段旋转进入的动画文字
             </ui-text>
           </div>
@@ -129,10 +129,10 @@ onMounted(() => {
       <exhibition>
         <template #default>
           <div class="mh-5">
-            <ui-text :is-visible="totalSwitch.fadeUpSwitch" animate="fadeUpIn" typewriter :duration="2">
+            <ui-text :is-visible="totalSwitch.fadeUpSwitch" animate="fadeUp" typewriter>
               林深时见鹿
             </ui-text>
-            <ui-text :is-visible="totalSwitch.fadeUpSwitch" animate="fadeUpIn" typewriter :delay="1">
+            <ui-text :is-visible="totalSwitch.fadeUpSwitch" animate="fadeUp" typewriter :delay="1.6">
               海蓝时见鲸
             </ui-text>
           </div>
@@ -150,7 +150,7 @@ onMounted(() => {
       <exhibition>
         <template #default>
           <div class="mh-5">
-            <ui-text :is-visible="totalSwitch.eraserSwitch" animate="eraser" :duration="1">
+            <ui-text :is-visible="totalSwitch.eraserSwitch" animate="eraser" :duration="2">
               <p>
                 <span>这段文字将会按照打字机的方式依次显示</span>
                 <br>

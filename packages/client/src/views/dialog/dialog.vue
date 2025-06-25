@@ -1,12 +1,14 @@
 <script lang="ts" setup>
 import type { UindowColorType } from '@uindow/types'
-import messageBox from '@uindow/components/message-box/message-box'
-import IButton from '@uindow/components/svg/IButton.vue'
+import { getCurrentInstance } from 'vue'
 
 const colorType: UindowColorType[] = ['warning', 'danger', 'info', 'success']
 let currentTypeIndex = 0
+
+const instance = getCurrentInstance()
+const { $MessageBox } = instance!.appContext.config.globalProperties
 function open() {
-  messageBox.confirm({
+  $MessageBox.confirm({
     type: colorType[currentTypeIndex],
     message: 'Warning!\nSYSTEM ERROR#490UIA:A',
   })

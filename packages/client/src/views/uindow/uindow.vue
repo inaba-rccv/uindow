@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { radioOptions } from '@uindow/components/radio/radio.type'
+import type { radioOptions } from '@uindow/components/radio/src/radio.type'
 import type { Ref } from 'vue'
 import IAdd from '@uindow/components/svg/IAdd.vue'
 import IButton from '@uindow/components/svg/IButton.vue'

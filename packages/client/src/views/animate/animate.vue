@@ -7,7 +7,6 @@ import IUine from '@uindow/components/svg/IUine.vue'
 import IYoutube from '@uindow/components/svg/IYoutube.vue'
 import { ref } from 'vue'
 import StrokeAnimate from '@/components/StrokeAnimate.vue'
-import TempView from '../text/temp.vue'
 import './index.scss'
 
 const animationBtn1 = ref(false)
@@ -45,7 +44,6 @@ const menuList = [
 
 <template>
   <div class="page-content">
-    <TempView />
 
     <h2>页面切换</h2>
     <Exhibition>
@@ -70,8 +68,8 @@ const menuList = [
           <div v-if="animationBtn2" class="menu-container">
             <div v-for="i in 12" :key="i" class="menu-item">
               <ui-button
-                type="info" square class="fadeUpIn-enter-active" :style="{
-                  animationDuration: `${i * 0.1 + 1}s`,
+                type="info" square class="fadeUp-enter-active" :style="{
+                  animationDuration: `${i * 0.2 + .5}s`,
                   height: '40px',
                   width: '40px',
                 }"
