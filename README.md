@@ -1,6 +1,6 @@
 # uindow
 
-UI Framework (Work In Progress)
+UI Framework
 
 ## What is uindow
 
