@@ -1,0 +1,16 @@
+{
+  "name": "uindow",
+  "version": "1.0.0",
+  "description": "",
+  "publishConfig": {},
+  "author": {
+    "name": "Inaba"
+  },
+  "main": "index.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^5.2.3"
+  }
+}
