@@ -1,6 +1,6 @@
 # uindow
 
-UI Framework
+Vue3 component library
 
 ## What is uindow
 
