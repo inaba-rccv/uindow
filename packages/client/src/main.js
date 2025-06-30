@@ -1,7 +1,9 @@
-import uindow from 'uindow/src'
+import { install as uindow } from '@uindow/components'
+// import uindow from 'uindow'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+// import 'uindow/style'
 import './styles/index.scss'
 
 const app = createApp(App)
