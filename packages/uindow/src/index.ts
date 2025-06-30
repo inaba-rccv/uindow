@@ -1,7 +1,9 @@
+import { install } from '@uindow/components/index'
 import pkg from '../package.json'
-
-export * from '../../components/index'
 
 const version = pkg.version
 
-export default version
+export default {
+  version,
+  install,
+}
