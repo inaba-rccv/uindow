@@ -13,7 +13,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C packages/client dev",
-    "build": "pnpm -C packages/uindow build",
+    "build": "pnpm -r --filter=./packages/** --parallel run build",
+    "build:lib": "pnpm -C packages/uindow build",
+    "publish": "pnpm -C packages/uindow publish",
+    "build:docs": "pnpm -C packages/client build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
