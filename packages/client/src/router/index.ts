@@ -88,14 +88,14 @@ export const constantRoutes = [
     ],
   },
   {
-    path: '/dialog',
+    path: '/message-box',
     component: Layout,
-    meta: { title: 'Dialog' },
+    meta: { title: 'Message Box' },
     children: [
       {
         path: '',
-        name: 'dialog',
-        component: () => import('@/views/dialog/dialog.vue'),
+        name: 'message-box',
+        component: () => import('@/views/message-box/message-box.vue'),
       },
     ],
   },
