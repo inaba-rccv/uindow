@@ -1,12 +1,24 @@
 {
   "name": "uindow",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "publishConfig": {},
   "author": {
     "name": "Inaba"
   },
-  "main": "index.ts",
+  "keywords": ["component library", "UI"],
+  "exports": {
+    ".": {
+      "import": "./dist/uindow.es.js",
+      "require": "./dist/uindow.umd.js"
+    },
+    "./style": "./dist/uindow.css"
+  },
+  "main": "./dist/uindow.es.js",
+  "files": [
+    "../../README.md",
+    "dist"
+  ],
   "scripts": {
     "build": "vite build"
   },
