@@ -2,7 +2,7 @@
   font-size: inherit;
   color: inherit;
   fill: currentColor;
-  background-color: var(--ui-color-info);
+  // background-color: var(--ui-color-info);
   border-radius: 10%;
   transition: .1s;
   display: inline-flex;
@@ -12,12 +12,12 @@
   &.clickable {
     cursor: pointer;
   }
-  &.clickable:hover {
-    background-color: var(--ui-color-info-light);
-  }
-  &.clickable:active {
-    background-color: var(--ui-color-info-dark);
-  }
+  // &.clickable:hover {
+  //   background-color: var(--ui-color-info-light);
+  // }
+  // &.clickable:active {
+  //   background-color: var(--ui-color-info-dark);
+  // }
 }
 
 .uindow-icon-default {
