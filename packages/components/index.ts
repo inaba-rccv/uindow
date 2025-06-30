@@ -17,24 +17,26 @@ import './styles/index.scss'
 
 const defaultInstallOpt = getSystemOptions()
 
-export default {
-  install(app: App): void {
-    app.config.globalProperties.$UINDOW = defaultInstallOpt
-    app.config.globalProperties.$MessageBox = UiMessageBox
+function install(app: App): void {
+  app.config.globalProperties.$UINDOW = defaultInstallOpt
+  app.config.globalProperties.$MessageBox = UiMessageBox
 
-    app.component('UiIcon', UiIcon)
-    app.component('UiButton', UiButton)
-    app.component('UiInput', UiInput)
-    app.component('UiUindow', UiUindow)
-    app.component('UiSlider', UiSlider)
-    app.component('UiMenu', UiMenu)
-    app.component('UiSubMenu', UiSubMenu)
-    app.component('UiMenuItem', UiMenuItem)
-    app.component('UiText', UiText)
-    app.component('UiProgress', UiProgress)
-    app.component('UiFoldingWindow', UiFoldingWindow)
-    app.component('UiRadioGroup', UiRadioGroup)
-    app.component('UiRadio', UiRadio)
-    app.component('UiScrollbar', UiScrollbar)
-  },
+  app.component('UiIcon', UiIcon)
+  app.component('UiButton', UiButton)
+  app.component('UiInput', UiInput)
+  app.component('UiUindow', UiUindow)
+  app.component('UiSlider', UiSlider)
+  app.component('UiMenu', UiMenu)
+  app.component('UiSubMenu', UiSubMenu)
+  app.component('UiMenuItem', UiMenuItem)
+  app.component('UiText', UiText)
+  app.component('UiProgress', UiProgress)
+  app.component('UiFoldingWindow', UiFoldingWindow)
+  app.component('UiRadioGroup', UiRadioGroup)
+  app.component('UiRadio', UiRadio)
+  app.component('UiScrollbar', UiScrollbar)
+}
+
+export {
+  install,
 }
