@@ -4,6 +4,7 @@
   left: 0;
   display: inline-block;
   z-index: 2000;
+  color: var(--ui-text-color);
   &__wrapper {
     background-color: var(--ui-text-color);
     border-radius: 10px;

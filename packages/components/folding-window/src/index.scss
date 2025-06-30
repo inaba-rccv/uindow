@@ -10,9 +10,11 @@
     align-items: center;
     user-select: none;
     .ui-fdwindow__title {
+      color: var(--ui-text-color);
       font-size: var(--ui-font-size-base);
     }
     .ui-fdwindow__action {
+      color: var(--ui-text-color);
       position: absolute;
       display: flex;
       right: 0;
@@ -26,6 +28,7 @@
     overflow-y: scroll;
   }
   .ui-fdwindow__footer {
+    color: var(--ui-text-color);
     height: var(--ui-window-height-mini);
   }
 }
