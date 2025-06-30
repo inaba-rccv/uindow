@@ -34,7 +34,7 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
 
-  packages/client:
+  packages/docs:
     dependencies:
       vue:
         specifier: ^3.5.13
