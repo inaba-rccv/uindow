@@ -30,13 +30,13 @@ $ui-colors: (
     --ui-color-#{$name}-light: #{color.scale($color, $lightness: 10%)};
     --ui-color-#{$name}-dark: #{color.scale($color, $lightness: -5%)};
   }
-  --ui-text-color: #{$ui-black};
-  --ui-bg-color: #{$ui-white};
+  --ui-text-color: #{$ui-white};
+  --ui-bg-color: #{$ui-black};
   --ui-color-shadow: #{$ui-shadow};
 }
 
-.dark {
-  --ui-text-color: #{$ui-white};
-  --ui-bg-color: #{$ui-black};
-}
+// .light {
+//   --ui-text-color: #{$ui-black};
+//   --ui-bg-color: #{$ui-white};
+// }
 
