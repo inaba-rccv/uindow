@@ -2,7 +2,7 @@
 import type { Ref, StyleValue, VNode } from 'vue'
 import type { AnimateStatus, AnimateType, ComponentDisplay } from './text.type'
 import { getParentBackgroundColor } from '@uindow/utils'
-import { computed, Fragment, h, onMounted, ref, useSlots, watch, watchEffect } from 'vue'
+import { computed, Fragment, h, onMounted, ref, useSlots, watchEffect } from 'vue'
 import { animationOptions, TYPEWRITER_ANIMATION_DELAY } from './text'
 import './index.scss'
 

@@ -24,6 +24,10 @@ app.use(uindow)
 app.mount('#app')
 ```
 
+## TODO
+
+transform icon file when pkg
+
 ## Thanks
 
 - [vite](https://github.com/vitejs/vite)

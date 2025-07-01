@@ -2,7 +2,6 @@
 import type { radioOptions } from '@uindow/components/radio/src/radio.type'
 import type { Ref } from 'vue'
 import IAdd from '@uindow/components/svg/IAdd.vue'
-import IButton from '@uindow/components/svg/IButton.vue'
 import IReduce from '@uindow/components/svg/IReduce.vue'
 import { ref } from 'vue'
 

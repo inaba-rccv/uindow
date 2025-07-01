@@ -44,7 +44,6 @@ const menuList = [
 
 <template>
   <div class="page-content">
-
     <h2>页面切换</h2>
     <Exhibition>
       <template #default>

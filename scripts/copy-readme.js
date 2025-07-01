@@ -10,4 +10,3 @@ const source = resolve(__dirname, '../README.md')
 const target = resolve(__dirname, '../packages/uindow/README.md')
 
 copyFileSync(source, target)
-console.log('✅ README.md copied to your-package')
