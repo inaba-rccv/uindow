@@ -1,16 +1,16 @@
-@font-face {
-  font-family: 'Matucano Black'; /* 自定义字体名称 */
-  src: url('./font/Matucano-Black.ttf') format('truetype'); /* 路径和格式 */
-  font-weight: normal; /* 可选：定义字重 */
-  font-style: normal;  /* 可选：定义样式（如italic） */
-}
+// @font-face {
+//   font-family: 'Matucano Black'; /* 自定义字体名称 */
+//   src: url('./font/Matucano-Black.ttf') format('truetype'); /* 路径和格式 */
+//   font-weight: normal; /* 可选：定义字重 */
+//   font-style: normal;  /* 可选：定义样式（如italic） */
+// }
 
-@font-face {
-  font-family: 'ArcaniteSlab Black'; /* 自定义字体名称 */
-  src: url('./font/ArcaniteSlab-Black.otf') format('truetype'); /* 路径和格式 */
-  font-weight: normal; /* 可选：定义字重 */
-  font-style: normal;  /* 可选：定义样式（如italic） */
-}
+// @font-face {
+//   font-family: 'ArcaniteSlab Black'; /* 自定义字体名称 */
+//   src: url('./font/ArcaniteSlab-Black.otf') format('truetype'); /* 路径和格式 */
+//   font-weight: normal; /* 可选：定义字重 */
+//   font-style: normal;  /* 可选：定义样式（如italic） */
+// }
 
 @font-face {
   font-family: 'Pragmatica SlabserifBold'; /* 自定义字体名称 */
@@ -19,6 +19,6 @@
   font-style: normal;  /* 可选：定义样式（如italic） */
 }
 
-body {
-  font-family: 'Pragmatica SlabserifBold', sans-serif; /* 使用自定义字体 */
-}
+// body {
+//   font-family: 'Pragmatica SlabserifBold', sans-serif; /* 使用自定义字体 */
+// }
