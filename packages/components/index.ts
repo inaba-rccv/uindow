@@ -18,6 +18,7 @@ import './styles/index.scss'
 const defaultInstallOpt = getSystemOptions()
 
 function install(app: App): void {
+  console.log('初始化全局配置', defaultInstallOpt)
   app.config.globalProperties.$UINDOW = defaultInstallOpt
   app.config.globalProperties.$MessageBox = UiMessageBox
 
