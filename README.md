@@ -4,7 +4,7 @@ Vue3 component library
 
 ## What is uindow
 
-uindow是大名鼎鼎的LOLI KAMI YOUTUBER「時雨うい」直播时使用的OPENING画面风格仿制组件库
+Uindow is the OPENING visual style imitation component library used by the famous LOLI KAMI YOUTUBER "しぐれうい" live broadcast
 
 ## Usage
 
@@ -32,3 +32,7 @@ transform icon file when pkg
 
 - [vite](https://github.com/vitejs/vite)
 - [vueuse](https://github.com/vueuse/vueuse)
+
+## Update
+
+Fix the issue of global configuration loading failure

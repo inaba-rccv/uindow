@@ -7,10 +7,6 @@
   "author": {
     "name": "Inaba"
   },
-  "keywords": [
-    "UI Framework"
-  ],
-  "main": "index.js",
   "scripts": {
     "dev": "pnpm -C packages/docs dev",
     "build": "pnpm -r --filter=./packages/** --parallel run build",
