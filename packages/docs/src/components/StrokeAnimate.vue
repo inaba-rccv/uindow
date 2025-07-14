@@ -2,6 +2,14 @@
 import type { Ref } from 'vue'
 import { onMounted, ref } from 'vue'
 
+const props = withDefaults(defineProps<{
+  isStep?: boolean
+  duration?: number
+}>(), {
+  isStep: false,
+  duration: 1,
+})
+
 const animatableElementType = [
   'path',
   'circle',
@@ -18,10 +26,23 @@ onMounted(() => {
   const animatableElements = Object.values(strokeAnimate.value?.children[0].children || {}).filter(element => animatableElementType.includes(element.nodeName)) as SVGPathElement[]
   // TODO 如果不是svg元素 提示错误
 
-  animatableElements.forEach((element) => {
-    element.classList.add('line-animate')
-    element.style.setProperty('--l', (element.getTotalLength() + 1).toString())
-  })
+  if (props.isStep) {
+    const singleDuration = Math.round(props.duration / animatableElements.length * 1000) / 1000
+
+    animatableElements.forEach((element, index) => {
+      element.classList.add('line-animate')
+      element.style.setProperty('--l', (element.getTotalLength() + 1).toString())
+      element.style.animationDuration = `${singleDuration}s`
+      element.style.animationDelay = `${index * singleDuration}s`
+    })
+  }
+  else {
+    animatableElements.forEach((element) => {
+      element.classList.add('line-animate')
+      element.style.setProperty('--l', (element.getTotalLength() + 1).toString())
+      element.style.animationDuration = `${props.duration}s`
+    })
+  }
 })
 </script>
 
@@ -35,9 +56,9 @@ onMounted(() => {
 .line-animate {
   stroke-dasharray: var(--l);
   stroke-dashoffset: var(--l);
-  animation: stroke-slide 3s forwards;
+  animation-name: stroke-slide;
   animation-timing-function: linear;
-  stroke-linecap: round;
+  animation-fill-mode: both;
 }
 
 @keyframes stroke-slide {

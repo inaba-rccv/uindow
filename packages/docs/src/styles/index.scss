@@ -31,12 +31,12 @@ body, html {
   --border-color: #4C4D4F; /* 边框颜色 */
 }
 
-@font-face {
-  font-family: 'Pragmatica SlabserifBold'; /* 自定义字体名称 */
-  src: url('/Pragmatica-SlabserifBold.otf') format('truetype'); /* 路径和格式 */
-  font-weight: normal; /* 可选：定义字重 */
-  font-style: normal;  /* 可选：定义样式（如italic） */
-}
+// @font-face {
+//   font-family: 'Pragmatica SlabserifBold'; /* 自定义字体名称 */
+//   src: url('/Pragmatica-SlabserifBold.otf') format('truetype'); /* 路径和格式 */
+//   font-weight: normal; /* 可选：定义字重 */
+//   font-style: normal;  /* 可选：定义样式（如italic） */
+// }
 
 .page-content {
   padding: 40px;

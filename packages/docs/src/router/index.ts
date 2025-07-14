@@ -135,6 +135,18 @@ export const constantRoutes = [
       },
     ],
   },
+  {
+    path: '/demo',
+    component: Layout,
+    meta: { title: 'Demo' },
+    children: [
+      {
+        path: '',
+        name: 'demo',
+        component: () => import('@/views/demo/demo.vue'),
+      },
+    ],
+  },
 ]
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
