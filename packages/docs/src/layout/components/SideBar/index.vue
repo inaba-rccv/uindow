@@ -46,6 +46,7 @@ import { constantRoutes } from '@/router'
           color: var(--ui-color-primary);
           text-decoration: none;
           outline: none;
+          background-color: unset;
         }
         &.router-link-active {
           color: var(--ui-color-primary);
