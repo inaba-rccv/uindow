@@ -83,7 +83,7 @@ function doClose() {
 const headerStyles = computed(() => {
   return {
     backgroundColor:
-      props.headerBackgroundColor ?? `var(--ui-color-${props.type})`,
+      props.headerBackgroundColor ? props.headerBackgroundColor : `var(--ui-color-${props.type})`,
   }
 })
 </script>
