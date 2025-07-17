@@ -27,6 +27,7 @@ app.mount('#app')
 ## TODO
 
 transform icon file when pkg
+scrollbar: recalculate hidden or not when page's height changed
 
 ## Thanks
 
@@ -35,4 +36,4 @@ transform icon file when pkg
 
 ## Update
 
-Fix the issue of global configuration loading failure
+Fixed the issue of global configuration loading failure
