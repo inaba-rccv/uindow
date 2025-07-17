@@ -21,6 +21,17 @@ const props = withDefaults(
   },
 )
 
+const emit = defineEmits(['update:modelValue'])
+
+const value = computed({
+  get() {
+    return props.modelValue
+  },
+  set(newValue) {
+    emit('update:modelValue', newValue)
+  },
+})
+
 const classes = computed(() => ({
   disabled: props.disabled,
 }))
@@ -30,12 +41,12 @@ const classes = computed(() => ({
   <div class="ui-input" :class="classes">
     <div class="ui-input--wrapper">
       <input
+        v-model="value"
         :type="type"
         :placeholder="placeholder"
         :minlength="minlength"
         :maxlength="maxlength"
         :disabled="disabled"
-        :value="modelValue"
         :class="{
           'hidden-caret': hiddenCaret,
         }"
