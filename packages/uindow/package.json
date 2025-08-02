@@ -1,6 +1,6 @@
 {
   "name": "uindow",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "",
   "publishConfig": {},
   "author": {
@@ -23,9 +23,15 @@
   ],
   "scripts": {
     "build": "vite build",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly --outDir dist/types",
     "prepublishOnly": "node ../../scripts/copy-readme.js"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^5.2.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite-plugin-dts": "^4.5.4",
+    "vue-tsc": "^3.0.4"
   }
 }

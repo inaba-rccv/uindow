@@ -1,4 +1,4 @@
-import { install } from '@uindow/components/index'
+import { install } from '../../components'
 import pkg from '../package.json'
 
 const version = pkg.version
