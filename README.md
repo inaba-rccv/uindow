@@ -26,8 +26,7 @@ app.mount('#app')
 
 ## TODO
 
-transform icon file when pkg
-scrollbar: recalculate hidden or not when page's height changed
+Add component animation effects
 
 ## Thanks
 
@@ -36,4 +35,10 @@ scrollbar: recalculate hidden or not when page's height changed
 
 ## Update
 
+### 1.1.2
+
 Fixed the issue of global configuration loading failure
+
+### 1.1.3
+
+Fix the bug of type error when introducing ts
