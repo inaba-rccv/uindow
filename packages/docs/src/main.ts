@@ -1,5 +1,6 @@
 // import { install as uindow } from '@uindow/components'
 import uindow from 'uindow'
+// import augma from 'augma'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -9,11 +10,8 @@ import './styles/index.scss'
 const app = createApp(App)
 
 const modules = import.meta.glob('./components/*.vue', { eager: true })
-Object.entries(modules).forEach(([path, module]) => {
-  const componentName = path
-    .split('/')
-    .pop()
-    .replace(/\.\w+$/, '')
+Object.entries(modules).forEach(([path, module]: [string, any]) => {
+  const componentName = path.split('/').pop()!.replace(/\.\w+$/, '')
   app.component(componentName, module.default)
 })
 
