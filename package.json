@@ -8,12 +8,12 @@
     "name": "Inaba"
   },
   "scripts": {
-    "dev": "pnpm -C packages/docs dev",
+    "dev": "pnpm --filter @uindow/docs dev",
     "build": "pnpm -r --filter=./packages/** --parallel run build",
     "build:types": "pnpm --filter @uindow/types run build",
-    "build:lib": "pnpm -C packages/uindow build",
-    "publish": "pnpm -C packages/uindow publish",
-    "build:docs": "pnpm -C packages/docs build",
+    "build:lib": "pnpm --filter uindow build",
+    "publish": "pnpm --filter uindow publish",
+    "build:docs": "pnpm --filter @uindow/docs build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
