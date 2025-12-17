@@ -108,7 +108,7 @@ import IRight from '@uindow/components/svg/IRight.vue'
         </div>
 
         <div>
-          <ui-button square>
+          <ui-button square active-shrink>
             <IRight />
           </ui-button>
           <ui-button square type="warning">

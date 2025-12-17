@@ -1,6 +1,5 @@
 // import { install as uindow } from '@uindow/components'
 import uindow from 'uindow'
-// import augma from 'augma'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
