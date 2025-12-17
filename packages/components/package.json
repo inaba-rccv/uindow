@@ -6,8 +6,5 @@
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "main": "index.ts",
-  "dependencies": {
-    "@uindow/types": "workspace:*"
-  }
+  "main": "index.ts"
 }
