@@ -39,6 +39,6 @@ Add component animation effects
 
 Fixed the issue of global configuration loading failure
 
-### 1.1.3 & 1.1.4
+### 1.1.5
 
 Fix the bug of type error when introducing ts
