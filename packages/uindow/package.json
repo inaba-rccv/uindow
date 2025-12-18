@@ -12,6 +12,7 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/types/uindow/src/index.d.ts",
       "import": "./dist/uindow.es.js",
       "require": "./dist/uindow.umd.js"
     },
@@ -25,7 +26,7 @@
   ],
   "scripts": {
     "build": "vite build",
-    "build:types": "vue-tsc --declaration --emitDeclarationOnly --outDir dist/types",
+    "build:types": "vue-tsc",
     "prepublishOnly": "node ../../scripts/copy-readme.js"
   },
   "dependencies": {

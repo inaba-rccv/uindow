@@ -40,11 +40,7 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
 
-  packages/components:
-    dependencies:
-      '@uindow/types':
-        specifier: workspace:*
-        version: link:../types
+  packages/components: {}
 
   packages/docs:
     dependencies:

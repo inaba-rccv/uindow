@@ -1,7 +1,7 @@
 import { resolve } from 'node:path'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
-// import dts from 'vite-plugin-dts'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   resolve: {
@@ -9,12 +9,10 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    // dts({
-    //   entryRoot: '.', // 项目根目录
-    //   include: ['src'], // 需要生成声明的文件
-    //   outDir: 'dist/types',
-    //   insertTypesEntry: true,
-    // }),
+    dts({
+      include: ['src', '../components/**/*.vue', '../components/**/*.ts'],
+      outDir: 'dist/types',
+    })
   ],
   build: {
     lib: {
